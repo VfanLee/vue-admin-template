@@ -1,10 +1,11 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-import { reqLogin } from "@/api/user";
+import { reqLogin, reqGetUserInfo } from "@/api/user";
 import { getToken, setToken } from "@/utils/auth";
 
 const useUserStore = defineStore("user", () => {
-  const token = ref(getToken());
+  let token = ref(getToken());
+  let userInfo = ref({});
 
   /* 登录 */
   const login = userInfo => {
@@ -24,7 +25,24 @@ const useUserStore = defineStore("user", () => {
     });
   };
 
-  return { token, login };
+  /* 获取用户信息 */
+  const getUserInfo = async () => {
+    const res = await reqGetUserInfo();
+    userInfo.value = res;
+    return res;
+  };
+
+  const hasUserInfo = computed(() => {
+    return Object.keys(userInfo.value).length > 0;
+  });
+
+  return {
+    token,
+    userInfo,
+    login,
+    getUserInfo,
+    hasUserInfo,
+  };
 });
 
 export default useUserStore;

@@ -7,7 +7,7 @@ import NProgress from "nprogress";
 const whiteList = ["/test", "/login"];
 
 // 全局前置守卫
-router.beforeEach((to, form, next) => {
+router.beforeEach(async (to, form, next) => {
   NProgress.start();
   const userStore = useUserStore();
 
@@ -15,6 +15,10 @@ router.beforeEach((to, form, next) => {
     if (to.path === "/login") {
       next("/");
     } else {
+      const userStore = useUserStore();
+      if (!userStore.hasUserInfo) {
+        await userStore.getUserInfo();
+      }
       next();
       NProgress.done();
     }

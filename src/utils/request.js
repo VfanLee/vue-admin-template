@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ElMessage } from "element-plus";
+import useUserStore from "@/store/user";
 
 const service = axios.create({
   baseURL: "http://localhost:8000",
@@ -9,9 +10,14 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   config => {
+    const userStore = useUserStore();
+    if (userStore.token) {
+      config.headers.Authorization = userStore.token;
+    }
     return config;
   },
   error => {
+    console.log(error.message); // for debug
     ElMessage.error(error.message);
     return Promise.reject(error);
   },
@@ -26,12 +32,14 @@ service.interceptors.response.use(
       return data;
     } else {
       // 请求成功，但业务失败
+      console.log(message); // for debug
       ElMessage.error(message);
       return Promise.reject(new Error(message));
     }
   },
   // 请求失败
   error => {
+    console.log(error.message); // for debug
     ElMessage.error(error.message);
     return Promise.reject(error);
   },
