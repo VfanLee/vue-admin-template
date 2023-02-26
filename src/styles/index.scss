@@ -1,13 +1,93 @@
+@import "./variables.scss";
+@import "./mixin.scss";
 @import "//at.alicdn.com/t/c/font_3418183_xtq6lvye24g.css";
 
-html {
-  height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html,
 body {
   height: 100%;
 }
 
 #app {
   height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+/* layout */
+.app__container {
+  display: flex;
+
+  /* sidebar */
+  .sidebar__container {
+    flex-shrink: 0;
+    width: 208px;
+    min-height: 100vh;
+    background-color: #f9aa6d;
+
+    // 关闭 sidebar
+    &.sidebar--closed {
+      width: 48px;
+    }
+
+    .sidebar__wrap {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      width: inherit;
+      height: 100%;
+
+      // 固定 sidebar
+      &.sidebar--fixed {
+        position: fixed;
+      }
+
+      .sidebar__header {
+        flex-shrink: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      .sidebar__main {
+        @include scrollBar;
+        flex-grow: 1;
+        overflow: hidden auto;
+      }
+    }
+  }
+
+  /* main */
+  .main__container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #faeec7;
+
+    .navbar__container {
+      flex-shrink: 0;
+      height: 48px;
+      background-color: #ffe9cf;
+      box-shadow: 0 1px 4px #f0dfa6;
+
+      // 固定 navbar
+      &.navbar--fixed:not(.hide) {
+        position: fixed;
+        width: 100%;
+
+        & + .app-main {
+          margin-top: 48px;
+        }
+      }
+    }
+
+    .app-main {
+      flex-grow: 1;
+    }
+  }
 }
