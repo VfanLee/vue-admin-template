@@ -4,7 +4,7 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
 // 路由白名单
-const whiteList = ["/test", "/login"];
+const whiteList = ["/test", "/login", "/"];
 
 // 全局前置守卫
 router.beforeEach(async (to, form, next) => {

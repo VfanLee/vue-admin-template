@@ -31,3 +31,9 @@
     <p>app-main--end</p>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.app-main {
+  padding: 24px;
+}
+</style>

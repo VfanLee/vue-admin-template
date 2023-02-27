@@ -1,6 +1,6 @@
 @import "./variables.scss";
 @import "./mixin.scss";
-@import "//at.alicdn.com/t/c/font_3418183_xtq6lvye24g.css";
+@import "//at.alicdn.com/t/c/font_3418183_9laupt23m2j.css";
 
 *,
 *::before,
@@ -28,9 +28,9 @@ body {
   /* sidebar */
   .sidebar__container {
     flex-shrink: 0;
-    width: 208px;
+    width: $sidebarWidth;
     min-height: 100vh;
-    background-color: #f9aa6d;
+    background-color: #282c34;
 
     // 关闭 sidebar
     &.sidebar--closed {
@@ -51,7 +51,6 @@ body {
 
       .sidebar__header {
         flex-shrink: 0;
-        background-color: rgba(0, 0, 0, 0.2);
       }
 
       .sidebar__main {
@@ -67,20 +66,21 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #faeec7;
 
     .navbar__container {
       flex-shrink: 0;
       height: 48px;
-      background-color: #ffe9cf;
-      box-shadow: 0 1px 4px #f0dfa6;
+      background-color: #fff;
+      box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
 
       // 固定 navbar
       &.navbar--fixed:not(.hide) {
         position: fixed;
-        width: 100%;
+        top: 0;
+        right: 0;
+        width: calc(100% - $sidebarWidth);
 
-        & + .app-main {
+        & ~ .app-main {
           margin-top: 48px;
         }
       }
@@ -88,6 +88,7 @@ body {
 
     .app-main {
       flex-grow: 1;
+      background-color: #f6f8f9;
     }
   }
 }
