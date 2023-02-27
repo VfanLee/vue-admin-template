@@ -1,5 +1,5 @@
 {
-  "name": "vue3-vite-admin",
+  "name": "admin-vue3-vite",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
