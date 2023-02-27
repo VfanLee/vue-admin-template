@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
+import useUserStore from "@/store/user";
 
+const userStore = useUserStore();
 const visibleDrawer = ref(false);
 </script>
 
@@ -21,11 +23,8 @@ const visibleDrawer = ref(false);
           <i class="iconfont icon-expend"></i>
         </button>
         <button class="user-info">
-          <img
-            src="https://avatars.githubusercontent.com/u/62793687"
-            alt="avatar"
-          />
-          <span>admin</span>
+          <img :src="userStore.userInfo.avatar" alt="avatar" />
+          <span>{{ userStore.userInfo.username }}</span>
         </button>
         <button @click="visibleDrawer = true">
           <i class="iconfont icon-skin"></i>

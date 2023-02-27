@@ -32,11 +32,6 @@ body {
     min-height: 100vh;
     background-color: #282c34;
 
-    // 关闭 sidebar
-    &.sidebar--closed {
-      width: 48px;
-    }
-
     .sidebar__wrap {
       display: flex;
       flex-direction: column;
@@ -47,6 +42,8 @@ body {
       // 固定 sidebar
       &.sidebar--fixed {
         position: fixed;
+        top: 0;
+        left: 0;
       }
 
       .sidebar__header {
@@ -54,7 +51,6 @@ body {
       }
 
       .sidebar__main {
-        @include scrollBar;
         flex-grow: 1;
         overflow: hidden auto;
       }

@@ -11,33 +11,36 @@
           </a>
         </div>
       </div>
+
       <div class="sidebar__main">
-        <p>sidebar__main--start</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main</p>
-        <p>sidebar__main--end</p>
+        <el-scrollbar>
+          <p>sidebar__main--start</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main</p>
+          <p>sidebar__main--end</p>
+        </el-scrollbar>
       </div>
     </div>
   </div>
