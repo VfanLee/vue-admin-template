@@ -1,12 +1,16 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
+import router from "@/router";
 import { reqLogin, reqGetUserInfo } from "@/api/user";
-import { getToken, setToken } from "@/utils/auth";
+import { getToken, setToken, removeToken } from "@/utils/auth";
 
 const useUserStore = defineStore("user", () => {
+  //#region state
   let token = ref(getToken());
   let userInfo = ref({});
+  //#endregion
 
+  //#region action
   /* 登录 */
   const login = userInfo => {
     return new Promise((resolve, reject) => {
@@ -32,15 +36,28 @@ const useUserStore = defineStore("user", () => {
     return res;
   };
 
+  /* 退出登录 */
+  const logout = () => {
+    removeToken();
+    token.value = "";
+    userInfo.value = {};
+    router.replace("/login");
+  };
+  //#endregion
+
+  //#region getter
+  /* 是否存在用户信息 */
   const hasUserInfo = computed(() => {
     return Object.keys(userInfo.value).length > 0;
   });
+  //#endregion
 
   return {
     token,
     userInfo,
     login,
     getUserInfo,
+    logout,
     hasUserInfo,
   };
 });

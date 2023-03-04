@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import useUserStore from "@/store/user";
 
 const service = axios.create({
@@ -18,7 +18,6 @@ service.interceptors.request.use(
   },
   error => {
     console.log(error.message); // for debug
-    ElMessage.error(error.message);
     return Promise.reject(error);
   },
 );
@@ -40,7 +39,20 @@ service.interceptors.response.use(
   // 请求失败
   error => {
     console.log(error.message); // for debug
-    ElMessage.error(error.message);
+
+    const userStore = useUserStore();
+    if (error.response.status === 401) {
+      ElMessageBox.confirm("认证失败，是否重新登录？", "登录过期", {
+        confirmButtonText: "确认",
+        cancelButtonText: "取消",
+        type: "error",
+      })
+        .then(() => {
+          userStore.logout();
+        })
+        .catch(() => {});
+    }
+
     return Promise.reject(error);
   },
 );

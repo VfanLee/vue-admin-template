@@ -1,8 +1,8 @@
 <script setup>
 import { ref, reactive } from "vue";
-import { validatePassword } from "./rules";
+import router from "@/router";
 import useUserStore from "@/store/user";
-import { useRouter, useRoute } from "vue-router";
+import { validatePassword } from "./rules";
 
 // 表单数据
 const loginForm = reactive({
@@ -44,7 +44,6 @@ const handleChangePwdType = () => {
 
 // 处理登录
 const userStore = useUserStore();
-const router = useRouter();
 const loginFormRef = ref(null);
 const loginLoading = ref(false);
 const handleLogin = () => {

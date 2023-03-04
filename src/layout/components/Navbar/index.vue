@@ -22,10 +22,26 @@ const visibleDrawer = ref(false);
         <button>
           <i class="iconfont icon-expend"></i>
         </button>
-        <button class="user-info">
-          <img :src="userStore.userInfo.avatar" alt="avatar" />
-          <span>{{ userStore.userInfo.username }}</span>
-        </button>
+
+        <el-dropdown class="user-container">
+          <div class="user-info">
+            <img :src="userStore.userInfo.avatar" alt="avatar" />
+            <span>{{ userStore.userInfo.username }}</span>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu class="">
+              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item>
+                <i class="iconfont icon-github-fill"></i>
+                项目地址
+              </el-dropdown-item>
+              <el-dropdown-item divided @click="userStore.logout()">
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+
         <button @click="visibleDrawer = true">
           <i class="iconfont icon-skin"></i>
         </button>
@@ -72,6 +88,7 @@ const visibleDrawer = ref(false);
     .user-info {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       img {
         width: 24px;

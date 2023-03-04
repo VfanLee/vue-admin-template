@@ -1,21 +1,19 @@
 import { createApp } from "vue";
 
-import 'normalize.css'
-import 'element-plus/dist/index.css'
+import "normalize.css";
+import "element-plus/dist/index.css";
 
-import '@/styles/index.scss'
+import "@/styles/index.scss";
 
 import App from "./App.vue";
 import router from "./router";
 import { createPinia } from "pinia";
-import ElementPlus from 'element-plus'
+import ElementPlus from "element-plus";
 
-import './permission'
+import "./permission";
 
 createApp(App)
   .use(createPinia())
   .use(router)
-  .use(ElementPlus, {
-    size: 'large'
-  })
+  .use(ElementPlus, { zIndex: 3000 })
   .mount("#app");
