@@ -1,5 +1,11 @@
-<script setup></script>
+<script setup lang="ts">
+</script>
 
 <template>
-  <router-view></router-view>
+  <div>
+    Admin Vue
+  </div>
 </template>
+
+<style lang="scss" scoped>
+</style>

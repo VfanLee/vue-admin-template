@@ -1,10 +1,9 @@
-# admin-vue3-vite
+# admin-vue
 
-## 技术栈
-
-- vite v3
+- typescript
+- vite v4
 - vue v3
 - vue-router v4
 - pinia v2
-- element-plus v2
-- axios v1
+- element-plus
+- axios
