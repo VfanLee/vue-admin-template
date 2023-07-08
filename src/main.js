@@ -1,13 +1,10 @@
-import { createApp } from 'vue'
+import './assets/main.css'
 
-import 'normalize.css'
-import './styles/index.scss'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import { createPinia } from 'pinia'
-
-import './mock/user'
 
 const app = createApp(App)
 
