@@ -3,8 +3,7 @@ import {} from 'vue'
 </script>
 
 <template>
-  <el-button type="primary">Click</el-button>
-  <div>Home</div>
+  <h1>page 404</h1>
 </template>
 
 <style lang="scss" scoped></style>

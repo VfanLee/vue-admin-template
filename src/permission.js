@@ -1,12 +1,33 @@
 import router from '@/router'
-import Cookie from 'js-cookie'
+import { getToken } from './utils/auth'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+NProgress.configure({ showSpinner: false })
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !Cookie.get('token')) {
-    next({ name: 'Login' })
+  NProgress.start()
+  const token = getToken()
+
+  /* 是否已经登录 */
+  if (token) {
+    // 是否进入登录页
+    if (to.path === '/login') {
+      return next('/')
+    } else {
+      next()
+    }
   } else {
-    next()
+    /* 是否为白名单 */
+    if (to.meta.allowlist) {
+      next()
+    } else {
+      next(`/login`)
+    }
   }
 })
 
-router.afterEach((to, from, failure) => {})
+router.afterEach((to, from, failure) => {
+  document.title = to.meta.title || 'Admin Vue'
+  NProgress.done()
+})

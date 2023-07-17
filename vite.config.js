@@ -1,11 +1,29 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from 'vite-plugin-mock'
 
-// https://vitejs.dev/config/
+// vite 配置：https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  base: '/',
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      // 配置 element-plus 采用 sass 样式
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
+    }),
+    viteMockServe({
+      mockPath: 'mock',
+      // According to the project configuration. Can be configured in the .env file
+      enable: true
+    })
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -14,7 +32,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/styles/variable.scss";' // 全局引入 scss 变量
+        // 导入全局样式
+        additionalData: `
+        @use "@/styles/element/var.scss" as *;
+        @use "@/styles/variable.scss" as *;
+        `
       }
     }
   }
