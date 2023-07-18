@@ -3,8 +3,9 @@ import {} from 'vue'
 </script>
 
 <template>
-  <el-button type="primary">Click</el-button>
-  <div>Home</div>
+  <div class="app-main">
+    <RouterView></RouterView>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

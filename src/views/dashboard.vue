@@ -3,7 +3,7 @@ import {} from 'vue'
 </script>
 
 <template>
-  <RouterView />
+  <div>dashboard</div>
 </template>
 
 <style lang="scss" scoped></style>

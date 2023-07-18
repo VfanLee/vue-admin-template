@@ -84,7 +84,7 @@ const login = async formEl => {
 </template>
 
 <style lang="scss" scoped>
-:deep {
+:deep() {
   .el-form-item.is-error {
     .el-input__wrapper {
       border-bottom-color: var(--el-color-danger);

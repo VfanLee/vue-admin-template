@@ -9,21 +9,9 @@ import { viteMockServe } from 'vite-plugin-mock'
 // vite 配置：https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [
-    vue(),
-    AutoImport({
-      resolvers: [ElementPlusResolver()]
-    }),
-    Components({
-      // 配置 element-plus 采用 sass 样式
-      resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
-    }),
-    viteMockServe({
-      mockPath: 'mock',
-      // According to the project configuration. Can be configured in the .env file
-      enable: true
-    })
-  ],
+  build: {
+    outDir: 'dist'
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -39,5 +27,20 @@ export default defineConfig({
         `
       }
     }
-  }
+  },
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()]
+    }),
+    Components({
+      // 配置 element-plus 采用 sass 样式
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
+    }),
+    viteMockServe({
+      mockPath: 'mock',
+      // According to the project configuration. Can be configured in the .env file
+      enable: true
+    })
+  ]
 })

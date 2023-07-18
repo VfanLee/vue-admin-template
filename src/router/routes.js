@@ -1,4 +1,12 @@
-import Layout from '@/layout/index.vue'
+import Layout from '@/layout/layout-two/index.vue'
+
+/**
+ * meta 参数说明：
+ *
+ * title：用于标签页、菜单展示
+ * allowlist：路由白名单
+ * hide：是否菜单隐藏展示
+ */
 
 const routes = [
   {
@@ -7,21 +15,22 @@ const routes = [
     name: 'Login',
     meta: {
       title: '登录',
-      allowlist: true
+      allowlist: true,
+      hide: true
     }
   },
 
   {
     path: '/',
     component: Layout,
-    redirect: '/home',
+    redirect: '/dashboard',
     children: [
       {
-        path: 'home',
-        component: () => import('@/views/home.vue'),
-        name: 'Home',
+        path: '/dashboard',
+        component: () => import('@/views/dashboard.vue'),
+        name: 'dashboard',
         meta: {
-          title: '首页'
+          title: '控制台'
         }
       }
     ]
@@ -30,10 +39,14 @@ const routes = [
   {
     path: '/example',
     component: Layout,
+    name: 'example',
     redirect: '/example/list',
+    meta: {
+      title: 'example'
+    },
     children: [
       {
-        path: 'list',
+        path: '/example/list',
         component: () => import('@/views/example/list.vue'),
         name: 'ExampleList',
         meta: {
@@ -41,11 +54,12 @@ const routes = [
         }
       },
       {
-        path: 'detail/:id(\\d+)',
+        path: '/example/detail/:id(\\d+)',
         component: () => import('@/views/example/detail.vue'),
         name: 'ExampleDetail',
         meta: {
-          title: 'example detail'
+          title: 'example detail',
+          hide: true
         }
       },
       {
@@ -53,7 +67,8 @@ const routes = [
         component: () => import('@/views/example/create.vue'),
         name: 'ExampleCreate',
         meta: {
-          title: 'example create'
+          title: 'example create',
+          hide: true
         }
       },
       {
@@ -61,7 +76,8 @@ const routes = [
         component: () => import('@/views/example/edit.vue'),
         name: 'ExampleEdit',
         meta: {
-          title: 'example edit'
+          title: 'example edit',
+          hide: true
         }
       }
     ]
@@ -77,55 +93,16 @@ const routes = [
     }
   },
 
-  // {
-  //   path: '/left-right',
-  //   component: () => import('@/views/layout/left-right/index.vue'),
-  //   name: 'leftRight',
-  //   meta: {
-  //     title: '左右布局',
-  //     allowlist: true
-  //   }
-  // },
-
-  // {
-  //   path: '/top-bottom',
-  //   component: () => import('@/views/layout/top-bottom/index.vue'),
-  //   name: 'topBottom',
-  //   meta: {
-  //     title: '上下布局',
-  //     allowlist: true
-  //   }
-  // },
-
-  // {
-  //   path: '/mix-layout1',
-  //   component: () => import('@/views/layout/mix-layout1/index.vue'),
-  //   name: 'mixLayout1',
-  //   meta: {
-  //     title: '混合布局1',
-  //     allowlist: true
-  //   }
-  // },
-
-  // {
-  //   path: '/mix-layout2',
-  //   component: () => import('@/views/layout/mix-layout2/index.vue'),
-  //   name: 'mixLayout2',
-  //   meta: {
-  //     title: '混合布局2',
-  //     allowlist: true
-  //   }
-  // },
-
   {
     path: '/basic',
     component: () => import('@/views/basic/index.vue'),
     children: [
       {
-        path: 'form',
+        path: '/basic/form',
         component: () => import('@/views/basic/form/index.vue'),
         name: 'basicForm',
         meta: {
+          title: 'basic 表单',
           allowlist: true
         }
       }
@@ -137,10 +114,11 @@ const routes = [
     component: () => import('@/views/element/index.vue'),
     children: [
       {
-        path: 'form',
+        path: '/element/form',
         component: () => import('@/views/element/form/index.vue'),
         name: 'elementForm',
         meta: {
+          title: 'element 表单',
           allowlist: true
         }
       }
@@ -153,9 +131,8 @@ const routes = [
     name: 'demo',
     meta: {
       title: 'demo',
-      meta: {
-        allowlist: true
-      }
+      allowlist: true,
+      hide: true
     }
   },
 
@@ -164,14 +141,18 @@ const routes = [
     component: () => import('@/views/error-page/404.vue'),
     name: 'NotFound',
     meta: {
-      title: '404'
+      title: '404',
+      hide: true
     }
   },
 
   // 处理 404 路由，必须放在最后一个
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/404'
+    redirect: '/404',
+    meta: {
+      hide: true
+    }
   }
 ]
 
