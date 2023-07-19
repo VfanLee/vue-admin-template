@@ -3,8 +3,9 @@ import {} from 'vue'
 </script>
 
 <template>
-  <div>
-    <el-button type="primary">dashboard</el-button>
+  <div class="l-navbar">
+    <div class="c-navbar"></div>
+    <div class="c-tags-view"></div>
   </div>
 </template>
 

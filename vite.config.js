@@ -31,7 +31,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
     }),
     Components({
       // 配置 element-plus 采用 sass 样式

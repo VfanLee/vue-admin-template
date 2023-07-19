@@ -1,10 +1,11 @@
-import Layout from '@/layout/layout-two/index.vue'
+import Layout from '@/layout/layout-one/index.vue'
 
 /**
  * meta 参数说明：
  *
  * title：用于标签页、菜单展示
  * allowlist：路由白名单
+ * icon：路由图标
  * hide：是否菜单隐藏展示
  */
 
@@ -42,7 +43,7 @@ const routes = [
     name: 'example',
     redirect: '/example/list',
     meta: {
-      title: 'example'
+      title: '示例'
     },
     children: [
       {
@@ -50,7 +51,15 @@ const routes = [
         component: () => import('@/views/example/list.vue'),
         name: 'ExampleList',
         meta: {
-          title: 'example list'
+          title: '示例 - 列表'
+        }
+      },
+      {
+        path: '/example/create',
+        component: () => import('@/views/example/create.vue'),
+        name: 'ExampleCreate',
+        meta: {
+          title: '示例 - 创建'
         }
       },
       {
@@ -58,25 +67,16 @@ const routes = [
         component: () => import('@/views/example/detail.vue'),
         name: 'ExampleDetail',
         meta: {
-          title: 'example detail',
+          title: '示例 - 详情',
           hide: true
         }
       },
       {
-        path: 'create',
-        component: () => import('@/views/example/create.vue'),
-        name: 'ExampleCreate',
-        meta: {
-          title: 'example create',
-          hide: true
-        }
-      },
-      {
-        path: 'edit/:id(\\d+)',
+        path: '/example/edit/:id(\\d+)',
         component: () => import('@/views/example/edit.vue'),
         name: 'ExampleEdit',
         meta: {
-          title: 'example edit',
+          title: '示例 - 编辑',
           hide: true
         }
       }
@@ -89,13 +89,14 @@ const routes = [
     name: 'layout',
     meta: {
       title: '布局',
-      allowlist: true
+      allowlist: true,
+      hide: true
     }
   },
 
   {
     path: '/basic',
-    component: () => import('@/views/basic/index.vue'),
+    component: Layout,
     children: [
       {
         path: '/basic/form',
@@ -111,7 +112,7 @@ const routes = [
 
   {
     path: '/element',
-    component: () => import('@/views/element/index.vue'),
+    component: Layout,
     children: [
       {
         path: '/element/form',

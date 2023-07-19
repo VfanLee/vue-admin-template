@@ -44,7 +44,6 @@ request.interceptors.response.use(
         message = '网络出现问题'
         break
     }
-    //提示错误信息
     ElMessage({
       type: 'error',
       message

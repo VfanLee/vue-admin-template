@@ -2,8 +2,8 @@
 import { reactive, ref } from 'vue'
 import { useUserStore } from '@/store/modules/user'
 import { useRouter } from 'vue-router'
-import { ElNotification } from 'element-plus'
 import helloTime from '@/utils/helloTime'
+import { ElNotification } from 'element-plus'
 
 const userStore = useUserStore()
 const $router = useRouter()
@@ -152,14 +152,6 @@ const login = async formEl => {
     width: 100%;
     border-radius: 16px;
     font-weight: 700;
-    color: #000;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: #fff;
-      border: none;
-    }
   }
 }
 </style>
