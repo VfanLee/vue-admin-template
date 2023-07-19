@@ -3,7 +3,6 @@ import { reactive, ref } from 'vue'
 import { useUserStore } from '@/store/modules/user'
 import { useRouter } from 'vue-router'
 import helloTime from '@/utils/helloTime'
-import { ElNotification } from 'element-plus'
 
 const userStore = useUserStore()
 const $router = useRouter()

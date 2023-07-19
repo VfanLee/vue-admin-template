@@ -5,7 +5,6 @@ import App from './App.vue'
 import './permission'
 
 import 'normalize.css'
-import 'element-plus/dist/index.css'
 import './styles/index.scss'
 
 

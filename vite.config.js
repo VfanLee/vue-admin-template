@@ -20,7 +20,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // 导入全局样式
         additionalData: `
         @use "@/styles/element/var.scss" as *;
         @use "@/styles/variable.scss" as *;
@@ -34,7 +33,6 @@ export default defineConfig({
       resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
     }),
     Components({
-      // 配置 element-plus 采用 sass 样式
       resolvers: [ElementPlusResolver({ importStyle: 'sass' })]
     }),
     viteMockServe({

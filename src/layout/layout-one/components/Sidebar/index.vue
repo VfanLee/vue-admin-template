@@ -15,9 +15,6 @@ const routesStore = useRoutesStore()
     <el-scrollbar>
       <el-menu router :default-active="$route.path">
         <SubMenu :routes="routesStore.renderRoutes" />
-        <SubMenu :routes="routesStore.renderRoutes" />
-        <SubMenu :routes="routesStore.renderRoutes" />
-        <SubMenu :routes="routesStore.renderRoutes" />
       </el-menu>
     </el-scrollbar>
   </div>
