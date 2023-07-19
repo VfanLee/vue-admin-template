@@ -24,10 +24,9 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
     children: [
       {
-        path: '/dashboard',
+        path: '',
         component: () => import('@/views/dashboard.vue'),
         name: 'dashboard',
         meta: {
@@ -96,28 +95,21 @@ const routes = [
   },
 
   {
-    path: '/basic',
+    path: '/form',
     component: Layout,
     children: [
       {
-        path: '/basic/form',
-        component: () => import('@/views/basic/form/index.vue'),
+        path: '/form/basic',
+        component: () => import('@/views/form/basic.vue'),
         name: 'basicForm',
         meta: {
           title: 'basic 表单',
           allowlist: true
         }
-      }
-    ]
-  },
-
-  {
-    path: '/element',
-    component: Layout,
-    children: [
+      },
       {
-        path: '/element/form',
-        component: () => import('@/views/element/form/index.vue'),
+        path: '/form/element',
+        component: () => import('@/views/form/element.vue'),
         name: 'elementForm',
         meta: {
           title: 'element 表单',

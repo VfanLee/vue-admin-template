@@ -40,5 +40,6 @@ export default defineConfig({
       // According to the project configuration. Can be configured in the .env file
       enable: true
     })
-  ]
+  ],
+  define: { 'process.env': {} }
 })

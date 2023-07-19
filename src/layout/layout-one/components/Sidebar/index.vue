@@ -1,20 +1,25 @@
 <script setup>
+import { computed } from 'vue'
 import Logo from './Logo.vue'
 import SubMenu from './SubMenu.vue'
-import { useRoutesStore } from '@/store/modules/user'
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
+import { filterRoutes, generateMenus } from '@/utils/route'
 
-const $route = useRoute()
-const routesStore = useRoutesStore()
+const $router = useRouter()
+const routes = computed(() => generateMenus(filterRoutes($router.getRoutes())))
+
+console.log($router.getRoutes())
+console.log(filterRoutes($router.getRoutes()))
+console.log(generateMenus(filterRoutes($router.getRoutes())))
 </script>
 
 <template>
   <div class="l-sidebar">
     <Logo />
     <el-scrollbar>
-      <el-menu router :default-active="$route.path">
-        <SubMenu :routes="routesStore.renderRoutes" />
-      </el-menu>
+      <!-- <el-menu router :default-active="$route.path">
+        <SubMenu :routes="routes" />
+      </el-menu> -->
     </el-scrollbar>
   </div>
 </template>
