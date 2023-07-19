@@ -1,5 +1,4 @@
 <script setup>
-import {} from 'vue'
 import Logo from './Logo.vue'
 import SubMenu from './SubMenu.vue'
 import { useRoutesStore } from '@/store/modules/user'
@@ -21,9 +20,31 @@ const routesStore = useRoutesStore()
 </template>
 
 <style lang="scss" scoped>
+:deep(.el-menu-item) {
+  margin: 0 10px 5px;
+  height: 50px;
+  border-radius: 8px;
+
+  &:hover,
+  &.is-active {
+    color: #fff;
+    background-color: $primary-color;
+  }
+}
+
+:deep(.el-sub-menu__title) {
+  margin: 0 10px 5px;
+  height: 50px;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
 .l-sidebar {
   display: flex;
   flex-direction: column;
+  border-right: 1px solid var(--el-border-color);
 }
 
 .el-menu {

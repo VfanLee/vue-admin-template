@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { reqLogin } from '@/api/user'
 import { getToken, setToken } from '@/utils/auth'
 import routes from '@/router/routes'
+import { useRouter } from 'vue-router'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref(getToken())

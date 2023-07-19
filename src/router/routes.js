@@ -31,7 +31,8 @@ const routes = [
         component: () => import('@/views/dashboard.vue'),
         name: 'dashboard',
         meta: {
-          title: '控制台'
+          title: '控制台',
+          icon: 'fa-solid fa-house'
         }
       }
     ]
@@ -43,7 +44,7 @@ const routes = [
     name: 'example',
     redirect: '/example/list',
     meta: {
-      title: '示例'
+      title: 'xxx 管理'
     },
     children: [
       {
@@ -51,7 +52,7 @@ const routes = [
         component: () => import('@/views/example/list.vue'),
         name: 'ExampleList',
         meta: {
-          title: '示例 - 列表'
+          title: 'xxx列表'
         }
       },
       {
@@ -59,7 +60,7 @@ const routes = [
         component: () => import('@/views/example/create.vue'),
         name: 'ExampleCreate',
         meta: {
-          title: '示例 - 创建'
+          title: '创建xxx'
         }
       },
       {
@@ -67,7 +68,7 @@ const routes = [
         component: () => import('@/views/example/detail.vue'),
         name: 'ExampleDetail',
         meta: {
-          title: '示例 - 详情',
+          title: 'xxx详情',
           hide: true
         }
       },
@@ -76,7 +77,7 @@ const routes = [
         component: () => import('@/views/example/edit.vue'),
         name: 'ExampleEdit',
         meta: {
-          title: '示例 - 编辑',
+          title: '编辑xxx',
           hide: true
         }
       }

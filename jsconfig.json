@@ -5,6 +5,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "auto-imports.d.ts"],
+  "include": ["src/**/*", "components.d.ts", "auto-imports.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

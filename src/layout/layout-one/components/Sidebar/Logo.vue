@@ -4,29 +4,31 @@ import {} from 'vue'
 
 <template>
   <a class="c-logo" href="javascript:;">
-    <img class="logo" src="@/assets/logo.svg" alt="logo" />
-    <h1>Admin Vue</h1>
+    <img class="logo" src="@/assets/vite.svg" alt="logo" />
+    <h1 class="title ellipsis">Admin Vue</h1>
   </a>
 </template>
 
 <style lang="scss" scoped>
 .c-logo {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 60px;
   padding: 12px;
+  text-decoration: none;
+  color: var(--el-text-color);
 
-  img {
-    width: 28px;
-    height: 28px;
-    margin-right: 12px;
+  .logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
   }
 
-  h1 {
-    flex: 1;
+  .title {
     margin: 0;
-    width: 0;
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 400;
   }
 }
 </style>

@@ -8,12 +8,15 @@ import { RouterView } from 'vue-router'
 <template>
   <div class="l-layout-two">
     <Sidebar />
-    <div class="l-main">
+    <el-scrollbar class="l-main">
       <Navbar />
       <div class="app-main">
-        <RouterView />
+        <div class="app-main__inner">
+          <RouterView />
+        </div>
+        <div class="c-copy-right">Copyright © 2023 Admin Vue</div>
       </div>
-    </div>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -21,34 +24,74 @@ import { RouterView } from 'vue-router'
 .l-layout-two {
   display: flex;
   height: 100vh;
+  background-color: #f6f8f9;
 
   .l-sidebar {
     width: 266px;
 
     .c-logo {
       height: 60px;
+      background-color: #fff;
+    }
+
+    .el-scrollbar {
+      background-color: #fff;
     }
   }
 
   .l-main {
     flex: 1;
-    display: flex;
-    flex-direction: column;
     width: 0;
 
-    .l-navbar {
-      .c-navbar {
-        height: 60px;
+    .el-scrollbar__view {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .l-navbar {
+        position: relative;
+        top: 0;
+        left: 0;
+
+        &.fixed-header {
+          position: fixed;
+          top: 0;
+          left: calc(266px);
+          width: 100%;
+        }
+
+        .c-navbar {
+          height: 60px;
+        }
+
+        .c-tags-view {
+          height: 50px;
+        }
       }
 
-      .c-tags-view {
-        height: 50px;
-      }
-    }
+      .app-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
 
-    .app-main {
-      flex: 1;
-      height: 0;
+        .app-main__inner {
+          flex: 1;
+          height: 0;
+        }
+
+        .c-copy-right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 20px;
+          height: 60px;
+          font-size: 14px;
+          border: 1px solid var(--el-border-color);
+          border-radius: 8px;
+          background-color: #fff;
+        }
+      }
     }
   }
 }

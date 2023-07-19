@@ -1,7 +1,7 @@
 export default {
   title: 'Ulearning Portal Admin',
 
-  tagsView: false,
+  tagsView: true,
 
   fixedHeader: false,
 
