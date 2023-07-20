@@ -17,9 +17,9 @@ console.log(generateMenus(filterRoutes($router.getRoutes())))
   <div class="l-sidebar">
     <Logo />
     <el-scrollbar>
-      <!-- <el-menu router :default-active="$route.path">
-        <SubMenu :routes="routes" />
-      </el-menu> -->
+      <el-menu router :default-active="$route.path">
+        <SubMenu :routes="filterRoutes($router.getRoutes())" />
+      </el-menu>
     </el-scrollbar>
   </div>
 </template>

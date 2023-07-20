@@ -1,44 +1,4 @@
-function pathResolve(...paths) {
-  // 如果没有参数，返回当前工作目录
-  if (paths.length === 0) {
-    return process.cwd()
-  }
-
-  // 将所有参数转换为字符串并拼接为一个路径
-  let joinedPath = paths.map(String).join('/')
-
-  // 如果路径以 '/' 开头，表示是绝对路径，否则是相对路径
-  let isAbsolute = joinedPath.startsWith('/')
-
-  // 将路径分割为数组，并过滤掉空字符串
-  let segments = joinedPath.split('/').filter(Boolean)
-
-  // 创建一个栈来存储规范化后的路径段
-  let stack = []
-
-  // 遍历路径段
-  for (let segment of segments) {
-    // 如果是 '.'，表示当前目录，忽略
-    if (segment === '.') {
-      continue
-    }
-    // 如果是 '..'，表示上一级目录，弹出栈顶元素
-    if (segment === '..') {
-      stack.pop()
-    } else {
-      // 否则，表示一个有效的路径段，推入栈中
-      stack.push(segment)
-    }
-  }
-
-  // 如果栈为空，表示路径为根目录或者当前目录
-  if (stack.length === 0) {
-    return isAbsolute ? '/' : '.'
-  }
-
-  // 将栈中的元素用 '/' 连接起来，如果是绝对路径，加上前缀 '/'
-  return (isAbsolute ? '/' : '') + stack.join('/')
-}
+import path from 'path-browserify'
 
 /**
  * 返回所有子路由
@@ -89,8 +49,7 @@ export function generateMenus(routes, basePath = '/') {
       return
     }
     // 合并 path 作为跳转路径
-    // const routePath = basePath + item.path
-    const routePath = pathResolve(basePath, item.path)
+    const routePath = path.resolve(basePath, item.path)
     // 路由分离之后，存在同名父路由的情况，需要单独处理
     let route = result.find(item => item.path === routePath)
     if (!route) {

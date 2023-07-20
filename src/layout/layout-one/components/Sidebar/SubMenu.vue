@@ -11,26 +11,26 @@ const props = defineProps({
 
 <template>
   <template v-for="route of routes" :key="route.path">
-    <template v-if="!route.children && !route.meta.hide">
+    <template v-if="!route.children || route.children.length === 0">
       <el-menu-item :index="route.path">
         <template #title>
-          <span>{{ route.meta.title }}</span>
+          <span>{{ route.path }}</span>
         </template>
       </el-menu-item>
     </template>
 
-    <template v-if="route.children && route.children.length === 1 && !route.children[0].meta.hide">
+    <template v-if="route.children && route.children.length === 1">
       <el-menu-item :index="route.children[0].path">
         <template #title>
-          <span>{{ route.children[0].meta.title }}</span>
+          <span>{{ route.children[0].path }}</span>
         </template>
       </el-menu-item>
     </template>
 
-    <template v-if="route.children && route.children.length > 1 && !route.meta.hide">
+    <template v-if="route.children && route.children.length > 1">
       <el-sub-menu :index="route.path">
         <template #title>
-          <span>{{ route.meta.title }}</span>
+          <span>{{ route.path }}</span>
         </template>
         <SubMenu :routes="route.children" />
       </el-sub-menu>

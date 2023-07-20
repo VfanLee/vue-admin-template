@@ -2,87 +2,13 @@ import Layout from '@/layout/layout-one/index.vue'
 
 /**
  * meta 参数说明：
- *
- * title：用于标签页、菜单展示
- * allowlist：路由白名单
- * icon：路由图标
- * hide：是否菜单隐藏展示
+ *    title：用于标签页、菜单展示
+ *    icon：路由图标
+ *    hide：是否菜单隐藏展示
+ *    allowlist：路由白名单
  */
 
-const routes = [
-  {
-    path: '/login',
-    component: () => import('@/views/login/index.vue'),
-    name: 'Login',
-    meta: {
-      title: '登录',
-      allowlist: true,
-      hide: true
-    }
-  },
-
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '',
-        component: () => import('@/views/dashboard.vue'),
-        name: 'dashboard',
-        meta: {
-          title: '控制台',
-          icon: 'fa-solid fa-house'
-        }
-      }
-    ]
-  },
-
-  {
-    path: '/example',
-    component: Layout,
-    name: 'example',
-    redirect: '/example/list',
-    meta: {
-      title: 'xxx 管理'
-    },
-    children: [
-      {
-        path: '/example/list',
-        component: () => import('@/views/example/list.vue'),
-        name: 'ExampleList',
-        meta: {
-          title: 'xxx列表'
-        }
-      },
-      {
-        path: '/example/create',
-        component: () => import('@/views/example/create.vue'),
-        name: 'ExampleCreate',
-        meta: {
-          title: '创建xxx'
-        }
-      },
-      {
-        path: '/example/detail/:id(\\d+)',
-        component: () => import('@/views/example/detail.vue'),
-        name: 'ExampleDetail',
-        meta: {
-          title: 'xxx详情',
-          hide: true
-        }
-      },
-      {
-        path: '/example/edit/:id(\\d+)',
-        component: () => import('@/views/example/edit.vue'),
-        name: 'ExampleEdit',
-        meta: {
-          title: '编辑xxx',
-          hide: true
-        }
-      }
-    ]
-  },
-
+const demoRoutes = [
   {
     path: '/layout',
     component: () => import('@/views/layout/index.vue'),
@@ -128,26 +54,152 @@ const routes = [
       allowlist: true,
       hide: true
     }
+  }
+]
+
+const constantRoutes = [
+  {
+    path: '/login',
+    component: () => import('@/views/login/index.vue'),
+    name: 'login',
+    meta: {
+      title: '登录',
+      allowlist: true,
+      hide: true
+    }
   },
 
   {
     path: '/404',
     component: () => import('@/views/error-page/404.vue'),
-    name: 'NotFound',
+    name: 'notFound',
     meta: {
       title: '404',
-      hide: true
-    }
-  },
-
-  // 处理 404 路由，必须放在最后一个
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
-    meta: {
       hide: true
     }
   }
 ]
 
-export default routes
+const asyncRoutes = [
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/homepage.vue'),
+        name: 'homepage',
+        meta: {
+          title: 'homepage'
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/example',
+    component: Layout,
+    name: 'example',
+    redirect: '/example/list',
+    meta: {
+      title: 'xxx 管理'
+    },
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/example/list.vue'),
+        name: 'exampleList',
+        meta: {
+          title: 'xxx列表'
+        }
+      },
+      {
+        path: 'create',
+        component: () => import('@/views/example/create.vue'),
+        name: 'exampleCreate',
+        meta: {
+          title: '创建xxx'
+        }
+      },
+      {
+        path: 'detail/:id(\\d+)',
+        component: () => import('@/views/example/detail.vue'),
+        name: 'exampleDetail',
+        meta: {
+          title: 'xxx详情',
+          hide: true
+        }
+      },
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/views/example/edit.vue'),
+        name: 'exampleEdit',
+        meta: {
+          title: '编辑xxx',
+          hide: true
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/nested',
+    component: Layout,
+    children: [
+      {
+        path: 'menu1',
+        children: [
+          {
+            path: 'menu1-1',
+            children: [
+              {
+                path: 'menu1-1-1'
+              },
+              {
+                path: 'menu1-1-2'
+              }
+            ]
+          },
+          {
+            path: 'menu1-2'
+          }
+        ]
+      },
+      {
+        path: 'menu2'
+      }
+    ]
+  },
+
+  {
+    path: '/rbac',
+    component: Layout,
+    children: [
+      {
+        path: 'user',
+        component: () => import('@/views/rbac/user/index.vue')
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/rbac/role/index.vue')
+
+      },
+      {
+        path: 'permission',
+        component: () => import('@/views/rbac/permission/index.vue')
+
+      }
+    ]
+  }
+]
+
+// 处理 404 路由，必须放在最后一个
+// {
+//   path: '/:pathMatch(.*)*',
+//   redirect: '/404',
+//   meta: {
+//     hide: true
+//   }
+// }
+
+export default [...demoRoutes, ...constantRoutes, ...asyncRoutes]

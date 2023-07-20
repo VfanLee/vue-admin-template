@@ -4,7 +4,7 @@ import {} from 'vue'
 
 <template>
   <div>
-    <el-button type="primary">dashboard</el-button>
+    <el-button type="primary">homepage</el-button>
   </div>
 </template>
 
