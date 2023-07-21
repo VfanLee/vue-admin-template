@@ -1,12 +1,9 @@
 <script setup>
 import {} from 'vue'
-import { useSettingsStore } from '@/store/modules/settings'
-
-const settingsStore = useSettingsStore()
 </script>
 
 <template>
-  <div class="l-navbar" :class="{ 'fixed-header': settingsStore.fixedHeader }">
+  <div class="l-navbar">
     <div class="c-navbar">navbar</div>
     <div class="c-tags-view" v-if="settingsStore.tagsView">tags-view</div>
   </div>

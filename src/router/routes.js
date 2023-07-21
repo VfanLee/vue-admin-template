@@ -182,12 +182,10 @@ const asyncRoutes = [
       {
         path: 'role',
         component: () => import('@/views/rbac/role/index.vue')
-
       },
       {
         path: 'permission',
         component: () => import('@/views/rbac/permission/index.vue')
-
       }
     ]
   }
@@ -196,10 +194,7 @@ const asyncRoutes = [
 // 处理 404 路由，必须放在最后一个
 // {
 //   path: '/:pathMatch(.*)*',
-//   redirect: '/404',
-//   meta: {
-//     hide: true
-//   }
+//   redirect: '/404'
 // }
 
 export default [...demoRoutes, ...constantRoutes, ...asyncRoutes]

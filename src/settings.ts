@@ -1,7 +1,7 @@
 export default {
-  title: 'Ulearning Portal Admin',
+  title: 'Vue3 Admin Template',
 
-  tagsView: true,
+  tagsView: false,
 
   fixedHeader: false,
 
