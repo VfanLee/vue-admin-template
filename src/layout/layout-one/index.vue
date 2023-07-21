@@ -14,7 +14,7 @@ import { RouterView } from 'vue-router'
         <div class="app-main__inner">
           <RouterView />
         </div>
-        <div class="c-copy-right">Copyright © 2023 Admin Vue</div>
+        <el-card :body-style="{ textAlign: 'center' }">Copyright © 2023 Vue3 Admin Template</el-card>
       </div>
     </el-scrollbar>
   </div>

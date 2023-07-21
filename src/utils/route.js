@@ -1,4 +1,5 @@
 import path from 'path-browserify'
+import { isNull } from '.'
 
 /**
  * 返回所有子路由
@@ -20,20 +21,12 @@ export const filterRoutes = routes => {
   const childrenRoutes = getChildrenRoutes(routes)
   return routes.filter(route => {
     return !childrenRoutes.find(childrenRoute => {
+      debugger
       return childrenRoute.path === route.path
     })
   })
 }
 
-/**
- * 判断数据是否为空值
- */
-function isNull(data) {
-  if (!data) return true
-  if (JSON.stringify(data) === '{}') return true
-  if (JSON.stringify(data) === '[]') return true
-  return false
-}
 /**
  * 根据 routes 数据，返回对应 menu 规则数组
  */

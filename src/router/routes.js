@@ -86,7 +86,7 @@ const asyncRoutes = [
     component: Layout,
     children: [
       {
-        path: '',
+        path: 'homepage',
         component: () => import('@/views/homepage.vue'),
         name: 'homepage',
         meta: {
@@ -197,4 +197,4 @@ const asyncRoutes = [
 //   redirect: '/404'
 // }
 
-export default [...demoRoutes, ...constantRoutes, ...asyncRoutes]
+export default [...constantRoutes, ...asyncRoutes]
