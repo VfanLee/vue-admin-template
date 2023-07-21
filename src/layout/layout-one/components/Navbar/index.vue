@@ -1,5 +1,8 @@
 <script setup>
 import {} from 'vue'
+import { useSettingsStore } from '@/store/modules/settings'
+
+const settingsStore = useSettingsStore()
 </script>
 
 <template>
