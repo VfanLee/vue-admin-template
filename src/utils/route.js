@@ -1,5 +1,5 @@
 import path from 'path-browserify'
-import { isNull } from '.'
+import { isNull } from '@/utils'
 
 /**
  * 返回所有子路由
@@ -21,7 +21,6 @@ export const filterRoutes = routes => {
   const childrenRoutes = getChildrenRoutes(routes)
   return routes.filter(route => {
     return !childrenRoutes.find(childrenRoute => {
-      debugger
       return childrenRoute.path === route.path
     })
   })
@@ -52,14 +51,13 @@ export function generateMenus(routes, basePath = '/') {
         children: []
       }
 
-      // icon 与 title 必须全部存在
-      if (route.meta.title) {
-        // meta 存在生成 route 对象，放入 arr
+      // title 必须存在
+      if (!route.meta.hide && route.meta.title) {
         result.push(route)
       }
     }
 
-    // 存在 children 进入迭代到children
+    // 存在 children 进入迭代到 children
     if (item.children) {
       route.children.push(...generateMenus(item.children, route.path))
     }

@@ -28,6 +28,6 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from, failure) => {
-  document.title = to.meta.title || 'Admin Vue'
+  document.title = to.meta.title || 'Vue3 Admin Template'
   NProgress.done()
 })

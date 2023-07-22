@@ -4,7 +4,9 @@ import {} from 'vue'
 
 <template>
   <div>
-    <el-button type="primary">homepage</el-button>
+    <p>开始内容</p>
+    <!-- <p v-for="i of 100">这是一段内容</p> -->
+    <p>结束内容</p>
   </div>
 </template>
 

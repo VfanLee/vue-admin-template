@@ -5,7 +5,7 @@ import {} from 'vue'
 <template>
   <a class="c-logo" href="javascript:;">
     <img class="logo" src="@/assets/vite.svg" alt="logo" />
-    <h1 class="title ellipsis">Admin Vue</h1>
+    <h1 class="title ellipsis">Vue3 Admin Template</h1>
   </a>
 </template>
 

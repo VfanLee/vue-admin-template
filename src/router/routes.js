@@ -2,60 +2,11 @@ import Layout from '@/layout/layout-one/index.vue'
 
 /**
  * meta 参数说明：
- *    title：用于标签页、菜单展示
- *    icon：路由图标
- *    hide：是否菜单隐藏展示
+ *    title：用于标签页、菜单标题展示（必须）
+ *    icon：标题图标展示
+ *    hide: 是否在菜单中隐藏
  *    allowlist：路由白名单
  */
-
-const demoRoutes = [
-  {
-    path: '/layout',
-    component: () => import('@/views/layout/index.vue'),
-    name: 'layout',
-    meta: {
-      title: '布局',
-      allowlist: true,
-      hide: true
-    }
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: '/form/basic',
-        component: () => import('@/views/form/basic.vue'),
-        name: 'basicForm',
-        meta: {
-          title: 'basic 表单',
-          allowlist: true
-        }
-      },
-      {
-        path: '/form/element',
-        component: () => import('@/views/form/element.vue'),
-        name: 'elementForm',
-        meta: {
-          title: 'element 表单',
-          allowlist: true
-        }
-      }
-    ]
-  },
-
-  {
-    path: '/demo',
-    component: () => import('@/views/demo.vue'),
-    name: 'demo',
-    meta: {
-      title: 'demo',
-      allowlist: true,
-      hide: true
-    }
-  }
-]
 
 const constantRoutes = [
   {
@@ -64,8 +15,8 @@ const constantRoutes = [
     name: 'login',
     meta: {
       title: '登录',
-      allowlist: true,
-      hide: true
+      hide: true,
+      allowlist: true
     }
   },
 
@@ -84,58 +35,98 @@ const asyncRoutes = [
   {
     path: '/',
     component: Layout,
+    redirect: '/homepage',
     children: [
       {
-        path: 'homepage',
+        path: '/homepage',
         component: () => import('@/views/homepage.vue'),
         name: 'homepage',
         meta: {
-          title: 'homepage'
+          title: '首页',
+          icon: 'house'
         }
       }
     ]
   },
 
   {
-    path: '/example',
+    path: '/rbac',
     component: Layout,
-    name: 'example',
-    redirect: '/example/list',
     meta: {
-      title: 'xxx 管理'
+      title: 'RBAC',
+      icon: 'user-shield'
     },
     children: [
       {
-        path: 'list',
-        component: () => import('@/views/example/list.vue'),
-        name: 'exampleList',
+        path: '/rbac/user',
+        component: () => import('@/views/rbac/user/index.vue'),
         meta: {
-          title: 'xxx列表'
+          title: '用户管理',
+          icon: 'user'
         }
       },
       {
-        path: 'create',
-        component: () => import('@/views/example/create.vue'),
-        name: 'exampleCreate',
+        path: '/rbac/role',
+        component: () => import('@/views/rbac/role/index.vue'),
         meta: {
-          title: '创建xxx'
+          title: '角色管理',
+          icon: 'r'
         }
       },
       {
-        path: 'detail/:id(\\d+)',
-        component: () => import('@/views/example/detail.vue'),
-        name: 'exampleDetail',
+        path: '/rbac/permission',
+        component: () => import('@/views/rbac/permission/index.vue'),
         meta: {
-          title: 'xxx详情',
+          title: '权限管理',
+          icon: 'shield-halved'
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/article',
+    component: Layout,
+    name: 'article',
+    redirect: '/article/list',
+    meta: {
+      title: '文章管理',
+      icon: 'book'
+    },
+    children: [
+      {
+        path: '/article/list',
+        component: () => import('@/views/article/list.vue'),
+        name: 'articleList',
+        meta: {
+          title: '文章列表',
+          icon: 'list'
+        }
+      },
+      {
+        path: '/article/create',
+        component: () => import('@/views/article/create.vue'),
+        name: 'articleCreate',
+        meta: {
+          title: '创建文章',
+          icon: 'plus'
+        }
+      },
+      {
+        path: '/article/detail/:id(\\d+)',
+        component: () => import('@/views/article/detail.vue'),
+        name: 'articleDetail',
+        meta: {
+          title: '文章详情',
           hide: true
         }
       },
       {
-        path: 'edit/:id(\\d+)',
-        component: () => import('@/views/example/edit.vue'),
-        name: 'exampleEdit',
+        path: '/article/edit/:id(\\d+)',
+        component: () => import('@/views/article/edit.vue'),
+        name: 'articleEdit',
         meta: {
-          title: '编辑xxx',
+          title: '编辑文章',
           hide: true
         }
       }
@@ -145,56 +136,119 @@ const asyncRoutes = [
   {
     path: '/nested',
     component: Layout,
+    meta: {
+      title: '嵌套路由',
+      icon: 'folder-tree'
+    },
     children: [
       {
-        path: 'menu1',
+        path: '/nested/menu1',
+        component: () => import('@/views/nested/menu1/index.vue'),
+        meta: {
+          title: 'menu1'
+        },
         children: [
           {
-            path: 'menu1-1',
+            path: '/nested/menu1/menu1-1',
+            component: () => import('@/views/nested/menu1/menu1-1/index.vue'),
+            meta: {
+              title: 'menu1-1'
+            }
+          },
+          {
+            path: '/nested/menu1/menu1-2',
+            component: () => import('@/views/nested/menu1/menu1-2/index.vue'),
+            meta: {
+              title: 'menu1-2'
+            },
             children: [
               {
-                path: 'menu1-1-1'
+                path: '/nested/menu1/menu1-2/menu1-2-1',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'),
+                meta: {
+                  title: 'menu1-2-1'
+                }
               },
               {
-                path: 'menu1-1-2'
+                path: '/nested/menu1/menu1-2/menu1-2-2',
+                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'),
+                meta: {
+                  title: 'menu1-2-2'
+                }
               }
             ]
           },
           {
-            path: 'menu1-2'
+            path: '/nested/menu1/menu1-3',
+            component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
+            meta: {
+              title: 'menu1-3'
+            }
           }
         ]
       },
       {
-        path: 'menu2'
+        path: '/nested/menu2',
+        component: () => import('@/views/nested/menu2/index.vue'),
+        meta: {
+          title: 'menu2'
+        }
       }
     ]
   },
 
   {
-    path: '/rbac',
+    path: '/form',
     component: Layout,
+    meta: {
+      title: 'form 示例'
+    },
     children: [
       {
-        path: 'user',
-        component: () => import('@/views/rbac/user/index.vue')
+        path: '/form/basic',
+        component: () => import('@/views/form/basic.vue'),
+        name: 'basicForm',
+        meta: {
+          title: 'basic 表单'
+        }
       },
       {
-        path: 'role',
-        component: () => import('@/views/rbac/role/index.vue')
-      },
-      {
-        path: 'permission',
-        component: () => import('@/views/rbac/permission/index.vue')
+        path: '/form/element',
+        component: () => import('@/views/form/element.vue'),
+        name: 'elementForm',
+        meta: {
+          title: 'element 表单'
+        }
       }
     ]
+  },
+
+  {
+    path: '/layout',
+    component: () => import('@/views/layout/index.vue'),
+    name: 'layout',
+    meta: {
+      title: '布局',
+      allowlist: true
+    }
+  },
+
+  {
+    path: '/demo',
+    component: () => import('@/views/demo.vue'),
+    name: 'demo',
+    meta: {
+      title: 'demo',
+      allowlist: true,
+      hide: true
+    }
+  },
+
+  // 处理 404 路由，必须放在最后一个
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404'
   }
 ]
-
-// 处理 404 路由，必须放在最后一个
-// {
-//   path: '/:pathMatch(.*)*',
-//   redirect: '/404'
-// }
 
 export default [...constantRoutes, ...asyncRoutes]

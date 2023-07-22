@@ -5,7 +5,7 @@ import AppMain from './components/AppMain.vue'
 </script>
 
 <template>
-  <div class="l-layout-one">
+  <div class="l-layout-three">
     <Sidebar />
     <el-scrollbar class="l-main">
       <Navbar />
@@ -15,7 +15,7 @@ import AppMain from './components/AppMain.vue'
 </template>
 
 <style lang="scss">
-.l-layout-one {
+.l-layout-three {
   overflow: hidden;
   display: flex;
   height: 100vh;

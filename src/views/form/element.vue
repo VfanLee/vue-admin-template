@@ -2,16 +2,13 @@
 import { ref } from 'vue'
 
 const inputValue = ref('')
-
 const radioValue = ref('')
-
 const checkboxValue = ref([])
-
 const selectValue = ref('')
 </script>
 
 <template>
-  <div class="p-form">
+  <el-card class="p-form">
     <h1>Element Plus 表单元素的基本使用</h1>
 
     <section>
@@ -55,7 +52,7 @@ const selectValue = ref('')
         <el-option label="option3" value="3"></el-option>
       </el-select>
     </section>
-  </div>
+  </el-card>
 </template>
 
 <style lang="scss" scoped>

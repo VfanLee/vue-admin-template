@@ -3,7 +3,7 @@ import {} from 'vue'
 </script>
 
 <template>
-  <div class="l-layout-three">
+  <div class="l-layout-two">
     <div class="l-navbar">navbar</div>
     <div class="l-main">
       <div class="c-sidebar">sidebar</div>

@@ -2,6 +2,16 @@
 import {} from 'vue'
 </script>
 
-<template>demo</template>
+<template>
+  <div>
+    <div class="demo">demo:</div>
 
-<style lang="scss" scoped></style>
+    <div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.demo {
+}
+</style>
