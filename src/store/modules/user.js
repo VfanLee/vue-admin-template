@@ -12,7 +12,7 @@ export const useUserStore = defineStore('user', () => {
     const res = await reqLogin(data)
     if (res.code === 200) {
       token.value = res.result.token
-      setToken(res.token)
+      setToken(res.result.token)
       return 'ok'
     } else {
       return Promise.reject(new Error(res.message))

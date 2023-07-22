@@ -52,6 +52,8 @@ const asyncRoutes = [
   {
     path: '/rbac',
     component: Layout,
+    name: 'rbac',
+    redirect: '/rbac/user',
     meta: {
       title: 'RBAC',
       icon: 'user-shield'
@@ -60,6 +62,7 @@ const asyncRoutes = [
       {
         path: '/rbac/user',
         component: () => import('@/views/rbac/user/index.vue'),
+        name: 'rbacUser',
         meta: {
           title: '用户管理',
           icon: 'user'
@@ -68,6 +71,7 @@ const asyncRoutes = [
       {
         path: '/rbac/role',
         component: () => import('@/views/rbac/role/index.vue'),
+        name: 'rbacRole',
         meta: {
           title: '角色管理',
           icon: 'r'
@@ -76,6 +80,7 @@ const asyncRoutes = [
       {
         path: '/rbac/permission',
         component: () => import('@/views/rbac/permission/index.vue'),
+        name: 'rbacPermission',
         meta: {
           title: '权限管理',
           icon: 'shield-halved'
@@ -201,7 +206,8 @@ const asyncRoutes = [
     path: '/form',
     component: Layout,
     meta: {
-      title: 'form 示例'
+      title: '表单示例',
+      icon: 'pen'
     },
     children: [
       {
@@ -229,6 +235,7 @@ const asyncRoutes = [
     name: 'layout',
     meta: {
       title: '布局',
+      icon: 'wand-magic-sparkles',
       allowlist: true
     }
   },

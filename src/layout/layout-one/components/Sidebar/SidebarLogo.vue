@@ -18,6 +18,7 @@ import {} from 'vue'
   padding: 12px;
   text-decoration: none;
   color: var(--el-text-color);
+  background-color: #fff;
 
   .logo {
     width: 32px;

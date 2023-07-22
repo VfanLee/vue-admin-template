@@ -7,7 +7,7 @@ import {} from 'vue'
     <div class="app-main__inner">
       <RouterView />
     </div>
-    <el-card :body-style="{ textAlign: 'center' }">Copyright © 2023 Vue3 Admin Template</el-card>
+    <el-card :body-style="{ textAlign: 'center', fontSize: '14px' }">Copyright © 2023 Vue3 Admin Template</el-card>
   </div>
 </template>
 

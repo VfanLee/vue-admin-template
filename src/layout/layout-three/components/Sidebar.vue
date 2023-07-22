@@ -1,12 +1,12 @@
 <script setup>
-import { useSettingsStore } from '@/store/modules/settings'
+import { useAppStore } from '@/store/modules/app'
 
-const settingsStore = useSettingsStore()
+const appStore = useAppStore()
 </script>
 
 <template>
   <div class="l-sidebar">
-    <div class="c-logo" v-if="settingsStore.sidebarLogo"></div>
+    <div class="c-logo" v-if="appStore.sidebarLogo"></div>
     <div class="c-menu__wrap">
       <div class="c-menu"></div>
       <div class="c-sub-menu"></div>

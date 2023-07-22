@@ -1,27 +1,72 @@
 <script setup>
-import {} from 'vue'
-import { useSettingsStore } from '@/store/modules/settings'
+import { useAppStore } from '@/store/modules/app'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
-const settingsStore = useSettingsStore()
+const appStore = useAppStore()
+
+const collapseSidebar = () => {
+  console.log(appStore.sidebarIsCollapse)
+  // appStore.collapseSidebar(!appStore.sidebarIsCollapse)
+}
 </script>
 
 <template>
-  <div class="l-navbar fixed-header">
-    <div class="c-navbar">navbar</div>
-    <div class="c-tags-view" v-if="settingsStore.tagsView">tags-view</div>
+  <div class="l-navbar">
+    <div class="c-navbar">
+      <button class="collapse__btn" @click="collapseSidebar">
+        <i class="fa-solid fa-indent"></i>
+      </button>
+      <Breadcrumb />
+      <div class="navbar__right">
+        <div class="user">
+          <img src="@/assets/vite.svg" alt="avatar" />
+          <span>Admin</span>
+        </div>
+      </div>
+    </div>
+    <div class="c-tags-view" v-if="appStore.tagsView">tags-view</div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.fixed-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-}
-
 .c-navbar {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
   border-bottom: 1px solid var(--el-border-color);
   background-color: #fff;
+
+  .collapse__btn {
+    width: 60px;
+    height: 100%;
+    padding: 0;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .el-breadcrumb {
+    flex: 1;
+  }
+  
+
+  .navbar__right {
+    .user {
+      display: flex;
+      align-items: center;
+      user-select: none;
+
+      img {
+        width: 32px;
+        height: 32px;
+        margin-right: 6px;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 .c-tags-view {

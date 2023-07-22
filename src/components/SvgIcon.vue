@@ -16,7 +16,9 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 </script>
 
 <template>
-  <svg class="svg-icon" aria-hidden="true" style="width: 1em; height: 1em">
-    <use :xlink:href="symbolId" fill="currentColor" />
-  </svg>
+  <i class="el-icon">
+    <svg class="svg-icon" aria-hidden="true" style="width: 1em; height: 1em">
+      <use :xlink:href="symbolId" fill="currentColor" />
+    </svg>
+  </i>
 </template>

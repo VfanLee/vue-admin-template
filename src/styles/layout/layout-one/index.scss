@@ -1,20 +1,9 @@
 .l-layout-one {
-  $sidebarWidth: 266px;
-  $navbarHeight: 60px;
-  $tagViewHeight: 50px;
-
   display: flex;
   height: 100vh;
   background-color: #f6f6f7;
 
   .l-sidebar {
-    width: $sidebarWidth;
-
-    .c-logo {
-      height: 60px;
-      background-color: #fff;
-    }
-
     .el-scrollbar {
       background-color: #fff;
     }
@@ -29,22 +18,18 @@
       flex-direction: column;
       height: 100%;
 
-      .l-navbar {
-        position: relative;
+      .fixed-header {
+        position: fixed;
         top: 0;
-        left: 0;
+        right: 0;
+        width: calc(100% - $sidebarWidth);
 
-        &.fixed-header {
-          position: fixed;
-          top: 0;
-          left: calc($sidebarWidth);
-          width: 100%;
-
-          & + .app-main {
-            margin-top: 60px;
-          }
+        & + .app-main {
+          margin-top: 60px;
         }
+      }
 
+      .l-navbar {
         .c-navbar {
           height: $navbarHeight;
         }
@@ -63,18 +48,6 @@
         .app-main__inner {
           flex: 1;
           height: 0;
-        }
-
-        .c-copy-right {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 20px;
-          height: 60px;
-          font-size: 14px;
-          border: 1px solid var(--el-border-color);
-          border-radius: 8px;
-          background-color: #fff;
         }
       }
     }
