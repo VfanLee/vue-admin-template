@@ -1,9 +1,9 @@
 <script setup>
-import '@/styles/layout/layout-one/index.scss'
+import '@/styles/layout/layout-one.scss'
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar/index.vue'
 import AppMain from './components/AppMain/index.vue'
-import { useAppStore } from '@/store/modules/app'
+import useAppStore from '@/store/modules/app'
 
 const appStore = useAppStore()
 </script>

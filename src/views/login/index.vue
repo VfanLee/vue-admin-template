@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { useUserStore } from '@/store/modules/user'
+import useUserStore from '@/store/modules/user'
 import { useRouter } from 'vue-router'
 import helloTime from '@/utils/helloTime'
 

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import defaultSettings from '@/settings'
 import { computed, ref } from 'vue'
 
-export const useAppStore = defineStore('app', () => {
+const useAppStore = defineStore('app', () => {
   const settings = ref(defaultSettings)
   const sidebarIsCollapse = ref(false)
 
@@ -22,3 +22,5 @@ export const useAppStore = defineStore('app', () => {
     collapseSidebar
   }
 })
+
+export default useAppStore

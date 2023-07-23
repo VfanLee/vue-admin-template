@@ -1,12 +1,18 @@
 <script setup>
-import { useAppStore } from '@/store/modules/app'
+import useAppStore from '@/store/modules/app'
+import useUserStore from '@/store/modules/user'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const appStore = useAppStore()
+const userStore = useUserStore()
 
 const collapseSidebar = () => {
   console.log(appStore.sidebarIsCollapse)
   // appStore.collapseSidebar(!appStore.sidebarIsCollapse)
+}
+
+const logout = () => {
+  userStore.userLogout()
 }
 </script>
 
@@ -18,10 +24,17 @@ const collapseSidebar = () => {
       </button>
       <Breadcrumb />
       <div class="navbar__right">
-        <div class="user">
-          <img src="@/assets/vite.svg" alt="avatar" />
-          <span>Admin</span>
-        </div>
+        <el-dropdown trigger="click">
+          <div class="user">
+            <img src="@/assets/vite.svg" alt="avatar" />
+            <span>Admin</span>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
     <div class="c-tags-view" v-if="appStore.tagsView">tags-view</div>
@@ -48,7 +61,6 @@ const collapseSidebar = () => {
   .el-breadcrumb {
     flex: 1;
   }
-  
 
   .navbar__right {
     .user {

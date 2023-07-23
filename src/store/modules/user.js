@@ -1,11 +1,10 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import router from '@/router'
 import { reqLogin } from '@/api/user'
-import { getToken, setToken } from '@/utils/auth'
-import routes from '@/router/routes'
-import { useRouter } from 'vue-router'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
-export const useUserStore = defineStore('user', () => {
+const useUserStore = defineStore('user', () => {
   const token = ref(getToken())
 
   const userLogin = async data => {
@@ -19,11 +18,13 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { token, userLogin }
+  const userLogout = () => {
+    token.value = ''
+    removeToken()
+    router.push({ path: '/login' })
+  }
+
+  return { token, userLogin, userLogout }
 })
 
-export const useRoutesStore = defineStore('routes', () => {
-  const renderRoutes = ref(routes)
-
-  return { renderRoutes }
-})
+export default useUserStore

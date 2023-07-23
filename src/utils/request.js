@@ -1,14 +1,19 @@
 import axios from 'axios'
+import useUserStore from '@/store/modules/user'
 
 const request = axios.create({
   // baseURL: 'https://some-domain.com/api/',
-  // timeout: 1000,
-  // headers: {'X-Custom-Header': 'foobar'}
+  timeout: 3000,
+  withCredentials: true // 跨域请求携带 cookie
 })
 
 request.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
+    const userStore = useUserStore()
+    if (userStore.token) {
+      config.headers.Authorization = userStore.token
+    }
     return config
   },
   error => {

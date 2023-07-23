@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import SidebarMenuItem from './SidebarMenuItem.vue'
 import { filterRoutes, generateMenus } from '@/utils/route'
-import { useAppStore } from '@/store/modules/app'
+import useAppStore from '@/store/modules/app'
 
 const $router = useRouter()
 const appStore = useAppStore()
