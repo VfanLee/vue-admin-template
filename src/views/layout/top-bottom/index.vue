@@ -45,8 +45,6 @@ $extra-color: #dff6c3;
 
   &__bottom {
     flex: 1;
-    /*这个设置很重要 */
-    height: 0;
     background-color: $main-color;
   }
 }

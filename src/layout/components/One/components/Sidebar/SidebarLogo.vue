@@ -3,14 +3,14 @@ import {} from 'vue'
 </script>
 
 <template>
-  <a class="c-logo" href="javascript:;">
-    <img class="logo" src="@/assets/vite.svg" alt="logo" />
-    <h1 class="title ellipsis">Vue3 Admin Template</h1>
+  <a class="sidebar-logo" href="javascript:;">
+    <img src="@/assets/vite.svg" alt="logo" />
+    <h1 class="ellipsis">Vue3 Admin Template</h1>
   </a>
 </template>
 
 <style lang="scss" scoped>
-.c-logo {
+.sidebar-logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,13 +20,13 @@ import {} from 'vue'
   color: var(--el-text-color);
   background-color: #fff;
 
-  .logo {
+  img {
     width: 32px;
     height: 32px;
     margin-right: 5px;
   }
 
-  .title {
+  h1 {
     margin: 0;
     font-size: 20px;
     font-weight: 400;
