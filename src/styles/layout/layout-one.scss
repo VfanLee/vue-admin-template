@@ -29,24 +29,12 @@
       }
 
       .l-navbar {
-        .c-navbar {
-          height: $navbarHeight;
-        }
-
-        .c-tags-view {
-          height: $tagViewHeight;
-        }
+        height: $navbarHeight;
       }
 
       .app-main {
         flex: 1;
-        display: flex;
-        flex-direction: column;
         padding: 20px;
-
-        .app-main__inner {
-          flex: 1;
-        }
       }
     }
   }

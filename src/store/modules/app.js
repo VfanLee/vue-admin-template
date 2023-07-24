@@ -19,7 +19,6 @@ const useAppStore = defineStore('app', () => {
         return LayoutOne
     }
   })
-  const tagsView = computed(() => settings.value.tagsView)
   const fixedHeader = computed(() => settings.value.fixedHeader)
 
   const switchLayout = type => {
@@ -33,7 +32,6 @@ const useAppStore = defineStore('app', () => {
   return {
     sidebarIsCollapse,
     layout,
-    tagsView,
     fixedHeader,
     switchLayout,
     collapseSidebar

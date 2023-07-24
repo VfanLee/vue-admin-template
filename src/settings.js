@@ -3,7 +3,6 @@ export default {
 
   layout: 1,
 
-  tagsView: false,
-
-  fixedHeader: false
+  // layout2 无效
+  fixedHeader: true
 }

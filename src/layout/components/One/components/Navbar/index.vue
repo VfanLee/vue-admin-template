@@ -13,27 +13,23 @@ const collapseSidebar = () => {
 
 <template>
   <div class="l-navbar">
-    <div class="c-navbar">
-      <div class="navbar__left">
-        <button class="collapse__btn" @click="collapseSidebar">
-          <i class="fa-solid fa-indent"></i>
-        </button>
-        <Breadcrumb />
-      </div>
-      <div class="navbar__right">
-        <UserInfo />
-      </div>
+    <div class="navbar__left">
+      <button class="collapse__btn" @click="collapseSidebar">
+        <i class="fa-solid fa-indent"></i>
+      </button>
+      <Breadcrumb />
     </div>
-    <div class="c-tags-view" v-if="appStore.tagsView">tags-view</div>
+    <div class="navbar__right">
+      <UserInfo />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.c-navbar {
+.l-navbar {
   display: flex;
   align-items: center;
   padding-right: 20px;
-  border-bottom: 1px solid var(--el-border-color);
   background-color: #fff;
 
   .navbar__left {
@@ -58,10 +54,5 @@ const collapseSidebar = () => {
 
   .navbar__right {
   }
-}
-
-.c-tags-view {
-  border-bottom: 1px solid var(--el-border-color);
-  background-color: #fff;
 }
 </style>

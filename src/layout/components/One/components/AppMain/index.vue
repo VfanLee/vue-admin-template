@@ -4,9 +4,7 @@ import {} from 'vue'
 
 <template>
   <div class="app-main">
-    <div class="app-main__inner">
-      <RouterView />
-    </div>
+    <RouterView />
     <el-card :body-style="{ textAlign: 'center', fontSize: '14px' }">Copyright © 2023 Vue3 Admin Template</el-card>
   </div>
 </template>

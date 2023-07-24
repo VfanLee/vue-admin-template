@@ -10,9 +10,7 @@ const appStore = useAppStore()
 
 <template>
   <div class="l-layout-two">
-    <div :class="{ 'fixed-header': appStore.fixedHeader }">
-      <Navbar />
-    </div>
+    <Navbar />
     <div class="l-main">
       <Sidebar />
       <AppMain />

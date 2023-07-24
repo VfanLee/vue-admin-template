@@ -11,6 +11,7 @@ import {} from 'vue'
 
 <style lang="scss" scoped>
 .sidebar-logo {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
