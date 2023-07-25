@@ -3,7 +3,8 @@ import { ref } from 'vue'
 
 const inputValue = ref('')
 const radioValue = ref('')
-const checkboxValue = ref([])
+const checkboxValue1 = ref(false)
+const checkboxValue2 = ref([])
 const selectValue = ref('')
 </script>
 
@@ -30,17 +31,16 @@ const selectValue = ref('')
     </section>
 
     <section>
-      <p>checkbox: {{ checkboxValue }}</p>
+      <p>checkbox1: {{ checkboxValue1 }}</p>
       <!-- 用法1 -->
-      <!-- <el-checkbox label="Option A" v-model="checkboxValue" />
-      <el-checkbox label="Option B" v-model="checkboxValue" />
-      <el-checkbox label="Option C" v-model="checkboxValue" /> -->
+      <el-checkbox label="checkbox" v-model="checkboxValue1" />
 
       <!-- 用法2 -->
-      <el-checkbox-group v-model="checkboxValue">
-        <el-checkbox label="Option A" />
-        <el-checkbox label="Option B" />
-        <el-checkbox label="Option C" />
+      <p>checkbox2: {{ checkboxValue2 }}</p>
+      <el-checkbox-group v-model="checkboxValue2">
+        <el-checkbox label="A">checkbox A</el-checkbox>
+        <el-checkbox label="B">checkbox B</el-checkbox>
+        <el-checkbox label="C">checkbox C</el-checkbox>
       </el-checkbox-group>
     </section>
 

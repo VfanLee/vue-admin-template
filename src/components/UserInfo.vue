@@ -1,17 +1,18 @@
 <script setup>
 import useUserStore from '@/store/modules/user'
+
 const userStore = useUserStore()
 
 const logout = () => {
-  userStore.userLogout()
+  userStore.logout()
 }
 </script>
 
 <template>
   <el-dropdown trigger="click">
     <div class="user-info">
-      <img src="@/assets/vite.svg" alt="avatar" />
-      <span>Admin</span>
+      <img :src="userStore.userInfo.avatar" alt="avatar" />
+      <span>{{ userStore.userInfo.name }}</span>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
