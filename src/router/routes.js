@@ -1,4 +1,4 @@
-import Layout from '@/layout/layout-one/index.vue'
+import Layout from '@/layout/index.vue'
 
 /**
  * meta 参数说明：

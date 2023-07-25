@@ -33,7 +33,6 @@ $color3: #dff6c3;
     flex: 1;
     display: flex;
     flex-direction: column;
-    width: 0;
 
     .header {
       height: 60px;
@@ -42,7 +41,6 @@ $color3: #dff6c3;
 
     .main {
       flex: 1;
-      height: 0;
       background-color: $color3;
     }
   }

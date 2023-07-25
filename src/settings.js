@@ -1,9 +1,8 @@
 export default {
   title: 'Vue3 Admin Template',
 
-  tagsView: false,
+  layout: 1,
 
-  fixedHeader: false,
-
-  sidebarLogo: true
+  // layout2 无效
+  fixedHeader: true
 }

@@ -33,7 +33,6 @@ $color3: #dff6c3;
   .wrap {
     flex: 1;
     display: flex;
-    height: 0;
 
     .sidebar {
       width: 200px;
@@ -42,7 +41,6 @@ $color3: #dff6c3;
 
     .main {
       flex: 1;
-      width: 0;
       background-color: $color3;
     }
   }

@@ -16,6 +16,5 @@ import SidebarMenu from './SidebarMenu.vue'
 .l-sidebar {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--el-border-color);
 }
 </style>

@@ -1,0 +1,12 @@
+<script setup>
+import {} from 'vue'
+</script>
+
+<template>
+  <div class="app-main">
+    <RouterView />
+    <el-card :body-style="{ textAlign: 'center', fontSize: '14px' }">Copyright © 2023 Vue3 Admin Template</el-card>
+  </div>
+</template>
+
+<style lang="scss" scoped></style>

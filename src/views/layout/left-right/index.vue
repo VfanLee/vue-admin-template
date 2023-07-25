@@ -48,8 +48,6 @@ $extra-color: #dff6c3;
 
   &__right {
     flex: 1;
-    /*这个设置很重要 */
-    width: 0;
     background-color: $main-color;
   }
 }
