@@ -12,7 +12,7 @@ const collapseSidebar = () => {
 }
 
 const logout = () => {
-  userStore.userLogout()
+  userStore.logout()
 }
 </script>
 

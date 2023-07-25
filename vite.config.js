@@ -39,12 +39,13 @@ export default defineConfig({
     }),
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/icons')],
-      symbolId: 'icon-[name]',
+      symbolId: 'icon-[name]'
     }),
     viteMockServe({
       mockPath: 'mock',
-      // According to the project configuration. Can be configured in the .env file
-      enable: true
+      watchFiles: true,
+      enable: true,
+      logger: true
     })
   ],
   define: { 'process.env': {} }
