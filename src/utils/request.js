@@ -28,7 +28,6 @@ request.interceptors.response.use(
     return response.data
   },
   error => {
-    // 超出 2xx 范围的状态码都会触发该函数
     let message = ''
     const status = error.response.status
     switch (status) {
@@ -39,10 +38,10 @@ request.interceptors.response.use(
         message = '无权访问'
         break
       case 404:
-        message = '请求地址不存在'
+        message = '请求地址错误'
         break
       case 500:
-        message = '服务器错误'
+        message = '服务器出现问题'
         break
       default:
         message = '网络出现问题'

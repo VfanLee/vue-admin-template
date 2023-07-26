@@ -1,7 +1,7 @@
 <script setup>
-import NavbarLogo from './NavbarLogo.vue';
-import Breadcrumb from '@/layout/components/Breadcrumb.vue';
-import UserInfo from '@/layout/components/UserInfo.vue';
+import NavbarLogo from './NavbarLogo.vue'
+import Breadcrumb from '@/layout/components/Breadcrumb.vue'
+import UserInfo from '@/components/UserInfo.vue'
 </script>
 
 <template>

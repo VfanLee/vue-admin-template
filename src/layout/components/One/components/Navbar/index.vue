@@ -1,7 +1,7 @@
 <script setup>
 import useAppStore from '@/store/modules/app'
 import Breadcrumb from '@/layout/components/Breadcrumb.vue'
-import UserInfo from '@/layout/components/UserInfo.vue'
+import UserInfo from '@/components/UserInfo.vue'
 
 const appStore = useAppStore()
 

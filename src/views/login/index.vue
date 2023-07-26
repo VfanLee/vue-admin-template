@@ -10,12 +10,11 @@ const $router = useRouter()
 const loginFormRef = ref()
 const passwordItemRef = ref()
 const loginForm = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: 'admin'
 })
 const loginFormRule = reactive({
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }]
 })
 
 const hidePwd = ref(true)
@@ -30,12 +29,12 @@ const login = async formEl => {
     if (valid) {
       try {
         isLoading.value = true
-        await userStore.userLogin(loginForm)
+        await userStore.login(loginForm)
+        await $router.replace({ path: '/' })
         ElNotification({
           type: 'success',
           ...helloTime()
         })
-        $router.replace({ path: '/' })
       } catch (error) {
         passwordItemRef.value.validateState = 'error'
         passwordItemRef.value.validateMessage = error.message
@@ -56,7 +55,7 @@ const login = async formEl => {
         </el-form-item>
 
         <el-form-item prop="username">
-          <el-input class="login__username" v-model="loginForm.username" placeholder="用户名" autofocus @keyup.enter="login(loginFormRef)">
+          <el-input class="login__username" v-model="loginForm.username" placeholder="请输入用户名" autofocus @keyup.enter="login(loginFormRef)">
             <template #prefix>
               <i class="fa-solid fa-user"></i>
             </template>
@@ -64,7 +63,7 @@ const login = async formEl => {
         </el-form-item>
 
         <el-form-item prop="password" ref="passwordItemRef">
-          <el-input class="login__password" v-model="loginForm.password" :type="hidePwd ? 'password' : 'text'" placeholder="密码" @keyup.enter="login(loginFormRef)">
+          <el-input class="login__password" v-model="loginForm.password" :type="hidePwd ? 'password' : 'text'" placeholder="任意密码" @keyup.enter="login(loginFormRef)">
             <template #prefix>
               <i class="fa-solid fa-lock"></i>
             </template>
@@ -120,7 +119,7 @@ const login = async formEl => {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: url(@/assets/img/background.jpg) no-repeat center / cover;
+  background: url(@/assets/img/background.png) no-repeat center / cover;
 
   .login__form__wrap {
     margin: 0 10%;

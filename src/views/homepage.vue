@@ -1,13 +1,4 @@
 <script setup>
-import request from '@/utils/request'
-import {} from 'vue'
-
-request({
-  url: 'http://jsonplaceholder.typicode.com/posts',
-  method: 'GET'
-}).then(value => {
-  console.log(value)
-})
 </script>
 
 <template>

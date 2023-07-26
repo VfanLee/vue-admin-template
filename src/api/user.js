@@ -6,3 +6,10 @@ export const reqLogin = data =>
     method: 'POST',
     data
   })
+
+export const reqUserInfo = token =>
+  request({
+    url: '/mock/user/info',
+    method: 'GET',
+    params: { token }
+  })

@@ -1,13 +1,14 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import router from '@/router'
-import { reqLogin } from '@/api/user'
+import { reqLogin, reqUserInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const useUserStore = defineStore('user', () => {
   const token = ref(getToken())
+  const userInfo = ref(null)
 
-  const userLogin = async data => {
+  const login = async data => {
     const res = await reqLogin(data)
     if (res.code === 200) {
       token.value = res.result.token
@@ -18,13 +19,22 @@ const useUserStore = defineStore('user', () => {
     }
   }
 
-  const userLogout = () => {
-    token.value = ''
-    removeToken()
-    router.push({ path: '/login' })
+  const getUserInfo = async () => {
+    const res = await reqUserInfo(token.value)
+    if (res.code === 200) {
+      userInfo.value = res.result
+    } else {
+      return Promise.reject(new Error(res.message))
+    }
   }
 
-  return { token, userLogin, userLogout }
+  const logout = () => {
+    token.value = ''
+    removeToken()
+    router.replace({ path: '/login' })
+  }
+
+  return { token, userInfo, login, getUserInfo, logout }
 })
 
 export default useUserStore
