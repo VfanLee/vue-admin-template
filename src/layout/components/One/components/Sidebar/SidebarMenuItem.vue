@@ -2,7 +2,7 @@
 defineProps({
   route: {
     type: Object,
-    require: true
+    required: true
   }
 })
 </script>
