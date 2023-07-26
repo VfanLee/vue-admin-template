@@ -1,7 +1,9 @@
 <script setup>
 defineProps({
-  route: Object,
-  require: true
+  route: {
+    type: Object,
+    require: true
+  }
 })
 </script>
 
