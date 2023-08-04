@@ -15,7 +15,7 @@ const collapseSidebar = () => {
   <div class="l-navbar">
     <div class="navbar__left">
       <button class="collapse__btn" @click="collapseSidebar">
-        <i class="fa-solid fa-indent"></i>
+        <!-- <i class="fa-solid fa-indent"></i> -->
       </button>
       <Breadcrumb />
     </div>

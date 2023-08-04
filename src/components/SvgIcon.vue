@@ -9,6 +9,14 @@ const props = defineProps({
   name: {
     type: String,
     required: true
+  },
+  fontSize: {
+    type: String,
+    default: '1em'
+  },
+  color: {
+    type: String,
+    default: 'currentColor'
   }
 })
 
@@ -16,9 +24,17 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 </script>
 
 <template>
-  <i class="el-icon">
-    <svg class="svg-icon" aria-hidden="true" style="width: 1em; height: 1em">
+  <i class="svg-icon" :style="{ fontSize, color }">
+    <svg aria-hidden="true" style="width: 1em; height: 1em">
       <use :xlink:href="symbolId" fill="currentColor" />
     </svg>
   </i>
 </template>
+
+<style lang="scss" scoped>
+.svg-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
