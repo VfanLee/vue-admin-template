@@ -1,0 +1,53 @@
+.object__selector {
+  .el-drawer__header {
+    margin: 0;
+    padding: 20px;
+
+    .title {
+      margin: 0;
+    }
+
+    .search__input {
+      margin-top: 20px;
+    }
+
+    .el-drawer__close-btn {
+      align-self: flex-start;
+    }
+  }
+
+  .el-drawer__body {
+    border-top: 1px solid var(--el-border-color);
+
+    .el-radio-group,
+    .el-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .el-radio,
+    .el-checkbox {
+      margin: 0;
+      width: 100%;
+      height: 60px;
+      padding: 0 12px;
+
+      &:hover:not(.is-disabled) {
+        background-color: #f5f7fa;
+      }
+    }
+  }
+
+  .el-drawer__footer {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid var(--el-border-color);
+
+    .selected__tip {
+      flex: 1;
+      text-align: left;
+    }
+  }
+}

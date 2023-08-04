@@ -34,12 +34,14 @@
   visibility: hidden;
 }
 
+// 单行溢出
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+// 多行溢出
 .ellipsis--multi {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -48,10 +50,12 @@
   -webkit-line-clamp: 2;
 }
 
+// 隐藏
 .hide {
   display: none !important;
 }
 
+// 显示
 .show {
   display: block !important;
 }

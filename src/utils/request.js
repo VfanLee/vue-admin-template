@@ -7,6 +7,8 @@ const request = axios.create({
   withCredentials: true // 跨域请求携带 cookie
 })
 
+request.defaults.withCredentials = true
+
 request.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么

@@ -28,9 +28,11 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ObjectSelector: typeof import('./src/components/ObjectSelector.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
     UserInfo: typeof import('./src/components/UserInfo.vue')['default']
+    WangEditor: typeof import('./src/components/WangEditor.vue')['default']
   }
 }

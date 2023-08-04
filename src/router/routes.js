@@ -2,6 +2,7 @@ import Layout from '@/layout/index.vue'
 import errorPage from './modules/errorPage'
 import rbac from './modules/rbac'
 import article from './modules/article'
+import xxx from './modules/xxx'
 import nested from './modules/nested'
 import layoutExample from './modules/layoutExample'
 import components from './modules/components'
@@ -71,6 +72,8 @@ const asyncRoutes = [
   rbac,
 
   article,
+
+  xxx,
 
   nested,
 

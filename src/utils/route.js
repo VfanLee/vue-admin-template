@@ -13,6 +13,7 @@ const getChildrenRoutes = routes => {
   })
   return result
 }
+
 /**
  * 处理脱离层级的路由：某个一级路由为其他子路由，则剔除该一级路由，保留路由层级
  * @param {*} routes router.getRoutes()

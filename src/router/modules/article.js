@@ -21,7 +21,7 @@ export default {
     },
     {
       path: '/article/create',
-      component: () => import('@/views/article/create.vue'),
+      component: () => import('@/views/article/edit.vue'),
       name: 'articleCreate',
       meta: {
         title: '创建文章',
