@@ -1,22 +1,37 @@
-<script lang="ts" setup>
+<script setup>
 import { ref, computed } from 'vue'
-import '@/styles/object-selector.scss'
+import '@/styles/components/object-selector.scss'
 
-const props = withDefaults(
-  defineProps<{
-    visible: boolean
-    modelValue: any
-    title?: string
-    data: any
-    id?: string
-    name?: string
-  }>(),
-  {
-    title: '',
-    id: 'id',
-    name: 'name'
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'radio' // or checkbox
+  },
+  visible: {
+    type: Boolean,
+    default: false
+  },
+  modelValue: {
+    type: [String, Number, Boolean, Array],
+    required: true
+  },
+  title: {
+    type: String,
+    default: '对象选择器'
+  },
+  data: {
+    type: Array,
+    default: () => []
+  },
+  id: {
+    type: String,
+    default: 'id'
+  },
+  name: {
+    type: String,
+    default: 'name'
   }
-)
+})
 
 const emit = defineEmits(['update:visible', 'update:modelValue'])
 const searchText = ref('')
@@ -39,9 +54,13 @@ const sureCheck = () => {
 
     <template #default>
       <el-scrollbar>
-        <el-radio-group :modelValue="checked" @update:modelValue="val => (checked = val)">
+        <el-radio-group v-if="type === 'radio'" :modelValue="checked" @update:modelValue="val => (checked = val)">
           <el-radio :label="item[props.id]" v-for="item of filterData" :key="item[props.id]">{{ item[props.name] }}</el-radio>
         </el-radio-group>
+
+        <el-checkbox-group v-if="type === 'checkbox'" :modelValue="checked" @update:modelValue="val => (checked = val)">
+          <el-checkbox :label="item[props.id]" v-for="item of filterData" :key="item[props.id]">{{ item[props.name] }}</el-checkbox>
+        </el-checkbox-group>
       </el-scrollbar>
     </template>
 

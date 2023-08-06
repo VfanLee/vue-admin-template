@@ -16,8 +16,6 @@ defineProps({
     <SidebarMenuItem v-for="routeChild of route.children" :key="routeChild.path" :route="routeChild"></SidebarMenuItem>
   </el-sub-menu>
 
-  <!-- <el-menu-item v-else-if="route.children.length === 1" :index="route.path"></el-menu-item> -->
-
   <el-menu-item v-else :index="route.path">
     <SvgIcon :name="route.meta.icon" v-if="route.meta.icon" />
     <template #title>

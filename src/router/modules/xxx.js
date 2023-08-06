@@ -16,7 +16,8 @@ export default {
       name: 'xxxList',
       meta: {
         title: 'xxx 列表',
-        icon: 'list'
+        hide: true,
+        activeMenu: '/xxx'
       }
     },
     {
@@ -25,7 +26,8 @@ export default {
       name: 'xxxCreate',
       meta: {
         title: '创建 xxx',
-        hide: true
+        hide: true,
+        activeMenu: '/xxx'
       }
     },
     {
@@ -34,7 +36,8 @@ export default {
       name: 'xxxEdit',
       meta: {
         title: '编辑 xxx',
-        hide: true
+        hide: true,
+        activeMenu: '/xxx'
       }
     }
   ]

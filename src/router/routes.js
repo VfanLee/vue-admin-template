@@ -9,11 +9,12 @@ import components from './modules/components'
 import form from './modules/form'
 
 /**
- * meta 参数说明：
- *    title：用于标签页、菜单标题展示（必须）
- *    icon：标题图标展示
+ * meta 参数说明: 
+ *    title: 用于标签页、菜单标题展示（必须的）
+ *    icon: 标题图标展示
  *    hide: 是否在菜单中隐藏
- *    allowlist：路由白名单
+ *    allowlist: 路由白名单
+ *    activeMenu: 高亮设置的菜单路径
  */
 
 const constantRoutes = [

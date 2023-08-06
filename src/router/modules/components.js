@@ -25,6 +25,15 @@ export default {
       meta: {
         title: '富文本'
       }
+    },
+
+    {
+      path: '/components/object-selector',
+      component: () => import('@/views/components/ObjectSelector.vue'),
+      name: 'componentObjectSelector',
+      meta: {
+        title: '对象选择器'
+      }
     }
   ]
 }
