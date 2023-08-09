@@ -22,10 +22,12 @@ watch(
 
 <template>
   <el-breadcrumb separator=">">
-    <el-breadcrumb-item v-for="(route, index) of breadcrumbRoutes" :key="route.path">
-      <span v-if="index === breadcrumbRoutes.length - 1">{{ route.meta.title }}</span>
-      <RouterLink :to="route.path" v-else>{{ route.meta.title }}</RouterLink>
-    </el-breadcrumb-item>
+    <template v-for="(route, index) of breadcrumbRoutes" :key="route.path">
+      <el-breadcrumb-item v-if="!route.meta.hideBreadcrumb">
+        <span v-if="index === breadcrumbRoutes.length - 1">{{ route.meta.title }}</span>
+        <RouterLink :to="route.path" v-else>{{ route.meta.title }}</RouterLink>
+      </el-breadcrumb-item>
+    </template>
   </el-breadcrumb>
 </template>
 

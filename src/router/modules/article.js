@@ -18,7 +18,8 @@ export default {
         title: '文章列表',
         icon: 'list',
         hide: true,
-        activeMenu: '/article'
+        activeMenu: '/article',
+        hideBreadcrumb: true
       }
     },
     {
