@@ -1,7 +1,4 @@
-<script setup>
-import {} from 'vue'
-import { RouterView } from 'vue-router'
-</script>
+<script setup></script>
 
 <template>
   <div class="nested-menu1-2">
@@ -14,7 +11,7 @@ import { RouterView } from 'vue-router'
 .nested-menu1-2 {
   padding: 20px;
   border-radius: 8px;
-  background-color: #FFF5D7;
+  background-color: #fff5d7;
 
   .nested-text {
     padding: 12px;

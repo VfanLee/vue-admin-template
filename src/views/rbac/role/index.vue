@@ -1,13 +1,7 @@
-<script setup>
-import {} from 'vue'
-
-
-</script>
+<script setup></script>
 
 <template>
   <div>role</div>
 </template>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>

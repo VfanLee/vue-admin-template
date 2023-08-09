@@ -1,9 +1,11 @@
 import Layout from '@/layout/index.vue'
+import Login from '@/views/login/index.vue'
 import errorPage from './modules/errorPage'
 import rbac from './modules/rbac'
 import article from './modules/article'
 import xxx from './modules/xxx'
 import nested from './modules/nested'
+import i18n from './modules/i18n'
 import layoutExample from './modules/layoutExample'
 import components from './modules/components'
 import form from './modules/form'
@@ -20,7 +22,7 @@ import form from './modules/form'
 const constantRoutes = [
   {
     path: '/login',
-    component: () => import('@/views/login/index.vue'),
+    component: Login,
     name: 'login',
     meta: {
       title: '登录',
@@ -77,6 +79,8 @@ const asyncRoutes = [
   xxx,
 
   nested,
+
+  i18n,
 
   layoutExample,
 

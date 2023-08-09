@@ -1,7 +1,4 @@
-<script setup>
-import {} from 'vue'
-import { RouterView } from 'vue-router'
-</script>
+<script setup></script>
 
 <template>
   <div class="nested-menu1">

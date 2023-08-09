@@ -3,30 +3,37 @@ import { ref, computed } from 'vue'
 import '@/styles/components/object-selector.scss'
 
 const props = defineProps({
+  // 类型
   type: {
     type: String,
     default: 'radio' // or checkbox
   },
+  // 是否显示
   visible: {
     type: Boolean,
     default: false
   },
+  // 选择值
   modelValue: {
     type: [String, Number, Boolean, Array],
     required: true
   },
+  // 标题
   title: {
     type: String,
     default: '对象选择器'
   },
+  // 展示数据
   data: {
     type: Array,
     default: () => []
   },
+  // 指定 data 中的 id
   id: {
     type: String,
     default: 'id'
   },
+  // 指定 data 中的 name
   name: {
     type: String,
     default: 'name'
@@ -65,9 +72,11 @@ const sureCheck = () => {
     </template>
 
     <template #footer>
-      <span class="selected__tip"></span>
-      <el-button @click="$emit('update:visible', false)">取消</el-button>
-      <el-button type="primary" @click="sureCheck">选择</el-button>
+      <div class="checked__tip" v-if="type === 'checkbox'">已选择：{{ checked.length }}</div>
+      <div class="action__wrap">
+        <el-button @click="$emit('update:visible', false)">取消</el-button>
+        <el-button type="primary" @click="sureCheck">选择</el-button>
+      </div>
     </template>
   </el-drawer>
 </template>

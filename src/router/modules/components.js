@@ -11,7 +11,7 @@ export default {
   children: [
     {
       path: '/components/svg-icon',
-      component: () => import('@/views/components/SvgIcon.vue'),
+      component: () => import('@/views/components/svg-icon/index.vue'),
       name: 'componentSvgIcon',
       meta: {
         title: 'SvgIcon'
@@ -20,7 +20,7 @@ export default {
 
     {
       path: '/components/wang-editor',
-      component: () => import('@/views/components/WangEditor.vue'),
+      component: () => import('@/views/components/wang-editor/index.vue'),
       name: 'componentWangEditor',
       meta: {
         title: '富文本'
@@ -29,7 +29,7 @@ export default {
 
     {
       path: '/components/object-selector',
-      component: () => import('@/views/components/ObjectSelector.vue'),
+      component: () => import('@/views/components/object-selector/index.vue'),
       name: 'componentObjectSelector',
       meta: {
         title: '对象选择器'

@@ -1,6 +1,4 @@
-<script setup>
-import {} from 'vue'
-</script>
+<script setup></script>
 
 <template>
   <a class="navbar-logo" href="javascript:;">

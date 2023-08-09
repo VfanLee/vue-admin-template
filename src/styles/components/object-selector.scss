@@ -2,23 +2,26 @@
   .el-drawer__header {
     margin: 0;
     padding: 20px;
+    border-bottom: 1px solid var(--el-border-color);
 
     .title {
       margin: 0;
+    }
+
+    .el-drawer__close-btn {
+      align-self: flex-start;
     }
 
     .search__input {
       margin-top: 20px;
     }
 
-    .el-drawer__close-btn {
-      align-self: flex-start;
+    .total__tip {
+      margin-bottom: 16px;
     }
   }
 
   .el-drawer__body {
-    border-top: 1px solid var(--el-border-color);
-
     .el-radio-group,
     .el-checkbox-group {
       display: flex;
@@ -41,11 +44,12 @@
 
   .el-drawer__footer {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px;
     border-top: 1px solid var(--el-border-color);
 
-    .selected__tip {
+    .checked__tip {
       flex: 1;
       text-align: left;
     }

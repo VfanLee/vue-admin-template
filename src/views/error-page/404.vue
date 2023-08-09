@@ -1,6 +1,4 @@
-<script setup>
-import {} from 'vue'
-</script>
+<script setup></script>
 
 <template>
   <h1>page 404</h1>
