@@ -9,8 +9,8 @@ const selectValue = ref('')
 </script>
 
 <template>
-  <el-card class="p-form">
-    <h1>Vue3 表单元素的基本使用</h1>
+  <div class="view-basic-form">
+    <h2>Vue3 表单元素的基本使用</h2>
 
     <section>
       <p>textValue: {{ textValue }}</p>
@@ -60,14 +60,10 @@ const selectValue = ref('')
         </select>
       </div>
     </section>
-  </el-card>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.p-form {
-  padding: 30px;
-}
-
 section {
   margin-bottom: 20px;
 }

@@ -3,20 +3,30 @@ import Login from '@/views/login/index.vue'
 import components from './modules/components'
 import rbac from './modules/rbac'
 import article from './modules/article'
-import xxx from './modules/xxx'
 import nested from './modules/nested'
 import i18n from './modules/i18n'
 import layoutExample from './modules/layoutExample'
 import form from './modules/form'
+import table from './modules/table'
 import errorPage from './modules/errorPage'
 
 /**
- * meta 参数说明:
- *    title: 用于标签页、菜单标题展示（必须的）
- *    icon: 标题图标展示
- *    hide: 是否在菜单中隐藏
- *    allowlist: 路由白名单
- *    activeMenu: 高亮设置的菜单路径
+  meta 参数说明:
+    title: 设置该路由在侧边栏和面包屑中展示的名字
+
+    icon: 设置该路由的图标
+
+    allowlist: 路由白名单
+    
+    hide: 当设置 true 的时候该路由不会在侧边栏出现 如 401，login 等页面，或者如一些编辑页面 /edit/1
+
+    alwaysShow: 当你一个路由下面的 children 声明的路由大于 1 个时，自动会变成嵌套的模式
+                只有一个时，会将那个子路由当做根路由显示在侧边栏
+                若你想不管路由下面的 children 声明的个数都显示你的根路由，你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由
+
+    activeMenu: 当路由设置了该属性，则会高亮相对应的侧边栏。
+                这在某些场景非常有用，比如：一个文章的列表页路由为：/article/list
+                点击文章进入文章详情页，这时候路由为/article/1，但你想在侧边栏高亮文章列表的路由，就可以进行如下设置
  */
 
 const constantRoutes = [
@@ -76,8 +86,6 @@ const asyncRoutes = [
 
   article,
 
-  xxx,
-
   nested,
 
   i18n,
@@ -85,6 +93,8 @@ const asyncRoutes = [
   layoutExample,
 
   form,
+
+  table,
 
   errorPage,
 

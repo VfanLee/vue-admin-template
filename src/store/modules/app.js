@@ -19,6 +19,9 @@ const useAppStore = defineStore('app', () => {
         return LayoutOne
     }
   })
+
+  const sidebarLogo = computed(() => settings.value.sidebarLogo)
+
   const fixedHeader = computed(() => settings.value.fixedHeader)
 
   const switchLayout = type => {
@@ -32,6 +35,7 @@ const useAppStore = defineStore('app', () => {
   return {
     sidebarIsCollapse,
     layout,
+    sidebarLogo,
     fixedHeader,
     switchLayout,
     collapseSidebar

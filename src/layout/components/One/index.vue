@@ -12,7 +12,7 @@ const appStore = useAppStore()
   <div class="l-layout-one">
     <Sidebar />
     <el-scrollbar class="l-main">
-      <div :class="{ 'fixed-header': appStore.fixedHeader }">
+      <div class="navbar__wrap" :class="{ 'fixed-header': appStore.fixedHeader }">
         <Navbar />
       </div>
       <AppMain />

@@ -9,8 +9,8 @@ const selectValue = ref('')
 </script>
 
 <template>
-  <el-card class="p-form">
-    <h1>Element Plus 表单元素的基本使用</h1>
+  <div class="view-element-form">
+    <h2>Element Plus 表单元素的基本使用</h2>
 
     <section>
       <p>input: {{ inputValue }}</p>
@@ -52,14 +52,10 @@ const selectValue = ref('')
         <el-option label="option3" value="3"></el-option>
       </el-select>
     </section>
-  </el-card>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.p-form {
-  padding: 30px;
-}
-
 section {
   margin-bottom: 20px;
 }

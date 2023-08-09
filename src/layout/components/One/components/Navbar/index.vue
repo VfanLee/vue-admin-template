@@ -51,8 +51,5 @@ const collapseSidebar = () => {
       flex: 1;
     }
   }
-
-  .navbar__right {
-  }
 }
 </style>

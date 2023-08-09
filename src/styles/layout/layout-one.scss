@@ -1,9 +1,12 @@
 .l-layout-one {
   display: flex;
   height: 100vh;
-  background-color: #f6f6f7;
+  background-color: #fff;
 
   .l-sidebar {
+    z-index: 20;
+    border-right: 1px solid var(--el-border-color);
+
     .el-scrollbar {
       background-color: #fff;
     }
@@ -17,19 +20,24 @@
       flex-direction: column;
       height: 100%;
 
-      .fixed-header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: calc(100% - $sidebarWidth);
+      .navbar__wrap {
+        z-index: 10;
 
-        & + .app-main {
-          margin-top: 60px;
+        &.fixed-header {
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: calc(100% - $sidebarWidth);
+
+          & + .app-main {
+            margin-top: 60px;
+          }
         }
-      }
 
-      .l-navbar {
-        height: $navbarHeight;
+        .l-navbar {
+          height: $navbarHeight;
+          border-bottom: 1px solid var(--el-border-color);
+        }
       }
 
       .app-main {

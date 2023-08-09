@@ -9,15 +9,16 @@
 
 <style lang="scss" scoped>
 .sidebar-logo {
-  box-sizing: border-box;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 60px;
   padding: 12px;
+  border-bottom: 1px solid var(--el-border-color);
+  background-color: #fff;
   text-decoration: none;
   color: var(--el-text-color);
-  background-color: #fff;
 
   img {
     width: 32px;
