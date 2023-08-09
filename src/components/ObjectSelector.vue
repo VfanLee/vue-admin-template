@@ -1,6 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
 import '@/styles/components/object-selector.scss'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   // 类型

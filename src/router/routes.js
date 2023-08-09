@@ -1,17 +1,17 @@
 import Layout from '@/layout/index.vue'
 import Login from '@/views/login/index.vue'
-import errorPage from './modules/errorPage'
+import components from './modules/components'
 import rbac from './modules/rbac'
 import article from './modules/article'
 import xxx from './modules/xxx'
 import nested from './modules/nested'
 import i18n from './modules/i18n'
 import layoutExample from './modules/layoutExample'
-import components from './modules/components'
 import form from './modules/form'
+import errorPage from './modules/errorPage'
 
 /**
- * meta 参数说明: 
+ * meta 参数说明:
  *    title: 用于标签页、菜单标题展示（必须的）
  *    icon: 标题图标展示
  *    hide: 是否在菜单中隐藏
@@ -66,12 +66,12 @@ const constantRoutes = [
         }
       }
     ]
-  },
-
-  errorPage
+  }
 ]
 
 const asyncRoutes = [
+  components,
+
   rbac,
 
   article,
@@ -84,9 +84,9 @@ const asyncRoutes = [
 
   layoutExample,
 
-  components,
-
   form,
+
+  errorPage,
 
   {
     path: '/demo',

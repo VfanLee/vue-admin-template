@@ -1,11 +1,13 @@
 <script setup>
 import useAppStore from '@/store/modules/app'
+import LayoutOne from '@/layout/components/One/index.vue'
 
 const appStore = useAppStore()
 </script>
 
 <template>
-  <KeepAlive>
+  <!-- <KeepAlive>
     <component :is="appStore.layout"></component>
-  </KeepAlive>
+  </KeepAlive> -->
+  <LayoutOne />
 </template>

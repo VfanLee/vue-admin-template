@@ -4,7 +4,7 @@ import en from './en.json'
 
 const messages = {
   zh,
-  en,
+  en
 }
 
 const i18n = createI18n({

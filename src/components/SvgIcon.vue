@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue'
 import '@/styles/components/svg-icon.scss'
+import { computed } from 'vue'
 
 const props = defineProps({
   prefix: {

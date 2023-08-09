@@ -5,6 +5,8 @@ import Example2 from './Example2.vue'
 
 <template>
   <div class="c-object-selector">
+    <h2>ObjectSelector</h2>
+
     <Example1 />
     <Example2 />
   </div>
