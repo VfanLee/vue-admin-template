@@ -16,7 +16,9 @@ export default {
       name: 'articleList',
       meta: {
         title: '文章列表',
-        icon: 'list'
+        icon: 'list',
+        hide: true,
+        activeMenu: '/article'
       }
     },
     {
@@ -25,16 +27,8 @@ export default {
       name: 'articleCreate',
       meta: {
         title: '创建文章',
-        icon: 'plus'
-      }
-    },
-    {
-      path: '/article/detail/:id(\\d+)',
-      component: () => import('@/views/article/detail.vue'),
-      name: 'articleDetail',
-      meta: {
-        title: '文章详情',
-        hide: true
+        hide: true,
+        activeMenu: '/article'
       }
     },
     {
@@ -43,7 +37,18 @@ export default {
       name: 'articleEdit',
       meta: {
         title: '编辑文章',
-        hide: true
+        hide: true,
+        activeMenu: '/article'
+      }
+    },
+    {
+      path: '/article/detail/:id(\\d+)',
+      component: () => import('@/views/article/detail.vue'),
+      name: 'articleDetail',
+      meta: {
+        title: '文章详情',
+        hide: true,
+        activeMenu: '/article'
       }
     }
   ]

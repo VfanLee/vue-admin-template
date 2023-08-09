@@ -17,8 +17,8 @@ import errorPage from './modules/errorPage'
     icon: 设置该路由的图标
 
     allowlist: 路由白名单
-    
-    hide: 当设置 true 的时候该路由不会在侧边栏出现 如 401，login 等页面，或者如一些编辑页面 /edit/1
+
+    hide: 当设置 true 的时候该路由不会在侧边栏出现（默认 false），如 401，login 等页面，或者如一些编辑页面 /edit/1
 
     alwaysShow: 当你一个路由下面的 children 声明的路由大于 1 个时，自动会变成嵌套的模式
                 只有一个时，会将那个子路由当做根路由显示在侧边栏
@@ -27,6 +27,8 @@ import errorPage from './modules/errorPage'
     activeMenu: 当路由设置了该属性，则会高亮相对应的侧边栏。
                 这在某些场景非常有用，比如：一个文章的列表页路由为：/article/list
                 点击文章进入文章详情页，这时候路由为/article/1，但你想在侧边栏高亮文章列表的路由，就可以进行如下设置
+
+    breadcrumb: 如果设置为 false，则不会在 breadcrumb 面包屑中显示(默认 true)
  */
 
 const constantRoutes = [

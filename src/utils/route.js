@@ -52,8 +52,7 @@ export function generateMenus(routes, basePath = '/') {
         children: []
       }
 
-      // title 必须存在
-      if (!route.meta.hide && route.meta.title) {
+      if (!route.meta.hide) {
         result.push(route)
       }
     }

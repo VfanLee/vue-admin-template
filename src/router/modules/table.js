@@ -17,6 +17,14 @@ export default {
       meta: {
         title: '拖拽表格'
       }
+    },
+    {
+      path: '/table/dynamic-table',
+      component: () => import('@/views/table/dynamic-table.vue'),
+      name: 'dynamicTable',
+      meta: {
+        title: '动态表格'
+      }
     }
   ]
 }
