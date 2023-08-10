@@ -7,7 +7,8 @@ export default {
   redirect: '/article/list',
   meta: {
     title: '文章管理',
-    icon: 'book'
+    icon: 'book',
+    alwaysShow: true
   },
   children: [
     {
@@ -17,9 +18,7 @@ export default {
       meta: {
         title: '文章列表',
         icon: 'list',
-        hide: true,
-        activeMenu: '/article',
-        hideBreadcrumb: true
+        activeMenu: '/article'
       }
     },
     {
@@ -28,7 +27,6 @@ export default {
       name: 'articleCreate',
       meta: {
         title: '创建文章',
-        hide: true,
         activeMenu: '/article'
       }
     },
@@ -38,7 +36,6 @@ export default {
       name: 'articleEdit',
       meta: {
         title: '编辑文章',
-        hide: true,
         activeMenu: '/article'
       }
     },
@@ -48,7 +45,6 @@ export default {
       name: 'articleDetail',
       meta: {
         title: '文章详情',
-        hide: true,
         activeMenu: '/article'
       }
     }

@@ -1,5 +1,6 @@
 import Layout from '@/layout/index.vue'
 import Login from '@/views/login/index.vue'
+import effect from './modules/effect'
 import components from './modules/components'
 import rbac from './modules/rbac'
 import article from './modules/article'
@@ -82,6 +83,8 @@ const constantRoutes = [
 ]
 
 const asyncRoutes = [
+  effect,
+
   components,
 
   rbac,

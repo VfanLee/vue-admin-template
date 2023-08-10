@@ -8,7 +8,14 @@ defineProps({
 </script>
 
 <template>
-  <el-sub-menu v-if="route.children.length > 1" :index="route.path">
+  <el-menu-item v-if="route.meta.alwaysShow" :index="route.path">
+    <SvgIcon :name="route.meta.icon" v-if="route.meta.icon" />
+    <template #title>
+      <span>{{ route.meta.title }}</span>
+    </template>
+  </el-menu-item>
+
+  <el-sub-menu v-else-if="route.children.length > 1" :index="route.path">
     <template #title>
       <SvgIcon :name="route.meta.icon" v-if="route.meta.icon" />
       <span>{{ route.meta.title }}</span>
