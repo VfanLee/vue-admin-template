@@ -5,6 +5,8 @@
 
   .l-sidebar {
     z-index: 20;
+    display: flex;
+    flex-direction: column;
     border-right: 1px solid var(--el-border-color);
 
     .el-scrollbar {
@@ -28,15 +30,44 @@
           top: 0;
           right: 0;
           width: calc(100% - $sidebarWidth);
+          transition: width 0.3s ease-in-out;
 
           & + .app-main {
             margin-top: 60px;
           }
+
+          &.is-collapse {
+            width: calc(100% - $sidebarCollapseWidth);
+          }
         }
 
         .l-navbar {
+          display: flex;
+          align-items: center;
+          padding-right: 20px;
           height: $navbarHeight;
           border-bottom: 1px solid var(--el-border-color);
+          background-color: #fff;
+
+          .navbar__left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .collapse__btn {
+              width: 60px;
+              height: 100%;
+              padding: 0;
+              background-color: #fff;
+              border: none;
+              cursor: pointer;
+            }
+
+            .el-breadcrumb {
+              flex: 1;
+            }
+          }
         }
       }
 

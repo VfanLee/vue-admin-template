@@ -15,17 +15,7 @@ const routes = computed(() => generateMenus(filterRoutes($router.getRoutes())))
 </script>
 
 <template>
-  <el-menu router :default-active="$route.meta.activeMenu || $route.path" :collapse="appStore.sidebarIsCollapse">
+  <el-menu router :default-active="$route.meta.activeMenu || $route.path" :collapse="appStore.collapseSidebar" :collapse-transition="true">
     <SidebarMenuItem v-for="route of routes" :key="route.path" :route="route" />
   </el-menu>
 </template>
-
-<style lang="scss" scoped>
-.el-menu {
-  border-right: none;
-
-  &:not(.el-menu--collapse) {
-    width: $sidebarWidth;
-  }
-}
-</style>

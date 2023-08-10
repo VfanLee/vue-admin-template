@@ -3,7 +3,7 @@ export default {
 
   layout: 1,
 
-  sidebarLogo: true,
+  sidebarLogo: false,
 
   // layout2 无效
   fixedHeader: true

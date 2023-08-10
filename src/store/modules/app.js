@@ -7,7 +7,7 @@ import LayoutTwo from '@/layout/components/Two/index.vue'
 const useAppStore = defineStore('app', () => {
   const settings = ref(defaultSettings)
 
-  const sidebarIsCollapse = ref(false)
+  const collapseSidebar = ref(false)
 
   const layout = computed(() => {
     switch (settings.value.layout) {
@@ -28,17 +28,17 @@ const useAppStore = defineStore('app', () => {
     settings.value.layout = type
   }
 
-  const collapseSidebar = value => {
-    sidebarIsCollapse.value = value
+  const setSidebarWidth = value => {
+    collapseSidebar.value = value
   }
 
   return {
-    sidebarIsCollapse,
+    collapseSidebar,
     layout,
     sidebarLogo,
     fixedHeader,
     switchLayout,
-    collapseSidebar
+    setSidebarWidth
   }
 })
 

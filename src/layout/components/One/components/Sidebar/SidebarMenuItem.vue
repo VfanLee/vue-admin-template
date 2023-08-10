@@ -37,10 +37,3 @@ defineProps({
     </template>
   </el-menu-item>
 </template>
-
-<style lang="scss" scoped>
-.svg-icon {
-  margin-right: 12px;
-  font-size: 14px;
-}
-</style>
