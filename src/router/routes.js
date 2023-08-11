@@ -6,6 +6,7 @@ import rbac from './modules/rbac'
 import article from './modules/article'
 import nested from './modules/nested'
 import i18n from './modules/i18n'
+import GUIs from './modules/GUIs'
 import layoutExample from './modules/layoutExample'
 import form from './modules/form'
 import table from './modules/table'
@@ -94,6 +95,8 @@ const asyncRoutes = [
   nested,
 
   i18n,
+
+  GUIs,
 
   layoutExample,
 
