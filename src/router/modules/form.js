@@ -9,11 +9,27 @@ export default {
   },
   children: [
     {
-      path: '/form/basic',
-      component: () => import('@/views/form/basic.vue'),
-      name: 'basicForm',
+      path: '/form/native',
+      component: () => import('@/views/form/native.vue'),
+      name: 'nativeForm',
       meta: {
-        title: 'basic 表单'
+        title: 'native Form'
+      }
+    },
+    {
+      path: '/form/nativeForm',
+      component: () => import('@/views/form/nativeForm.vue'),
+      name: 'nativeFormForm',
+      meta: {
+        title: 'nativeForm Form'
+      }
+    },
+    {
+      path: '/form/vue3',
+      component: () => import('@/views/form/basic.vue'),
+      name: 'vue3Form',
+      meta: {
+        title: 'vue3 Form'
       }
     },
     {
@@ -21,7 +37,7 @@ export default {
       component: () => import('@/views/form/element.vue'),
       name: 'elementForm',
       meta: {
-        title: 'element 表单'
+        title: 'element Form'
       }
     }
   ]

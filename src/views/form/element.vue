@@ -10,8 +10,6 @@ const selectValue = ref('')
 
 <template>
   <div class="view-element-form">
-    <h2>Element Plus 表单元素的基本使用</h2>
-
     <section>
       <p>input: {{ inputValue }}</p>
       <el-input v-model="inputValue"></el-input>

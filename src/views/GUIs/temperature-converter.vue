@@ -5,14 +5,12 @@ const c = ref(0)
 const f = ref(32)
 
 const setC = e => {
-  const value = +e.target.value
-  c.value = value
+  const value = +c.value
   f.value = value * (9 / 5) + 32
 }
 
 const setF = e => {
-  const value = +e.target.value
-  f.value = value
+  const value = +f.value
   c.value = (value - 32) * (5 / 9)
 }
 </script>
@@ -24,9 +22,9 @@ const setF = e => {
       <a href="https://eugenkiss.github.io/7guis/tasks/#temp" target="_blank">Temperature Converter</a>
     </p>
 
-    <input type="number" :value="c" @change="setC" />
+    <input type="number" v-model="c" @change="setC" />
     <span>Celsius =</span>
-    <input type="number" :value="f" @change="setF" />
+    <input type="number" v-model="f" @change="setF" />
     <span>Fahrenheit</span>
   </div>
 </template>

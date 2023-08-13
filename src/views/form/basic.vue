@@ -10,8 +10,6 @@ const selectValue = ref('')
 
 <template>
   <div class="view-basic-form">
-    <h2>Vue3 表单元素的基本使用</h2>
-
     <section>
       <p>textValue: {{ textValue }}</p>
       <div>

@@ -10,7 +10,7 @@ const last = ref('')
 const filteredNames = computed(() => names.filter(n => n.toLowerCase().startsWith(prefix.value.toLowerCase())))
 
 watch(selected, (newVal, oldVal) => {
-  ;[first.value, last.value] = newVal.split(', ')
+  ;[last.value, first.value] = newVal.split(', ')
 })
 
 const validInput = () => {

@@ -10,7 +10,7 @@ const appStore = useAppStore()
   <div class="l-navbar">
     <div class="navbar__left">
       <button class="collapse__btn" @click="appStore.setSidebarWidth(!appStore.collapseSidebar)">
-        <i class="fa-solid" :class="[appStore.collapseSidebar ? ' fa-outdent' : ' fa-indent']"></i>
+        <i class="fa-solid" :class="[appStore.collapseSidebar ? ' fa-indent' : ' fa-outdent']"></i>
       </button>
       <Breadcrumb />
     </div>
