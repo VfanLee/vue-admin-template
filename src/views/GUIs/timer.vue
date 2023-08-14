@@ -1,9 +1,33 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onUnmounted, computed } from 'vue'
 
+const duration = ref(5 * 1000)
 const elapsed = ref(0)
-const progressRate = computed(() => elapsed.value)
-const duration = ref('0')
+
+const progressValue = computed(() => elapsed.value / duration.value)
+
+let lastTime
+let handle
+
+const update = () => {
+  elapsed.value = Date.now() - lastTime
+
+  if (elapsed.value >= duration.value) {
+    cancelAnimationFrame(handle)
+  } else {
+    handle = requestAnimationFrame(update)
+  }
+}
+
+const reset = () => {
+  lastTime = Date.now()
+  elapsed.value = 0
+  update()
+}
+
+reset()
+
+onUnmounted(() => cancelAnimationFrame(handle))
 </script>
 
 <template>
@@ -14,13 +38,17 @@ const duration = ref('0')
     </p>
 
     <div>
-      Elapsed Time:
-      <progress :value="progressRate"></progress>
+      Elapsed：
+      <progress :value="progressValue"></progress>
+      {{ (elapsed / 1000).toFixed(1) }}s
     </div>
 
     <div>
       Duration:
-      <input type="range" v-model="duration" />
+      <input type="range" v-model="duration" :min="1 * 1000" :max="10 * 1000" />
+      {{ (duration / 1000).toFixed(1) }}s
     </div>
+
+    <button @click="reset()">reset</button>
   </div>
 </template>
