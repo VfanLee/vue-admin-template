@@ -1,44 +1,30 @@
 import { defineStore } from 'pinia'
 import defaultSettings from '@/settings'
 import { computed, ref } from 'vue'
-import LayoutOne from '@/layout/components/One/index.vue'
-import LayoutTwo from '@/layout/components/Two/index.vue'
 
 const useAppStore = defineStore('app', () => {
   const settings = ref(defaultSettings)
 
-  const collapseSidebar = ref(false)
-
-  const layout = computed(() => {
-    switch (settings.value.layout) {
-      case 1:
-        return LayoutOne
-      case 2:
-        return LayoutTwo
-      default:
-        return LayoutOne
-    }
-  })
+  const isCollapseSidebar = ref(false)
 
   const sidebarLogo = computed(() => settings.value.sidebarLogo)
-
   const fixedHeader = computed(() => settings.value.fixedHeader)
 
-  const switchLayout = type => {
-    settings.value.layout = type
-  }
+  const collapseSidebar = () => {
+    isCollapseSidebar.value = !isCollapseSidebar.value
 
-  const setSidebarWidth = value => {
-    collapseSidebar.value = value
+    if (isCollapseSidebar.value) {
+      document.documentElement.style.setProperty('--sidebar-width', '48px')
+    } else {
+      document.documentElement.style.setProperty('--sidebar-width', '208px')
+    }
   }
 
   return {
-    collapseSidebar,
-    layout,
+    isCollapseSidebar,
     sidebarLogo,
     fixedHeader,
-    switchLayout,
-    setSidebarWidth
+    collapseSidebar
   }
 })
 

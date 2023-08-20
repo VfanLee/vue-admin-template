@@ -10,6 +10,7 @@ import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon.vue'
 
 import 'normalize.css'
+import './styles/variable.css'
 import './styles/index.scss'
 
 const app = createApp(App)

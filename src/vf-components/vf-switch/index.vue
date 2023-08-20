@@ -50,7 +50,7 @@ const $emit = defineEmits(['update:modelValue'])
 
   &.is-checked {
     .vf-switch__core {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
     }
 
     .vf-switch__action {

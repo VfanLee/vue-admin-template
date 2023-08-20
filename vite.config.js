@@ -24,7 +24,6 @@ export default defineConfig({
       scss: {
         additionalData: `
         @use "@/styles/element/var.scss" as *;
-        @use "@/styles/variable.scss" as *;
         `
       }
     }

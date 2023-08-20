@@ -1,13 +1,16 @@
 <script setup>
-import useAppStore from '@/store/modules/app'
-import LayoutOne from '@/layout/components/One/index.vue'
-
-const appStore = useAppStore()
+import '@/styles/layout/index.scss'
+import Sidebar from './Sidebar/index.vue'
+import Navbar from './Navbar/index.vue'
+import AppMain from './AppMain/index.vue'
 </script>
 
 <template>
-  <!-- <KeepAlive>
-    <component :is="appStore.layout"></component>
-  </KeepAlive> -->
-  <LayoutOne />
+  <div class="l-container">
+    <Sidebar />
+    <div class="l-main__wrap">
+      <Navbar />
+      <AppMain />
+    </div>
+  </div>
 </template>
