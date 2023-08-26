@@ -1,41 +1,26 @@
-<script setup></script>
+<script setup>
+import { ref, watch, nextTick } from 'vue'
+import useAppStore from '@/store/modules/app'
+
+const appStore = useAppStore()
+
+const flag = ref(true)
+
+watch(
+  () => appStore.refresh,
+  () => {
+    flag.value = false
+    nextTick(() => {
+      flag.value = true
+    })
+  }
+)
+</script>
 
 <template>
   <div class="app-main">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem. -- start</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, rem.</p>
+    <RouterView v-slot="{ Component, route }" v-if="flag">
+      <component :is="Component" :key="route.path" />
+    </RouterView>
   </div>
 </template>

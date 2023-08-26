@@ -1,4 +1,5 @@
 <script setup>
+console.log('loading...')
 </script>
 
 <template>

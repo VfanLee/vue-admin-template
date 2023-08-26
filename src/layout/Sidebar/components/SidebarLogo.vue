@@ -7,7 +7,7 @@ const appStore = useAppStore()
 <template>
   <a class="sidebar-logo" href="javascript:;">
     <img src="@/assets/vite.svg" alt="logo" />
-    <h1 v-show="!appStore.isCollapseSidebar">Admin Template</h1>
+    <h1 v-show="!appStore.isCollapse">Admin Template</h1>
   </a>
 </template>
 

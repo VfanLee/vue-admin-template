@@ -9,8 +9,8 @@ const logout = () => {
 </script>
 
 <template>
-  <el-dropdown trigger="click">
-    <div class="user-info">
+  <el-dropdown class="user-info" trigger="click">
+    <div class="user-info__inner">
       <img :src="userStore.userInfo.avatar" alt="avatar" />
       <span>{{ userStore.userInfo.name }}</span>
     </div>
@@ -23,7 +23,7 @@ const logout = () => {
 </template>
 
 <style lang="scss" scoped>
-.user-info {
+.user-info__inner {
   display: flex;
   align-items: center;
   cursor: pointer;

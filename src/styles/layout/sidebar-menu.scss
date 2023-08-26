@@ -1,0 +1,45 @@
+.sidebar-menu {
+  --el-menu-bg-color: #081527;
+  --el-menu-hover-bg-color: #081527;
+  --el-menu-text-color: rgba(255, 255, 255, 0.6);
+  --el-menu-active-color: #fff;
+  --el-menu-base-level-padding: 20px;
+}
+
+.sidebar-menu {
+  border-right: none;
+
+  &.el-menu--collapse {
+    width: var(--sidebar-width);
+
+    .svg-icon {
+      margin-right: 0;
+    }
+
+    .el-sub-menu__title {
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .svg-icon {
+    margin-right: 6px;
+    line-height: normal;
+    transition: all 0.3s;
+  }
+
+  .el-menu-item {
+    .el-menu-tooltip__trigger {
+      justify-content: center;
+      padding: 0;
+    }
+  }
+}
+
+.el-sub-menu {
+  &.is-active {
+    .el-sub-menu__title {
+      color: #fff;
+    }
+  }
+}

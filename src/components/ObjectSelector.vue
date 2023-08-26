@@ -8,6 +8,11 @@ const props = defineProps({
     type: String,
     default: 'radio' // or checkbox
   },
+  // 尺寸
+  side: {
+    type: [Number, String],
+    default: '20%'
+  },
   // 是否显示
   visible: {
     type: Boolean,
@@ -51,7 +56,7 @@ const sureCheck = () => {
 </script>
 
 <template>
-  <el-drawer class="object__selector" :modelValue="visible" @update:modelValue="val => $emit('update:visible', val)">
+  <el-drawer class="object__selector" :modelValue="visible" @update:modelValue="val => $emit('update:visible', val)" :size="side">
     <template #header>
       <div>
         <h3 class="title">{{ title }}</h3>
