@@ -9,24 +9,25 @@ const tokens = {
 
 const users = {
   'admin-token': {
-    roles: ['admin'],
+    name: 'Super Admin',
     introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Super Admin'
+    avatar: 'src/assets/vite.svg',
+    roles: ['admin']
   },
   'editor-token': {
-    roles: ['editor'],
+    name: 'Normal Editor',
     introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
+    avatar: 'src/assets/vite.svg',
+    roles: ['editor']
   }
 }
 
 export default [
+  // 登录
   {
     url: '/mock/user/login',
     method: 'post',
-    timeout: 500,
+    timeout: 0,
     response: data => {
       const { username } = data.body
 
@@ -46,10 +47,11 @@ export default [
     }
   },
 
+  // 获取用户信息
   {
     url: '/mock/user/info',
     method: 'get',
-    timeout: 500,
+    timeout: 0,
     response: data => {
       const { token } = data.query
 

@@ -1,23 +1,24 @@
 import { createApp } from 'vue'
-import pinia from './store'
-import i18n from './locale'
+import i18n from './i18n'
+import store from './store'
 import router from './router'
+import './router/permission'
+import { name, version } from '../package.json'
 
-import './permission'
-
-import App from './App.vue'
 import 'virtual:svg-icons-register'
-import SvgIcon from '@/components/SvgIcon.vue'
+import App from './App.vue'
 
 import 'normalize.css'
-import './styles/variable.css'
+import './styles/theme/index.scss'
 import './styles/index.scss'
 
 const app = createApp(App)
 
-app.component('SvgIcon', SvgIcon)
+app.use(i18n)
+app.use(store)
+app.use(router)
 
-app.use(pinia)
-   .use(i18n)
-   .use(router)
-   .mount('#app')
+app.mount('#app')
+
+// log version
+console.log(`%c${name}%cv${version}`, 'padding: 2px 6px; border-radius: 4px 0 0 4px; background-color: #000000; color: #ffffff; font-size: 12px;', 'padding: 2px 6px; border-radius: 0 4px 4px 0; background-color: #ffffff; color: #000000; font-size: 12px;')

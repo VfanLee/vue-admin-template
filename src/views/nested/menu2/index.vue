@@ -12,6 +12,7 @@
   padding: 20px;
   border-radius: 8px;
   background-color: #defcd6;
+  color: #000;
 
   .nested-text {
     padding: 12px;

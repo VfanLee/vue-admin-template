@@ -5,9 +5,9 @@ const appStore = useAppStore()
 </script>
 
 <template>
-  <a class="sidebar-logo" href="javascript:;">
-    <img src="@/assets/vite.svg" alt="logo" />
-    <h1 v-show="!appStore.isCollapse">Admin Template</h1>
+  <a class="sidebar-logo" href="javascript:;" v-if="!appStore.isHideLogo">
+    <img v-show="appStore.isCollapseSidebar" src="@/assets/vite.svg" alt="logo" />
+    <h1 v-show="!appStore.isCollapseSidebar">Vue3 Admin Template</h1>
   </a>
 </template>
 
@@ -16,10 +16,10 @@ const appStore = useAppStore()
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 64px;
+  height: 68px;
   text-decoration: none;
   white-space: nowrap;
-  color: #fff;
+  color: var(--text-color-primary);
 
   img {
     width: 32px;
@@ -27,9 +27,9 @@ const appStore = useAppStore()
   }
 
   h1 {
-    margin: 0 0 0 10px;
+    margin: 0;
     font-size: 18px;
-    font-weight: 500;
+    font-family: 'Pacifico', cursive;
   }
 }
 </style>

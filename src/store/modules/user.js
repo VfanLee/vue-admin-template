@@ -1,40 +1,57 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import router from '@/router'
 import { reqLogin, reqUserInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
-const useUserStore = defineStore('user', () => {
-  const token = ref(getToken())
-  const userInfo = ref(null)
+import usePermissionStore from './permission'
+import { constantRoutes } from '@/router/routes'
 
-  const login = async data => {
-    const res = await reqLogin(data)
-    if (res.code === 200) {
-      token.value = res.result.token
-      setToken(res.result.token)
-      return 'ok'
-    } else {
-      return Promise.reject(new Error(res.message))
+const useUserStore = defineStore('user', {
+  state: () => ({
+    token: getToken(),
+    userInfo: {}
+  }),
+
+  getters: {
+    menus: state => state.permission.menus,
+    roles: state => state.roles
+  },
+
+  actions: {
+    async login(data) {
+      const { code, result, message } = await reqLogin(data)
+      if (code === 200) {
+        this.token = result.token
+        setToken(result.token)
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(message))
+      }
+    },
+
+    async getUserInfo() {
+      const { code, result, message } = await reqUserInfo(this.token)
+      if (code === 200) {
+        this.userInfo = result
+        return result
+      } else {
+        return Promise.reject(new Error(message))
+      }
+    },
+
+    logout() {
+      const permissionStore = usePermissionStore()
+
+      this.token = ''
+      this.userInfo = {}
+      removeToken()
+
+      permissionStore.routes = [...constantRoutes]
+      permissionStore.addRoutes = []
+
+      router.replace({ path: '/login' })
     }
   }
-
-  const getUserInfo = async () => {
-    const res = await reqUserInfo(token.value)
-    if (res.code === 200) {
-      userInfo.value = res.result
-    } else {
-      return Promise.reject(new Error(res.message))
-    }
-  }
-
-  const logout = () => {
-    token.value = ''
-    removeToken()
-    router.replace({ path: '/login' })
-  }
-
-  return { token, userInfo, login, getUserInfo, logout }
 })
 
 export default useUserStore

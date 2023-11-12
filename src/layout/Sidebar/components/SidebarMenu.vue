@@ -1,22 +1,21 @@
 <script setup>
-import '@/styles/layout/sidebar-menu.scss'
+import '@/styles/components/sidebar-menu.scss'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-import SidebarMenuItem from './SidebarMenuItem.vue'
-import { filterRoutes, generateMenus } from '@/utils/route'
 import useAppStore from '@/store/modules/app'
+import usePermissionStore from '@/store/modules/permission'
+import { filterRoutes } from '@/utils/route'
 
-const $router = useRouter()
+import SidebarMenuItem from './SidebarMenuItem.vue'
+
 const appStore = useAppStore()
-const routes = computed(() => generateMenus(filterRoutes($router.getRoutes())))
+const permissionStore = usePermissionStore()
 
-// console.log('getRoutes(): ', $router.getRoutes())
-// console.log('filterRoutes(): ', filterRoutes($router.getRoutes()))
-// console.log('generateMenus(): ', generateMenus(filterRoutes($router.getRoutes())))
+const routeMenus = computed(() => filterRoutes(permissionStore.routes))
+console.log('路由菜单', routeMenus.value)
 </script>
 
 <template>
-  <el-menu class="sidebar-menu" router :default-active="$route.meta.activeMenu || $route.path" :collapse="appStore.isCollapse" :collapse-transition="true">
-    <SidebarMenuItem v-for="route of routes" :key="route.path" :route="route" />
+  <el-menu class="sidebar-menu" router :default-active="$route.fullPath" :collapse="appStore.isCollapseSidebar" :collapse-transition="false">
+    <SidebarMenuItem v-for="menuItem in routeMenus" :key="menuItem.path" :item="menuItem" />
   </el-menu>
 </template>

@@ -1,54 +1,75 @@
 import { defineStore } from 'pinia'
-import defaultSettings from '@/settings'
-import { computed, ref } from 'vue'
+import { generateColorPalette } from '@/utils/color'
+import { getCacheSettings, setCacheSettings, getTheme, setCacheTheme, getCachePrimaryColor, setCachePrimaryColor } from '@/utils/app'
+import layoutDefaultSettings from '@/layout/settings'
 
-const useAppStore = defineStore('app', () => {
-  const settings = ref(defaultSettings)
+const useAppStore = defineStore('app', {
+  state: () => ({
+    theme: getTheme(),
+    primaryColor: '',
+    settings: getCacheSettings() || layoutDefaultSettings
+  }),
 
-  // AppMain 刷新
-  const refresh = ref(false)
-  const changeRefresh = () => {
-    refresh.value = !refresh.value
-  }
+  getters: {
+    isCollapseSidebar: state => state.settings.isCollapseSidebar,
+    isFixedSidebar: state => state.settings.isFixedSidebar,
+    isFixedNavbar: state => state.settings.isFixedNavbar,
+    isHideSidebar: state => state.settings.isHideSidebar,
+    isHideNavbar: state => state.settings.isHideNavbar,
+    isHideLogo: state => state.settings.isHideLogo,
+    isHidePageFooter: state => state.settings.isHidePageFooter
+  },
 
-  const sidebarLogo = computed(() => settings.value.sidebarLogo)
-  const fixedHeader = computed(() => settings.value.fixedHeader)
+  actions: {
+    setTheme(value) {
+      this.theme = value
 
-  // 收缩 Sidebar
-  const isCollapse = ref(false)
-  const collapseSidebar = () => {
-    isCollapse.value = !isCollapse.value
+      document.documentElement.dataset.theme = value
+      // 同步主色调
+      this.primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary')
 
-    if (isCollapse.value) {
-      document.documentElement.style.setProperty('--sidebar-width', '48px')
-    } else {
-      document.documentElement.style.setProperty('--sidebar-width', '208px')
+      // 持久化
+      setCacheTheme(value)
+    },
+    initPrimaryColor() {
+      const cachePrimaryColor = getCachePrimaryColor()
+
+      if (cachePrimaryColor) {
+        document.documentElement.style.setProperty(`--color-primary`, cachePrimaryColor)
+        const lightColorPalette = generateColorPalette(cachePrimaryColor, '#ffffff', 11)
+        for (let i = 1; i < lightColorPalette.length - 1; i++) {
+          document.documentElement.style.setProperty(`--color-primary-light-${i}`, lightColorPalette[i])
+        }
+        const darkColorPalette = generateColorPalette(cachePrimaryColor, '#000000', 11)
+        for (let i = 1; i < darkColorPalette.length - 1; i++) {
+          document.documentElement.style.setProperty(`--color-primary-dark-${i}`, darkColorPalette[i])
+        }
+      }
+
+      this.primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary')
+    },
+    setPrimaryColor(color) {
+      this.primaryColor = color
+
+      document.documentElement.style.setProperty(`--color-primary`, color)
+      const lightColorPalette = generateColorPalette(color, '#ffffff', 11)
+      for (let i = 1; i < lightColorPalette.length - 1; i++) {
+        document.documentElement.style.setProperty(`--color-primary-light-${i}`, lightColorPalette[i])
+      }
+      const darkColorPalette = generateColorPalette(color, '#000000', 11)
+      for (let i = 1; i < darkColorPalette.length - 1; i++) {
+        document.documentElement.style.setProperty(`--color-primary-dark-${i}`, darkColorPalette[i])
+      }
+
+      // 持久化
+      setCachePrimaryColor(color)
+    },
+    setSettings(key, value) {
+      this.settings[key] = value
+
+      // 持久化
+      setCacheSettings(this.settings)
     }
-  }
-
-  // 固定 Sidebar
-  const isFixedSidebar = ref(true)
-  const fixedSidebar = () => {
-    isFixedSidebar.value = !isFixedSidebar.value
-  }
-
-  // 固定 Navbar
-  const isFixedNavbar = ref(true)
-  const fixedNavbar = () => {
-    isFixedNavbar.value = !isFixedNavbar.value
-  }
-
-  return {
-    refresh,
-    isCollapse,
-    isFixedSidebar,
-    isFixedNavbar,
-    sidebarLogo,
-    fixedHeader,
-    changeRefresh,
-    collapseSidebar,
-    fixedSidebar,
-    fixedNavbar
   }
 })
 

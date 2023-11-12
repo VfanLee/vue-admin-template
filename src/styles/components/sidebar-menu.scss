@@ -1,0 +1,22 @@
+.sidebar-menu {
+  .svg-icon {
+    margin-right: 8px;
+    width: var(--el-menu-icon-width);
+    font-size: 16px;
+  }
+
+  &.el-menu--collapse {
+    .svg-icon {
+      margin-right: 0px;
+    }
+  }
+
+  // 父级菜单高亮
+  .el-sub-menu {
+    &.is-active {
+      > .el-sub-menu__title {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

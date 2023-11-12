@@ -1,5 +1,4 @@
 <script setup>
-import '@/styles/components/svg-icon.scss'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -13,7 +12,7 @@ const props = defineProps({
   },
   fontSize: {
     type: String,
-    default: '1em'
+    default: ''
   },
   color: {
     type: String,
@@ -31,3 +30,12 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`)
     </svg>
   </i>
 </template>
+
+<style lang="scss">
+.svg-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+</style>

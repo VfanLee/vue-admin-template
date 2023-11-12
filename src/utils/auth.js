@@ -1,13 +1,13 @@
 import Cookies from 'js-cookie'
 
-export const getToken = () => {
+export function getToken() {
   return Cookies.get('token') || ''
 }
 
-export const setToken = token => {
+export function setToken(token) {
   return Cookies.set('token', token)
 }
 
-export const removeToken = () => {
+export function removeToken() {
   return Cookies.remove('token')
 }

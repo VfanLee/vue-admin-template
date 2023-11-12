@@ -2,10 +2,6 @@
 import useUserStore from '@/store/modules/user'
 
 const userStore = useUserStore()
-
-const logout = () => {
-  userStore.logout()
-}
 </script>
 
 <template>
@@ -16,7 +12,7 @@ const logout = () => {
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
+        <el-dropdown-item @click="userStore.logout()">{{ $t('logout') }}</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -30,9 +26,10 @@ const logout = () => {
   user-select: none;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     margin-right: 6px;
+    border-radius: 6px;
   }
 
   span {

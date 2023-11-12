@@ -2,10 +2,9 @@
 import { reactive, ref } from 'vue'
 import useUserStore from '@/store/modules/user'
 import { useRouter } from 'vue-router'
-import helloTime from '@/utils/helloTime'
 
 const userStore = useUserStore()
-const $router = useRouter()
+const router = useRouter()
 
 const loginFormRef = ref()
 const passwordItemRef = ref()
@@ -30,10 +29,10 @@ const login = async formEl => {
       try {
         isLoading.value = true
         await userStore.login(loginForm)
-        await $router.replace({ path: '/' })
+        await router.replace({ path: '/' })
         ElNotification({
           type: 'success',
-          ...helloTime()
+          message: '登录成功'
         })
       } catch (error) {
         passwordItemRef.value.validateState = 'error'
