@@ -11,6 +11,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 
 // https://cn.vitejs.dev/config/
 export default defineConfig({
+  base: '/vue3-admin-template',
   plugins: [
     vue(),
     AutoImport({
@@ -36,6 +37,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    outDir: 'dist'
   },
   server: {
     host: 'localhost',
