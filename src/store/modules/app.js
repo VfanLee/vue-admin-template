@@ -1,23 +1,15 @@
 import { defineStore } from 'pinia'
 import { getSettings, saveSettings, getTheme, saveTheme, getPrimaryColor, setPagePrimaryColor, savePrimaryColor } from '@/utils/app'
 
-// init theme
-const theme = getTheme()
-document.documentElement.dataset.theme = theme
-
-// init primaryColor
-const { primaryColor, isCache: isCachePrimaryColor } = getPrimaryColor()
-if (isCachePrimaryColor) {
-  setPagePrimaryColor(primaryColor)
-}
-
 const useAppStore = defineStore('app', {
-  state: () => ({
-    theme,
-    primaryColor,
-    isCollapse: false,
-    settings: getSettings()
-  }),
+  state: () => {
+    return {
+      theme: '',
+      primaryColor: '',
+      isCollapse: false,
+      settings: getSettings()
+    }
+  },
 
   getters: {
     isFixedSidebar: state => state.settings.isFixedSidebar,
@@ -29,6 +21,19 @@ const useAppStore = defineStore('app', {
   },
 
   actions: {
+    init() {
+      // 初始化主题
+      const theme = getTheme()
+      document.documentElement.dataset.theme = theme
+      this.theme = theme
+
+      // 初始化主色调
+      const { primaryColor, isCache: isCachePrimaryColor } = getPrimaryColor()
+      if (isCachePrimaryColor) {
+        setPagePrimaryColor(primaryColor)
+      }
+      this.primaryColor = primaryColor
+    },
     setTheme(value) {
       this.theme = value
 

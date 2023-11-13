@@ -17,7 +17,6 @@ const navbarWidth = computed(() => {
 
 const isFullscreen = ref(false)
 const toggleFullscreen = () => {
-  debugger
   if (document.fullscreenEnabled) {
     if (document.fullscreenElement) {
       document.exitFullscreen()

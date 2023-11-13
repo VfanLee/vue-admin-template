@@ -11,13 +11,13 @@ const users = {
   'admin-token': {
     name: 'Super Admin',
     introduction: 'I am a super administrator',
-    avatar: 'src/assets/vite.svg',
+    avatar: 'https://picsum.photos/24/24',
     roles: ['admin']
   },
   'editor-token': {
     name: 'Normal Editor',
     introduction: 'I am an editor',
-    avatar: 'src/assets/vite.svg',
+    avatar: 'https://picsum.photos/24/24',
     roles: ['editor']
   }
 }
