@@ -37,7 +37,7 @@ export function getTheme() {
   } else {
     const now = new Date()
     const hours = now.getHours()
-    if (hours >= 6 || hours < 18) {
+    if (hours >= 6 && hours < 18) {
       theme = 'light'
     } else {
       theme = 'dark'
