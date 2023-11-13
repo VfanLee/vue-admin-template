@@ -19,6 +19,7 @@
   "confirm": "确认",
   "cancel": "取消",
   "logout": "退出登录",
+  "switchLangTips": "切换语言成功",
   "layoutSettings": "布局设置",
   "globalStyle": "整体风格设置",
   "darkMode": "暗黑模式",

@@ -1,6 +1,10 @@
 <script setup>
 import useLangStore from '@/store/modules/lang'
+import { useI18n } from 'vue-i18n'
+
 const langStore = useLangStore()
+
+const { t } = useI18n()
 
 const langOptions = {
   zh: '简体中文',
@@ -13,7 +17,7 @@ const handleCommand = c => {
 
     ElMessage({
       type: 'success',
-      message: '切换语言成功'
+      message: t('switchLangTips')
     })
   }
 }
