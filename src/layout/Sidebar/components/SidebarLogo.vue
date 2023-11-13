@@ -6,8 +6,8 @@ const appStore = useAppStore()
 
 <template>
   <a class="sidebar-logo" href="javascript:;" v-if="!appStore.isHideLogo">
-    <img v-show="appStore.isCollapseSidebar" src="@/assets/vite.svg" alt="logo" />
-    <h1 v-show="!appStore.isCollapseSidebar">Vue3 Admin Template</h1>
+    <img v-show="appStore.isCollapse" src="@/assets/vite.svg" alt="logo" />
+    <h1 v-show="!appStore.isCollapse">Vue3 Admin Template</h1>
   </a>
 </template>
 

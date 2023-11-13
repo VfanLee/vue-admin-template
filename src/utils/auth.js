@@ -1,13 +1,24 @@
 import Cookies from 'js-cookie'
 
+/**
+ * 获取保存的 token
+ * @returns {String}
+ */
 export function getToken() {
   return Cookies.get('token') || ''
 }
 
+/**
+ * 持久化用户 token
+ * @param {String} token token
+ */
 export function setToken(token) {
-  return Cookies.set('token', token)
+  Cookies.set('token', token)
 }
 
+/**
+ * 移除用户 token
+ */
 export function removeToken() {
-  return Cookies.remove('token')
+  Cookies.remove('token')
 }

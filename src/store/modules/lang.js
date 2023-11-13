@@ -16,7 +16,7 @@ const langStore = defineStore('lang', {
 
       i18n.global.locale.value = value
       document.documentElement.setAttribute('lang', value)
-      // 更新 document.title
+      // 同步更新 document.title
       document.title = getI18nTitle(router.currentRoute.value.meta.title)
 
       // 持久化

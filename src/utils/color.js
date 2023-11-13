@@ -1,7 +1,7 @@
 /**
- * 十六进制欢RGB
- * @param {*} hex 十六进制
- * @returns
+ * 十六进制转RGB
+ * @param {String} hex 十六进制
+ * @returns {{r, g, b}} RGB 对象
  */
 export function hexToRGB(hex) {
   // 去除可能存在的 # 符号
@@ -17,10 +17,10 @@ export function hexToRGB(hex) {
 
 /**
  * RGB转十六进制
- * @param {*} r Red
- * @param {*} g Green
- * @param {*} b Blue
- * @returns
+ * @param {Number} r Red
+ * @param {Number} g Green
+ * @param {Number} b Blue
+ * @returns {String} 十六进制字符
  */
 export function RGBToHex(r, g, b) {
   // 将 R, G, B 值转换为十六进制，并补齐两位
@@ -34,8 +34,8 @@ export function RGBToHex(r, g, b) {
 /**
  * 混合颜色
  * @param {Array} colors 混合颜色数组
- * @param {number} ratio 混合比例：默认 1
- * @returns
+ * @param {number} ratio 混合比例：默认 1:1
+ * @returns {String} 十六进制字符
  */
 export function blendColors(colors, ratio = 1) {
   // 初始化混合后的颜色为黑色
@@ -65,10 +65,10 @@ export function blendColors(colors, ratio = 1) {
 
 /**
  * 生成色板
- * @param {*} primaryColor 主色
- * @param {*} backgroundColor 底色
- * @param {*} numColors 色板阶层
- * @returns
+ * @param {String} primaryColor 主色
+ * @param {String} backgroundColor 底色
+ * @param {Number} numColors 色板阶层
+ * @returns {Array}
  */
 export function generateColorPalette(primaryColor, backgroundColor, numColors = 11) {
   // 解析主色和底色

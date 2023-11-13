@@ -16,7 +16,7 @@ for (let i = 0; i < count; i++) {
 
 export default [
   {
-    url: '/mock/article/list',
+    url: '/vue3-admin-template/article/list',
     type: 'get',
     response: config => {
       return {

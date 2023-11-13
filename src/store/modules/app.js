@@ -1,17 +1,25 @@
 import { defineStore } from 'pinia'
-import { generateColorPalette } from '@/utils/color'
-import { getCacheSettings, setCacheSettings, getTheme, setCacheTheme, getCachePrimaryColor, setCachePrimaryColor } from '@/utils/app'
-import layoutDefaultSettings from '@/layout/settings'
+import { getSettings, saveSettings, getTheme, saveTheme, getPrimaryColor, setPagePrimaryColor, savePrimaryColor } from '@/utils/app'
+
+// init theme
+const theme = getTheme()
+document.documentElement.dataset.theme = theme
+
+// init primaryColor
+const { primaryColor, isCache: isCachePrimaryColor } = getPrimaryColor()
+if (isCachePrimaryColor) {
+  setPagePrimaryColor(primaryColor)
+}
 
 const useAppStore = defineStore('app', {
   state: () => ({
-    theme: getTheme(),
-    primaryColor: '',
-    settings: getCacheSettings() || layoutDefaultSettings
+    theme,
+    primaryColor,
+    isCollapse: false,
+    settings: getSettings()
   }),
 
   getters: {
-    isCollapseSidebar: state => state.settings.isCollapseSidebar,
     isFixedSidebar: state => state.settings.isFixedSidebar,
     isFixedNavbar: state => state.settings.isFixedNavbar,
     isHideSidebar: state => state.settings.isHideSidebar,
@@ -25,50 +33,23 @@ const useAppStore = defineStore('app', {
       this.theme = value
 
       document.documentElement.dataset.theme = value
-      // 同步主色调
+      // 更换主题时，更新主色调
       this.primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary')
-
-      // 持久化
-      setCacheTheme(value)
-    },
-    initPrimaryColor() {
-      const cachePrimaryColor = getCachePrimaryColor()
-
-      if (cachePrimaryColor) {
-        document.documentElement.style.setProperty(`--color-primary`, cachePrimaryColor)
-        const lightColorPalette = generateColorPalette(cachePrimaryColor, '#ffffff', 11)
-        for (let i = 1; i < lightColorPalette.length - 1; i++) {
-          document.documentElement.style.setProperty(`--color-primary-light-${i}`, lightColorPalette[i])
-        }
-        const darkColorPalette = generateColorPalette(cachePrimaryColor, '#000000', 11)
-        for (let i = 1; i < darkColorPalette.length - 1; i++) {
-          document.documentElement.style.setProperty(`--color-primary-dark-${i}`, darkColorPalette[i])
-        }
-      }
-
-      this.primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary')
+      saveTheme(value)
     },
     setPrimaryColor(color) {
       this.primaryColor = color
 
-      document.documentElement.style.setProperty(`--color-primary`, color)
-      const lightColorPalette = generateColorPalette(color, '#ffffff', 11)
-      for (let i = 1; i < lightColorPalette.length - 1; i++) {
-        document.documentElement.style.setProperty(`--color-primary-light-${i}`, lightColorPalette[i])
-      }
-      const darkColorPalette = generateColorPalette(color, '#000000', 11)
-      for (let i = 1; i < darkColorPalette.length - 1; i++) {
-        document.documentElement.style.setProperty(`--color-primary-dark-${i}`, darkColorPalette[i])
-      }
-
-      // 持久化
-      setCachePrimaryColor(color)
+      setPagePrimaryColor(color)
+      savePrimaryColor(color)
+    },
+    setCollapse(state) {
+      this.isCollapse = state
     },
     setSettings(key, value) {
       this.settings[key] = value
 
-      // 持久化
-      setCacheSettings(this.settings)
+      saveSettings(this.settings)
     }
   }
 })

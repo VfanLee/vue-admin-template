@@ -1,5 +1,7 @@
 /**
- * 判断数据是否为空值
+ * 判断对象或数组是否为空值
+ * @param {Object|Array} data 对象或数组
+ * @returns {Boolean}
  */
 export function isNull(data) {
   if (!data || JSON.stringify(data) === '{}' || JSON.stringify(data) === '[]') {
@@ -11,8 +13,8 @@ export function isNull(data) {
 
 /**
  * 判断是否是一个空对象
- * @param {*} obj
- * @returns
+ * @param {Object} obj 对象
+ * @returns {Boolean}
  */
 export function isEmptyObject(obj) {
   for (var key in obj) {
@@ -25,8 +27,8 @@ export function isEmptyObject(obj) {
 
 /**
  * 判断是否是一个空数组
- * @param {*} arr
- * @returns
+ * @param {Array} arr 数组
+ * @returns {Boolean}
  */
 export function isEmptyArray(arr) {
   return Array.isArray(arr) && arr.length === 0

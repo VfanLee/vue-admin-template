@@ -25,7 +25,7 @@ const users = {
 export default [
   // 登录
   {
-    url: '/mock/user/login',
+    url: '/vue3-admin-template/user/login',
     method: 'post',
     timeout: 0,
     response: data => {
@@ -49,7 +49,7 @@ export default [
 
   // 获取用户信息
   {
-    url: '/mock/user/info',
+    url: '/vue3-admin-template/user/info',
     method: 'get',
     timeout: 0,
     response: data => {

@@ -5,8 +5,8 @@ const appStore = useAppStore()
 </script>
 
 <template>
-  <div class="sidebar-collapse-button" @click="appStore.setSettings('isCollapseSidebar', !appStore.isCollapseSidebar)">
-    <i class="fa-solid" :class="[appStore.isCollapseSidebar ? 'fa-indent' : 'fa-outdent']"></i>
+  <div class="sidebar-collapse-button" @click="appStore.setCollapse(!appStore.isCollapse)">
+    <i class="fa-solid" :class="[appStore.isCollapse ? 'fa-indent' : 'fa-outdent']"></i>
   </div>
 </template>
 

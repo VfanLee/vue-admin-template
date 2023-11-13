@@ -12,7 +12,7 @@ const navbarWidth = computed(() => {
   if (!appStore.isFixedNavbar || appStore.isHideSidebar) {
     return ''
   }
-  return `calc(100% - ${appStore.isCollapseSidebar ? '48px' : '208px'})`
+  return `calc(100% - ${appStore.isCollapse ? '48px' : '208px'})`
 })
 
 const isFullscreen = ref(false)

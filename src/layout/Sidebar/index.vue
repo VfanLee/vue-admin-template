@@ -11,10 +11,9 @@ const appStore = useAppStore()
   <div
     class="l-sidebar"
     :class="{
-      'is-collapse': appStore.isCollapseSidebar,
+      'is-collapse': appStore.isCollapse,
       'is-hide': appStore.isHideSidebar
     }"
-    @resize="e => console.log(e)"
   >
     <div class="l-sidebar__inner" :class="{ 'is-fixed': appStore.isFixedSidebar }">
       <div class="l-sidebar__header">

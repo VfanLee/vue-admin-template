@@ -1,5 +1,4 @@
 export default {
-  isCollapseSidebar: false,
   isFixedSidebar: true,
   isFixedNavbar: true,
   isHideSidebar: false,
