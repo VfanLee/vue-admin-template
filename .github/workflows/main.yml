@@ -1,4 +1,4 @@
-name: ci
+name: Build and Deploy
 
 on:
   push:
@@ -28,4 +28,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-          token: Github_Actions
+          token: ${{ secrets.Workflow }}
