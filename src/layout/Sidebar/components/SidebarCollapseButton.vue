@@ -16,7 +16,7 @@ const appStore = useAppStore()
   justify-content: flex-start;
   align-items: center;
   height: 48px;
-  padding: 0 15px;
+  padding: 0 12px;
   user-select: none;
   cursor: pointer;
   transition: 0.2s;

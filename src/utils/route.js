@@ -2,8 +2,8 @@ import { resolve } from 'path-browserify'
 
 /**
  * 使用 meta.role 判断当前用户是否有权限
- * @param {Array} roles 角色组
- * @param {Object} route 路由对象
+ * @param {any[]} roles 角色组
+ * @param {any} route 路由对象
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
@@ -15,9 +15,9 @@ function hasPermission(roles, route) {
 
 /**
  * 根据角色过滤异步路由表，来生成动态路由表
- * @param {Array} routes 异步路由表
- * @param {Array} roles 角色列表
- * @returns {Array}
+ * @param {any[]} routes 异步路由表
+ * @param {any[]} roles 角色列表
+ * @returns {any[]}
  */
 export function filterAsyncRoutes(routes, roles) {
   const res = []
@@ -37,9 +37,9 @@ export function filterAsyncRoutes(routes, roles) {
 
 /**
  * 生成路由菜单
- * @param {Array} routes 路由表
- * @param {String} basePath 基础路径
- * @returns {Array}
+ * @param {any[]} routes 路由表
+ * @param {string} basePath 基础路径
+ * @returns {any[]}
  */
 export function generateRouteMenus(routes, basePath = '/') {
   return routes

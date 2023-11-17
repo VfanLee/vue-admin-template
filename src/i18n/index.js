@@ -18,7 +18,7 @@ const messages = {
 
 /**
  * 获取默认语言
- * @returns {String}
+ * @returns {string}
  */
 function getDefaultLang() {
   const cacheLang = getCacheLang()

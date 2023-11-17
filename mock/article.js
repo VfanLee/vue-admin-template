@@ -8,7 +8,7 @@ for (let i = 0; i < count; i++) {
     Mock.mock({
       id: '@increment',
       title: '@ctitle(5, 10)',
-      cover: 'https://wpimg.wallstcn.com/e4558086-631c-425c-9430-56ffb46e70b3',
+      cover: 'https://picsum.photos/32/32',
       author: '@cname'
     })
   )
@@ -18,7 +18,7 @@ export default [
   {
     url: '/vue3-admin-template/article/list',
     type: 'get',
-    response: config => {
+    response: ({ body, query, headers, url }) => {
       return {
         code: 200,
         message: 'success',

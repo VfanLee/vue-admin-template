@@ -19,7 +19,7 @@ const langStore = defineStore('lang', {
       // 同步更新 document.title
       document.title = getI18nTitle(router.currentRoute.value.meta.title)
 
-      // 持久化
+      // 本地缓存
       setCacheLang(value)
     }
   }

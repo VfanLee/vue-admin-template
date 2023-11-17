@@ -28,9 +28,8 @@ export default [
     url: '/vue3-admin-template/user/login',
     method: 'post',
     timeout: 0,
-    response: data => {
-      const { username } = data.body
-
+    response: ({ body, query, headers, url }) => {
+      const { username } = body
       const token = tokens[username]
       if (token) {
         return {
@@ -52,9 +51,8 @@ export default [
     url: '/vue3-admin-template/user/info',
     method: 'get',
     timeout: 0,
-    response: data => {
-      const { token } = data.query
-
+    response: ({ body, query, headers, url }) => {
+      const token = headers.authorization
       const user = users[token]
       if (user) {
         return {

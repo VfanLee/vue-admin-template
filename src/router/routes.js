@@ -31,7 +31,7 @@ export const constantRoutes = [
     component: () => import('@/views/login/index.vue'),
     name: 'Login',
     meta: {
-      title: '登录',
+      title: 'login',
       allowlist: true
     },
     hidden: true

@@ -1,33 +1,31 @@
 import i18n from '@/i18n'
+import { getItem, setItem } from './storage'
 
 /**
  * 获取语言
- * @returns {String}
+ * @returns {string}
  */
 export function getCacheLang() {
-  return localStorage.getItem('lang')
+  return getItem('lang')
 }
 
 /**
- * 持久化语言
- * @param {String} lang 语言
+ * 本地缓存语言
+ * @param {string} lang 语言
  */
 export function setCacheLang(lang) {
-  localStorage.setItem('lang', lang)
+  setItem('lang', lang)
 }
 
 /**
  * 获取国际化路由标题
- * @param {String} title route title i18n key
- * @returns {String}
+ * @param {string} title route title i18n key
+ * @returns {string}
  */
 export const getI18nTitle = title => {
   const hasKey = i18n.global.te('route.' + title)
-
   if (hasKey) {
-    const translatedTitle = i18n.global.t('route.' + title)
-
-    return translatedTitle
+    return i18n.global.t('route.' + title)
   }
   return title
 }

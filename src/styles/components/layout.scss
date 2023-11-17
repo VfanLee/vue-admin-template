@@ -1,6 +1,7 @@
 :root {
   --sidebar-width: 208px;
   --navbar-height: 48px;
+  --tags-view-height: 48px;
 }
 
 .l-container {
@@ -24,7 +25,7 @@
   }
 
   &.is-hide {
-    --sidebar-width: 0px;
+    display: none;
   }
 }
 
@@ -92,7 +93,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding-right: 16px;
+  padding: 0 16px;
   height: var(--navbar-height);
   background-color: var(--bg-color);
   box-shadow: var(--box-shadow-light);
@@ -111,7 +112,7 @@
   }
 
   &.is-hide {
-    --navbar-height: 0px;
+    display: none;
   }
 }
 

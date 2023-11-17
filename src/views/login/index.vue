@@ -118,7 +118,7 @@ const login = async formEl => {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: url(@/assets/img/background.png) no-repeat center / cover;
+  // background: url(@/assets/img/background.png) no-repeat center / cover;
 
   .login__form__wrap {
     margin: 0 10%;

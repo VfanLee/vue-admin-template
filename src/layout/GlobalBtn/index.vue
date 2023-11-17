@@ -114,7 +114,7 @@ const resetDefaultLayout = () => {
 
       <!-- 内容区域 -->
       <el-divider content-position="left">{{ $t('contentArea') }}</el-divider>
-      <el-form-item :label="$t('fixedArea', { area: 'Sidebar' })">
+      <el-form-item :label="$t('hideArea', { area: 'Sidebar' })">
         <el-switch v-model="isHideSidebar" />
       </el-form-item>
       <el-form-item :label="$t('hideArea', { area: 'Navbar' })">
@@ -149,13 +149,13 @@ const resetDefaultLayout = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border: none;
-    border-radius: 30px;
+    border-radius: 24px;
     background-color: var(--fill-color-blank);
     box-shadow: var(--box-shadow);
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
   }
 }

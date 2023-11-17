@@ -3,11 +3,9 @@ import useUserStore from '@/store/modules/user'
 
 const request = axios.create({
   // baseURL: 'https://some-domain.com/api/',
-  timeout: 3000,
-  withCredentials: true // 跨域请求携带 cookie
+  timeout: 3000
+  // withCredentials: true // 跨域请求携带 cookie
 })
-
-request.defaults.withCredentials = true
 
 request.interceptors.request.use(
   config => {
@@ -27,7 +25,16 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   response => {
     // 2xx 范围内的状态码都会触发该函数
-    return response.data
+    const { code, message, result } = response.data
+    if (code === 200) {
+      return result
+    } else {
+      ElMessage({
+        type: 'error',
+        message
+      })
+      return Promise.reject(new Error(message))
+    }
   },
   error => {
     let message = ''

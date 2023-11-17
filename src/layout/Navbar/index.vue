@@ -41,7 +41,7 @@ const toggleFullscreen = () => {
     :style="{ width: navbarWidth }"
   >
     <!-- 侧边栏收缩按钮 -->
-    <SidebarCollapseButton />
+    <SidebarCollapseButton v-if="!appStore.isHideSidebar" />
 
     <!-- 面包屑 -->
     <Breadcrumb />

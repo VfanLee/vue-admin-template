@@ -19,24 +19,15 @@ const useUserStore = defineStore('user', {
 
   actions: {
     async login(data) {
-      const { code, result, message } = await reqLogin(data)
-      if (code === 200) {
-        this.token = result.token
-        setToken(result.token)
-        return 'ok'
-      } else {
-        return Promise.reject(new Error(message))
-      }
+      const { token } = await reqLogin(data)
+      this.token = token
+      setToken(token)
     },
 
     async getUserInfo() {
-      const { code, result, message } = await reqUserInfo(this.token)
-      if (code === 200) {
-        this.userInfo = result
-        return result
-      } else {
-        return Promise.reject(new Error(message))
-      }
+      const result = await reqUserInfo()
+      this.userInfo = result
+      return result
     },
 
     logout() {

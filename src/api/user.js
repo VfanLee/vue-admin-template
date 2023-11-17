@@ -7,9 +7,8 @@ export const reqLogin = data =>
     data
   })
 
-export const reqUserInfo = token =>
+export const reqUserInfo = () =>
   request({
     url: '/vue3-admin-template/user/info',
-    method: 'GET',
-    params: { token }
+    method: 'GET'
   })
