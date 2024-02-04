@@ -1,5 +1,5 @@
 <script setup>
-import useAppStore from '@/store/modules/app'
+import useAppStore from '@/stores/app'
 import SidebarLogo from './components/SidebarLogo.vue'
 import SidebarMenu from './components/SidebarMenu.vue'
 import SidebarCollapseButton from './components/SidebarCollapseButton.vue'

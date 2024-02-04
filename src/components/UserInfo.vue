@@ -1,11 +1,11 @@
 <script setup>
-import useUserStore from '@/store/modules/user'
+import useUserStore from '@/stores/user'
 
 const userStore = useUserStore()
 </script>
 
 <template>
-  <el-dropdown class="user-info" trigger="click">
+  <el-dropdown class="user-info" trigger="click" :popper-options="{ modifiers: [{ name: 'computeStyles', options: { adaptive: false } }] }">
     <div class="user-info__inner">
       <img :src="userStore.userInfo.avatar" alt="avatar" />
       <span>{{ userStore.userInfo.name }}</span>

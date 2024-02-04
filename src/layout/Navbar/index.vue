@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import useAppStore from '@/store/modules/app'
+import useAppStore from '@/stores/app'
 import SidebarCollapseButton from '../Sidebar/components/SidebarCollapseButton.vue'
 import Breadcrumb from '@/components/Breadcrumb.vue'
 import LangSwitcher from '@/components/LangSwitcher.vue'

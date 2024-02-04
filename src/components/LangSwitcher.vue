@@ -1,5 +1,5 @@
 <script setup>
-import useLangStore from '@/store/modules/lang'
+import useLangStore from '@/stores/lang'
 import { useI18n } from 'vue-i18n'
 
 const langStore = useLangStore()
@@ -24,7 +24,7 @@ const handleCommand = c => {
 </script>
 
 <template>
-  <el-dropdown class="lang-switcher" trigger="click" @command="handleCommand">
+  <el-dropdown class="lang-switcher" trigger="click" @command="handleCommand" :popper-options="{ modifiers: [{ name: 'computeStyles', options: { adaptive: false } }] }">
     <button class="lang-btn" type="button">
       <i class="fa-solid fa-language"></i>
       <i class="fa-solid fa-angle-down"></i>

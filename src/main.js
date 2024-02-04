@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import i18n from './i18n'
-import store from './store'
+import pinia from './stores'
 import router from './router'
 import './router/permission'
-import { name, version } from '../package.json'
+import { name, version } from '@@/package.json'
 
 import 'virtual:svg-icons-register'
 import App from './App.vue'
@@ -15,7 +15,7 @@ import './styles/index.scss'
 const app = createApp(App)
 
 app.use(i18n)
-app.use(store)
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')

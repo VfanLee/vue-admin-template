@@ -1,5 +1,5 @@
 import axios from 'axios'
-import useUserStore from '@/store/modules/user'
+import useUserStore from '@/stores/user'
 
 const request = axios.create({
   // baseURL: 'https://some-domain.com/api/',

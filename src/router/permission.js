@@ -1,5 +1,5 @@
-import useUserStore from '@/store/modules/user'
-import usePermissionStore from '@/store/modules/permission'
+import useUserStore from '@/stores/user'
+import usePermissionStore from '@/stores/permission'
 import router from '@/router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
