@@ -1,5 +1,6 @@
 import Layout from '@/layout/index.vue'
 import nested from './modules/nested'
+import components from './modules/components'
 
 /**
  * 注意：仅当路由子项数量 >= 1时，子菜单才会显示
@@ -54,7 +55,7 @@ export const constantRoutes = [
     redirect: '/dashboard',
     children: [
       {
-        path: '/dashboard',
+        path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         meta: {
@@ -110,6 +111,7 @@ export const asyncRoutes = [
   },
 
   nested,
+  components,
 
   // 添加 404 路由
   {

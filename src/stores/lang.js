@@ -3,7 +3,7 @@ import i18n from '@/i18n'
 import { setCacheLang, getI18nTitle } from '@/utils/lang'
 import router from '@/router'
 
-const langStore = defineStore('lang', {
+const useLangStore = defineStore('lang', {
   state: () => ({
     lang: i18n.global.locale.value
   }),
@@ -25,4 +25,4 @@ const langStore = defineStore('lang', {
   }
 })
 
-export default langStore
+export default useLangStore
