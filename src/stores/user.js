@@ -12,10 +12,7 @@ const useUserStore = defineStore('user', {
     userInfo: {}
   }),
 
-  getters: {
-    menus: state => state.permission.menus,
-    roles: state => state.roles
-  },
+  getters: {},
 
   actions: {
     async login(data) {

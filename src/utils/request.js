@@ -2,7 +2,7 @@ import axios from 'axios'
 import useUserStore from '@/stores/user'
 
 const request = axios.create({
-  // baseURL: 'https://some-domain.com/api/',
+  baseURL: 'http://localhost:3000',
   timeout: 3000
   // withCredentials: true // 跨域请求携带 cookie
 })

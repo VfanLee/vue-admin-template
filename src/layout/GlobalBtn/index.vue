@@ -108,7 +108,7 @@ const resetDefaultLayout = () => {
       <el-form-item :label="$t('fixedArea', { area: 'Sidebar' })">
         <el-switch v-model="isFixedSidebar" />
       </el-form-item>
-      <el-form-item :label="$t('hideArea', { area: 'Navbar' })">
+      <el-form-item :label="$t('fixedArea', { area: 'Navbar' })">
         <el-switch v-model="isFixedNavbar" />
       </el-form-item>
 

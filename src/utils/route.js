@@ -2,12 +2,12 @@ import { resolve } from 'path-browserify'
 
 /**
  * 使用 meta.role 判断当前用户是否有权限
- * @param {any[]} roles 角色组
+ * @param {string} role 角色
  * @param {any} route 路由对象
  */
-function hasPermission(roles, route) {
+function hasPermission(role, route) {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
+    return route.meta.roles.includes(role)
   } else {
     return true
   }
@@ -16,17 +16,17 @@ function hasPermission(roles, route) {
 /**
  * 根据角色过滤异步路由表，来生成动态路由表
  * @param {any[]} routes 异步路由表
- * @param {any[]} roles 角色列表
+ * @param {string} role 角色
  * @returns {any[]}
  */
-export function filterAsyncRoutes(routes, roles) {
+export function filterAsyncRoutes(routes, role) {
   const res = []
 
   routes.forEach(route => {
     const tmp = { ...route }
-    if (hasPermission(roles, tmp)) {
+    if (hasPermission(role, tmp)) {
       if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles)
+        tmp.children = filterAsyncRoutes(tmp.children, role)
       }
       res.push(tmp)
     }
