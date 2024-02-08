@@ -1,6 +1,6 @@
 const express = require('express')
-const router = express.Router()
 
+const router = express.Router()
 const { token, user } = require('../data/user')
 
 router.post('/login', function (req, res, next) {

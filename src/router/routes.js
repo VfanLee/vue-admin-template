@@ -9,20 +9,19 @@ import components from './modules/components'
  *
  * hidden: true                             当设置 true 的时候该路由不会在侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1（默认为 false）
  * alwaysShow: true                         如果设置为 true，则会忽略之前定义的规则，不管路由下面的 children 声明的个数都显示你的根路由（默认为 false）
- * name: 'route-name'                       设定路由的名字，一定要填写不然使用<KeepAlive>时会出现各种问题
+ * name: 'route-name'                       设定路由的名字，一定要填写不然使用 <KeepAlive> 时会出现各种问题
  * redirect: noRedirect                     如果设置为 noRedirect，则在面包屑中不会发生重定向
- * link: true                               外链标志
+ * link: false                              外链标志
  * meta: {
           allowlist: true                   路由白名单，不登陆即可访问（默认为 false）
-          roles: ['admin','editor']         设置该路由进入的权限（可以设置多个角色）
+          roles: ['admin','editor']         设置该路由进入的权限（可以设置多个角色），如果没有设置 roles，任何角色都可访问
           title: 'title'                    设置该路由在侧边栏和面包屑中展示的名字（建议设置）
           icon: 'svg-name'                  侧边栏中显示的图标
           noCache: true                     如果设置为 true，则不会被 <KeepAlive> 缓存（默认为 false）
           activeMenu: '/example/list'       当路由设置了该属性，则会高亮相对应的侧边栏
                                             这在某些场景非常有用，比如：一个文章的列表页路由为：/article/list
                                             点击文章进入文章详情页，这时候路由为 /article/1，但你想在侧边栏高亮文章列表的路由，就可以进行如下设置
-          // breadcrumb: false              如果设置为 false，则不会在 breadcrumb 面包屑中显示（默认为 true）
-          // affix: true                    如果设置为 true，它则会固定在tags-view中
+          hideBreadcrumb: false             如果设置为 false，则不会在 breadcrumb 面包屑中显示（默认为 true）
         }
  */
 
@@ -95,7 +94,6 @@ export const asyncRoutes = [
         name: 'DirectivePermission',
         meta: {
           title: 'directivePermission'
-          // 如果没有设置 roles，任何角色都可访问
         }
       },
       {
