@@ -6,16 +6,14 @@ export default defineConfig({
   description: 'Vue3 Admin Template',
   // https://vitepress.dev/zh/reference/default-theme-config
   themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
+    nav: [{ text: '指南', link: '/' }],
     sidebar: [
       {
-        text: 'Examples',
+        text: '基础',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '介绍', link: '/essentials/guide' },
+          { text: '布局', link: '/essentials/layout' },
+          { text: '路由和侧边栏', link: '/essentials/router-and-nav' }
         ]
       }
     ],
