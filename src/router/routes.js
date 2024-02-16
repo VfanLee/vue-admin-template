@@ -14,7 +14,7 @@ import components from './modules/components'
  * link: false                              外链标志
  * meta: {
           allowlist: true                   路由白名单，不登陆即可访问（默认为 false）
-          roles: ['admin','editor']         设置该路由进入的权限（可以设置多个角色），如果没有设置 roles，任何角色都可访问
+          code: 'code'                      路由 code，根据后端路由表进行动态筛选（仅 asyncRoutes 支持）
           title: 'title'                    设置该路由在侧边栏和面包屑中展示的名字（建议设置）
           icon: 'svg-name'                  侧边栏中显示的图标
           noCache: true                     如果设置为 true，则不会被 <KeepAlive> 缓存（默认为 false）
@@ -76,7 +76,7 @@ export const asyncRoutes = [
     meta: {
       title: 'permission',
       icon: 'lock-solid',
-      roles: ['admin', 'editor'] // 可以在根路由下设置 roles
+      code: 'permission'
     },
     children: [
       {
@@ -85,7 +85,7 @@ export const asyncRoutes = [
         name: 'PagePermission',
         meta: {
           title: 'pagePermission',
-          roles: ['admin'] // 也可以在子路由下设置 roles
+          code: 'pagePermission'
         }
       },
       {
@@ -102,7 +102,7 @@ export const asyncRoutes = [
         name: 'RolePermission',
         meta: {
           title: 'rolePermission',
-          roles: ['admin']
+          code: 'rolePermission'
         }
       }
     ]

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import router from '@/router'
-import { reqLogin, reqUserInfo } from '@/api/user'
+import { reqLogin, reqUserInfo, reqUserMenuCode } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 import usePermissionStore from './permission'
@@ -9,7 +9,8 @@ import { constantRoutes } from '@/router/routes'
 const useUserStore = defineStore('user', {
   state: () => ({
     token: getToken(),
-    userInfo: {}
+    userInfo: {},
+    menuCode: []
   }),
 
   getters: {},
@@ -27,6 +28,12 @@ const useUserStore = defineStore('user', {
       return userInfo
     },
 
+    async getMenuCode() {
+      const menuCode = await reqUserMenuCode()
+      this.menuCode = menuCode
+      return menuCode
+    },
+
     logout() {
       const permissionStore = usePermissionStore()
 
@@ -35,7 +42,7 @@ const useUserStore = defineStore('user', {
       removeToken()
 
       permissionStore.routes = [...constantRoutes]
-      permissionStore.addRoutes = []
+      permissionStore.asyncAddRoutes = []
 
       router.replace({ path: '/login' })
     }

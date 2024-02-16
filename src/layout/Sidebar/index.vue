@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="Sidebar">
 import useAppStore from '@/stores/app'
 import SidebarLogo from './components/SidebarLogo.vue'
 import SidebarMenu from './components/SidebarMenu.vue'

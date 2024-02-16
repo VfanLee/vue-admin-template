@@ -12,3 +12,9 @@ export const reqUserInfo = () =>
     url: '/api/user/info',
     method: 'GET'
   })
+
+export const reqUserMenuCode = () =>
+  request({
+    url: '/api/user/menu',
+    method: 'GET'
+  })

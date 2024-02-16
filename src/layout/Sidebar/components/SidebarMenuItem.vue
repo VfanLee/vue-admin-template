@@ -1,10 +1,4 @@
-<script>
-export default {
-  name: 'SidebarMenuItem'
-}
-</script>
-
-<script setup>
+<script setup name="SidebarMenuItem">
 import { getI18nTitle } from '@/utils/lang'
 
 defineProps({

@@ -8,6 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import Inspect from 'vite-plugin-inspect'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://cn.vitejs.dev/config/
 export default defineConfig(({ command, mode }) => ({
@@ -42,6 +43,7 @@ export default defineConfig(({ command, mode }) => ({
       iconDirs: [resolve(process.cwd(), 'src/icons')],
       symbolId: 'icon-[name]'
     }),
-    Inspect()
+    Inspect(),
+    vueSetupExtend()
   ]
 }))

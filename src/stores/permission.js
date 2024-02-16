@@ -5,7 +5,7 @@ import { filterAsyncRoutes } from '@/utils/route'
 const usePermissionStore = defineStore('permission', {
   state: () => ({
     routes: [],
-    addRoutes: []
+    asyncAddRoutes: []
   }),
 
   getters: {},
@@ -13,12 +13,12 @@ const usePermissionStore = defineStore('permission', {
   actions: {
     setRoutes(asyncRoutes) {
       this.routes = [...constantRoutes, ...asyncRoutes]
-      this.addRoutes = [...asyncRoutes]
+      this.asyncAddRoutes = [...asyncRoutes]
     },
 
-    async generateRoutes(roles) {
+    async generateRoutes(menuCode) {
       // 过滤动态路由表
-      const accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      const accessedRoutes = filterAsyncRoutes(asyncRoutes, menuCode)
       // 设置总路由表
       this.setRoutes(accessedRoutes)
 

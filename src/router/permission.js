@@ -26,13 +26,11 @@ router.beforeEach(async (to, from, next) => {
         next()
       } else {
         try {
-          // 获取用户信息
-          const { role } = await userStore.getUserInfo()
+          await userStore.getUserInfo()
+          const menuCode = await userStore.getMenuCode()
 
           // 生成动态路由
-          const accessRoutes = await permissionStore.generateRoutes(role)
-          console.log('动态路由', accessRoutes)
-
+          const accessRoutes = await permissionStore.generateRoutes(menuCode)
           // 添加动态路由
           accessRoutes.forEach(item => {
             router.addRoute(item)

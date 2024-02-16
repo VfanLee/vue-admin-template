@@ -11,7 +11,6 @@ const appStore = useAppStore()
 const permissionStore = usePermissionStore()
 
 const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
-console.log('路由菜单', routeMenus.value)
 </script>
 
 <template>
