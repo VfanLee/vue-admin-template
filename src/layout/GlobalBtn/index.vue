@@ -90,7 +90,7 @@ const resetDefaultLayout = () => {
   </div>
 
   <!-- 布局设置  -->
-  <el-drawer class="layout-drawer" v-model="show" :title="$t('layoutSettings')" direction="rtl" append-to-body>
+  <el-drawer class="layout-drawer" v-model="show" :title="$t('layoutSettings')" direction="rtl" size="20%" append-to-body>
     <el-form>
       <!-- 整体风格设置 -->
       <el-divider content-position="left">{{ $t('globalStyle') }}</el-divider>

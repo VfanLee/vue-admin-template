@@ -42,11 +42,6 @@ router.beforeEach(async (to, from, next) => {
           next({ ...to, replace: true })
         } catch ({ message }) {
           userStore.logout()
-
-          ElMessage({
-            type: 'error',
-            message: message
-          })
         }
       }
     }

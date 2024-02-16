@@ -25,15 +25,15 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   response => {
     // 2xx 范围内的状态码都会触发该函数
-    const { code, message, result } = response.data
-    if (code === 200) {
-      return result
+    const { code, msg, data } = response.data
+    if (code === 1) {
+      return data
     } else {
       ElMessage({
         type: 'error',
-        message
+        message: msg
       })
-      return Promise.reject(new Error(message))
+      return Promise.reject(new Error(msg))
     }
   },
   error => {

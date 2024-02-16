@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import useUserStore from '@/stores/user'
 import { useRouter } from 'vue-router'
+import { generateRandomColor } from '@/utils/color'
 
 const userStore = useUserStore()
 const router = useRouter()
@@ -18,6 +19,9 @@ const loginFormRule = reactive({
 
 const hidePwd = ref(true)
 const isLoading = ref(false)
+const randomColor = {
+  backgroundImage: `linear-gradient(45deg ,${generateRandomColor()}, ${generateRandomColor()})`
+}
 
 const login = async formEl => {
   if (!formEl) {
@@ -46,7 +50,7 @@ const login = async formEl => {
 </script>
 
 <template>
-  <div class="page-login">
+  <div class="page-login" :style="randomColor">
     <div class="login__form__wrap">
       <el-form class="login__form" ref="loginFormRef" :model="loginForm" :rules="loginFormRule">
         <el-form-item>
@@ -118,7 +122,6 @@ const login = async formEl => {
   align-items: center;
   width: 100%;
   height: 100vh;
-  // background: url(@/assets/img/background.png) no-repeat center / cover;
 
   .login__form__wrap {
     margin: 0 10%;

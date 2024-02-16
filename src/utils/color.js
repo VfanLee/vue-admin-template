@@ -1,3 +1,7 @@
+export function generateRandomColor() {
+  return '#' + Math.random().toString(16).slice(2, 8)
+}
+
 /**
  * 十六进制转RGB
  * @param {string} hex 十六进制

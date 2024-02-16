@@ -16,15 +16,15 @@ const useUserStore = defineStore('user', {
 
   actions: {
     async login(data) {
-      const { token } = await reqLogin(data)
+      const token = await reqLogin(data)
       this.token = token
       setToken(token)
     },
 
     async getUserInfo() {
-      const result = await reqUserInfo()
-      this.userInfo = result
-      return result
+      const userInfo = await reqUserInfo()
+      this.userInfo = userInfo
+      return userInfo
     },
 
     logout() {

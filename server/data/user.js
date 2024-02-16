@@ -1,10 +1,6 @@
 module.exports.token = {
-  admin: {
-    token: 'admin-token'
-  },
-  editor: {
-    token: 'editor-token'
-  }
+  admin: 'admin-token',
+  editor: 'editor-token'
 }
 
 module.exports.user = {
@@ -20,4 +16,9 @@ module.exports.user = {
     avatar: 'https://picsum.photos/24/24',
     role: 'editor'
   }
+}
+
+module.exports.menu = {
+  admin: [],
+  editor: []
 }
