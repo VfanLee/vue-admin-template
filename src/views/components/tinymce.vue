@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="tinymceView">
 import Tinymce from '@/components/Tinymce/index.vue'
 
 const value = ref('')

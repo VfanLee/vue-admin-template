@@ -1,5 +1,4 @@
 <script setup>
-import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { getI18nTitle } from '@/utils/lang'
 

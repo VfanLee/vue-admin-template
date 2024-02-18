@@ -7,7 +7,10 @@
     "dev": "vite",
     "dev:cjs": "set \"VITE_CJS_TRACE=true\" && vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.10",
@@ -39,6 +42,7 @@
     "vite-plugin-inspect": "^0.8.3",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
-    "vite-plugin-vue-setup-extend": "^0.4.0"
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vitepress": "^1.0.0-rc.43"
   }
 }

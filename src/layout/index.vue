@@ -1,6 +1,5 @@
 <script setup>
 import '@/styles/layout.scss'
-import { onMounted } from 'vue'
 import Sidebar from './Sidebar/index.vue'
 import Navbar from './Navbar/index.vue'
 import AppMain from './AppMain/index.vue'

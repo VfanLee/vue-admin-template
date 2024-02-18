@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="markedView">
 import Marked from '@/components/Marked/index.vue'
 </script>
 

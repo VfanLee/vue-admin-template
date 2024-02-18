@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="fullcalendarView">
 import Fullcalendar from '@/components/Fullcalendar/index.vue'
 </script>
 

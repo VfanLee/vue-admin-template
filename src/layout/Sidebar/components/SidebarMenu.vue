@@ -1,6 +1,5 @@
 <script setup>
 import '@/styles/components/sidebar-menu.scss'
-import { computed } from 'vue'
 import useAppStore from '@/stores/app'
 import usePermissionStore from '@/stores/permission'
 import { generateRouteMenus } from '@/utils/route'

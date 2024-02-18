@@ -1,6 +1,5 @@
 <!-- https://www.tiny.cloud/ -->
 <script setup name="Tinymce">
-import { ref } from 'vue'
 import Editor from '@tinymce/tinymce-vue'
 import { API_KEY, defaultConfig } from './config'
 
