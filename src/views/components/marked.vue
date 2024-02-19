@@ -30,7 +30,7 @@ nextTick(() => {
   height: 100%;
 
   .markdown__input {
-    flex: 1;
+    flex: 50% 1 1;
     height: 100%;
 
     :deep(.el-textarea__inner) {
@@ -40,7 +40,7 @@ nextTick(() => {
   }
 
   .markdown__view {
-    flex: 1;
+    flex: 50% 1 1;
     padding: 0 16px;
     overflow: auto;
     background-color: #fff;

@@ -4,13 +4,11 @@ const langStore = useLangStore()
 
 const getLanguage = () => {
   if (langStore.lang === 'zh') {
-    return 'zh_CN'
+    return 'zh-Hans'
   } else {
     return 'en'
   }
 }
-
-export const API_KEY = '64mjv027yic3xknhs3h7m1r84i03e1r1axyzog5514kd3xih'
 
 async function imagesUploadHandler(blobInfo, progress) {
   console.log(blobInfo)
@@ -21,6 +19,7 @@ async function imagesUploadHandler(blobInfo, progress) {
  * Example：https://www.tiny.cloud/docs/tinymce/6/full-featured-open-source-demo/
  */
 export const defaultConfig = {
+  base_url: '/vue3-admin-template/vendor/tinymce',
   placeholder: '',
   // 插件配置
   plugins: 'quickbars lists advlist link table',

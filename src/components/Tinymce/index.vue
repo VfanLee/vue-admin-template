@@ -1,7 +1,8 @@
 <!-- https://www.tiny.cloud/ -->
 <script setup name="Tinymce">
+import '/public/vendor/tinymce/tinymce'
 import Editor from '@tinymce/tinymce-vue'
-import { API_KEY, defaultConfig } from './config'
+import { defaultConfig } from './config'
 
 const props = defineProps({
   modelValue: {
@@ -36,7 +37,6 @@ const handleInit = (event, editor) => {
     <Editor
       :modelValue="modelValue"
       @update:modelValue="value => $emit('update:modelValue', value)"
-      :api-key="API_KEY"
       :init="init"
       :disabled="disabled"
       @init="handleInit"
