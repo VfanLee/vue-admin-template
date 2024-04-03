@@ -1,156 +1,77 @@
 :root {
-  --sidebar-width: 208px;
-  --navbar-height: 48px;
+  --l-sidebar-width: 256px;
+  --l-header-height: 56px;
+}
+
+.vat-layout-bg {
+  position: fixed;
+  z-index: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(#fff, #f5f5f5 28%);
+}
+
+.vat-layout {
+  display: flex;
+}
+
+.l-sider {
+  overflow: hidden;
+  flex: 0 0 var(--l-sidebar-width);
+  width: var(--l-sidebar-width);
+  height: 100%;
+  min-width: var(--l-sidebar-width);
+  max-width: var(--l-sidebar-width);
+  border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
+  background-color: transparent;
+  transition: 0.2s;
+
+
+  &.l-sider--fixed {
+    position: fixed;
+    inset-block-start: var(--l-header-height);
+    inset-inline-start: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
 }
 
 .l-container {
-  display: flex;
-}
-
-// sidebar
-.l-sidebar {
   position: relative;
-  z-index: 20;
-  flex-shrink: 0;
-  width: var(--sidebar-width);
-  min-height: 100vh;
-  background-color: var(--bg-color);
-  box-shadow: var(--box-shadow-light);
-  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background-color: transparent;
+}
+
+.l-header {
   overflow: hidden;
-
-  &.is-collapse:not(.is-hide) {
-    --sidebar-width: 48px;
-  }
-
-  &.is-hide {
-    display: none;
-  }
-}
-
-.l-sidebar__inner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  &.is-fixed {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: inherit;
-    overflow: hidden;
-  }
-
-  .l-sidebar__header {
-    flex-shrink: 0;
-  }
-
-  .l-sidebar__body {
-    flex: 1;
-    overflow: hidden auto;
-
-    /* 隐藏浏览器默认滚动条 */
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    /* 滚动条轨道 */
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    /* 滚动条滑块 */
-    &::-webkit-scrollbar-thumb {
-      background-color: #aaa;
-      border-radius: 4px;
-    }
-
-    /* 滚动条滑块悬停时的样式 */
-    & ::-webkit-scrollbar-thumb:hover {
-      background: red;
-    }
-  }
-
-  .l-sidebar__footer {
-    flex-shrink: 0;
-  }
-}
-
-// main
-.l-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  // bugfix：解决 x 轴溢出
-  width: 0;
-  background: var(--bg-color-page);
-}
-
-// navbar
-.l-navbar {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
   width: 100%;
-  padding-right: 12px;
-  height: var(--navbar-height);
-  background-color: var(--bg-color);
-  box-shadow: var(--box-shadow-light);
-  transition: 0.3s;
-  overflow: hidden;
+  height: var(--l-header-height);
+  border-block-end: 1px solid rgba(5, 5, 5, 0.06);
+  background-color: transparent;
+  transition: 0.2s;
 
-  &.is-fixed {
+  &.l-header--fixed {
     position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 10;
-
-    &:not(.is-hide) + .app-main {
-      margin-top: var(--navbar-height);
-    }
-  }
-
-  &.is-hide {
-    display: none;
+    z-index: 100;
+    width: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    backdrop-filter: blur(8px);
   }
 }
 
-// app-main
-.app-main {
-  flex: 1;
-  padding: 16px;
-  transition: 0.3s;
+.l-content {
+  width: 100%;
+  padding: 32px 40px;
 }
 
-// page-footer
-.page-footer {
-  flex-shrink: 0;
-  margin: 70px 0 30px;
+.l-footer {
+  margin-block-start: 48px;
+  margin-block-end: 24px;
+  padding-inline: 16px;
   text-align: center;
-  font-size: 14px;
-  color: var(--text-color-regular);
-  vertical-align: bottom;
-
-  a {
-    color: var(--text-color-regular);
-    text-decoration: none;
-    transition: 0.2s;
-
-    &:hover {
-      color: var(--text-color-primary);
-    }
-  }
-
-  .separate-bar {
-    margin: 0 16px;
-  }
-
-  i[class*='fa-'] {
-    font-size: 16px;
-  }
-}
-
-// 其他尺寸
-@media (max-width: 992px) {
-  // todo
 }

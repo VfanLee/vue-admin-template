@@ -1,5 +1,5 @@
 import { generateColorPalette } from './color'
-import layoutDefaultSettings from '@/layout/settings'
+import layoutDefaultSettings from '@/config/layout'
 import { getItem, setItem, removeItem } from './storage'
 
 /**
