@@ -58,7 +58,7 @@ export const constantRoutes = [
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         meta: {
-          title: 'dashboard',
+          title: 'Dashboard',
           icon: 'gauge-solid'
         }
       }

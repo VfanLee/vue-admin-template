@@ -1,5 +1,7 @@
 <script setup></script>
 
-<template>dashboard</template>
+<template>
+  <p>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
+</template>
 
 <style lang="scss" scoped></style>

@@ -14,6 +14,7 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 export default defineConfig(({ command, mode }) => ({
   base: '/vue3-admin-template/', // 默认：/
   resolve: {
+    // 别名设置
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }

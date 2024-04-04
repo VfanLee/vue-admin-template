@@ -14,21 +14,21 @@ export default {
       path: 'tinymce',
       component: () => import('@/views/components/tinymce.vue'),
       meta: {
-        title: 'tinymce'
+        title: 'Tinymce'
       }
     },
     {
       path: 'marked',
       component: () => import('@/views/components/marked.vue'),
       meta: {
-        title: 'marked'
+        title: 'Marked'
       }
     },
     {
       path: 'fullcalendar',
       component: () => import('@/views/components/fullcalendar.vue'),
       meta: {
-        title: 'fullcalendar'
+        title: 'Fullcalendar'
       }
     }
   ]

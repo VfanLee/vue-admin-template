@@ -17,7 +17,7 @@
   min-height: 100%;
 }
 
-.vat-sider {
+.vat-sidebar {
   overflow: hidden;
   flex: 0 0 var(--l-sidebar-width);
   width: var(--l-sidebar-width);
@@ -26,7 +26,7 @@
   border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
   background-color: transparent;
   transition: 0.2s;
-  &.vat-sider--fixed {
+  &.vat-sidebar--fixed {
     position: fixed;
     inset-block-start: var(--l-header-height);
     inset-inline-start: 0;

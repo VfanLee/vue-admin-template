@@ -20,8 +20,7 @@ watch(
 
 <template>
   <div class="breadcrumb">
-    <i class="fa-solid fa-house"></i>
-    <el-breadcrumb separator=">">
+    <el-breadcrumb separator="/">
       <template v-for="(route, index) of breadcrumbRoutes" :key="route.path">
         <el-breadcrumb-item v-if="!route.meta.hideBreadcrumb">
           <span v-if="index === breadcrumbRoutes.length - 1">{{ getI18nTitle(route.meta.title) }}</span>
@@ -36,7 +35,6 @@ watch(
 .breadcrumb {
   display: flex;
   gap: 10px;
-
   i[class*='fa-'] {
     font-size: 12px;
   }
