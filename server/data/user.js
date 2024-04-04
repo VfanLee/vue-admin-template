@@ -7,7 +7,7 @@ module.exports.user = {
   'admin-token': {
     name: 'Super Admin',
     introduction: 'I am a super administrator',
-    avatar: 'https://picsum.photos/24/24'
+    avatar: 'https://picsum.photos/26/26'
   },
   'editor-token': {
     name: 'Normal Editor',

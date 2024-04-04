@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "server": "node server/app.js",
+    "server": "cd server && npm run start",
     "dev": "vite",
     "dev:cjs": "set \"VITE_CJS_TRACE=true\" && vite",
     "build": "vite build",

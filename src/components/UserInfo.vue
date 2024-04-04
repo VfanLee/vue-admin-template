@@ -6,8 +6,9 @@ const userStore = useUserStore()
 
 <template>
   <el-dropdown class="user-info" trigger="click" :popper-options="{ modifiers: [{ name: 'computeStyles', options: { adaptive: false } }] }">
-    <div class="user-info__inner">
-      <img :src="userStore.userInfo.avatar" alt="avatar" />
+    <div>
+      <!-- <img :src="userStore.userInfo.avatar" alt="avatar" /> -->
+      <img src="@/assets/vite.svg" alt="avatar" />
       <span>{{ userStore.userInfo.name }}</span>
     </div>
     <template #dropdown>
@@ -19,20 +20,14 @@ const userStore = useUserStore()
 </template>
 
 <style lang="scss" scoped>
-.user-info__inner {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-
+.el-tooltip__trigger {
   img {
-    width: 24px;
-    height: 24px;
-    margin-right: 6px;
-    border-radius: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
   }
-
   span {
+    margin-inline-start: 8px;
     font-size: 14px;
   }
 }

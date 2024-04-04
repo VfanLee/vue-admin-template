@@ -14,62 +14,61 @@
 
 .vat-layout {
   display: flex;
+  min-height: 100%;
 }
 
-.l-sider {
+.vat-sider {
   overflow: hidden;
   flex: 0 0 var(--l-sidebar-width);
   width: var(--l-sidebar-width);
-  height: 100%;
   min-width: var(--l-sidebar-width);
   max-width: var(--l-sidebar-width);
   border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
   background-color: transparent;
   transition: 0.2s;
-
-
-  &.l-sider--fixed {
+  &.vat-sider--fixed {
     position: fixed;
     inset-block-start: var(--l-header-height);
     inset-inline-start: 0;
     z-index: 100;
+    height: calc(100% - var(--l-header-height));
     backdrop-filter: blur(8px);
   }
 }
 
-.l-container {
+.vat-container {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
   min-height: 0;
   background-color: transparent;
 }
 
-.l-header {
+.vat-header {
   overflow: hidden;
   width: 100%;
   height: var(--l-header-height);
   border-block-end: 1px solid rgba(5, 5, 5, 0.06);
   background-color: transparent;
   transition: 0.2s;
-
-  &.l-header--fixed {
+  &.vat-header--fixed {
     position: fixed;
-    z-index: 100;
-    width: 100%;
     inset-block-start: 0;
     inset-inline-start: 0;
+    z-index: 100;
+    width: 100%;
     backdrop-filter: blur(8px);
   }
 }
 
-.l-content {
+.vat-content {
   width: 100%;
   padding: 32px 40px;
 }
 
-.l-footer {
+.vat-footer {
   margin-block-start: 48px;
   margin-block-end: 24px;
   padding-inline: 16px;
