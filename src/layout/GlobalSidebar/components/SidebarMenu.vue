@@ -2,7 +2,6 @@
 import useAppStore from '@/stores/app'
 import usePermissionStore from '@/stores/permission'
 import { generateRouteMenus } from '@/utils/route'
-
 import SidebarMenuItem from './SidebarMenuItem.vue'
 
 const appStore = useAppStore()
@@ -27,7 +26,6 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
   --el-menu-active-bg-color: rgba(0, 0, 0, 0.15);
   --el-menu-select-bg-color: rgba(0, 0, 0, 0.03);
   --el-menu-item-height: 40px;
-  --el-menu-sub-item-height: calc(var(--el-menu-item-height) - 6px);
   --el-menu-sub-item-height: 40px;
   --el-menu-horizontal-height: 60px;
   --el-menu-horizontal-sub-item-height: 36px;
@@ -39,7 +37,7 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
   --el-menu-icon-width: 24px;
 }
 
-.el-menu {
+.sidebar-menu {
   border-right: none;
   user-select: none;
   &.el-menu--collapse {
@@ -49,69 +47,65 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
           background-color: var(--el-menu-select-bg-color);
         }
       }
+      .el-sub-menu__title,
+      .el-menu-item {
+        border-radius: 4px;
+      }
     }
   }
-}
-
-.el-sub-menu {
-  &.is-active {
-    > .el-sub-menu__title {
-      color: var(--el-menu-active-color);
+  .el-sub-menu {
+    &.is-active {
+      > .el-sub-menu__title {
+        color: var(--el-menu-active-color);
+      }
     }
   }
-}
-
-.el-sub-menu__title {
-  gap: 8px;
-  margin-block: 4px;
-  margin-inline: 4px;
-  border-radius: 6px;
-  &:hover {
-    color: var(--el-menu-hover-text-color);
+  .el-sub-menu__title {
+    gap: 8px;
+    margin-block: 4px;
+    margin-inline: 4px;
+    border-radius: 6px;
+    &:hover {
+      color: var(--el-menu-hover-text-color);
+    }
+    &:active {
+      background-color: var(--el-menu-active-bg-color);
+    }
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
-  &:active {
-    background-color: var(--el-menu-active-bg-color);
+  .el-menu--inline {
+    padding-inline-start: 10px;
   }
-  > span {
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .el-menu-item {
+    gap: 8px;
+    margin-block: 4px;
+    margin-inline: 4px;
+    border-radius: 6px;
+    &:active {
+      background-color: var(--el-menu-active-bg-color);
+    }
+    &:hover {
+      color: var(--el-menu-hover-color);
+    }
+    &.is-active {
+      background-color: var(--el-menu-select-bg-color);
+    }
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
-}
-
-.el-menu--inline {
-  padding-inline-start: 10px;
-}
-
-.el-menu-item {
-  gap: 8px;
-  margin-block: 4px;
-  margin-inline: 4px;
-  border-radius: 6px;
-  &:active {
-    background-color: var(--el-menu-active-bg-color);
-  }
-  &:hover {
-    color: var(--el-menu-hover-color);
-  }
-  &.is-active {
-    background-color: var(--el-menu-select-bg-color);
-  }
-  > span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-.sidebar-menu {
   &.el-popper {
     border: none;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   }
-
   .el-menu--popup {
     padding-block: 0;
-    padding-inline: 0;
-    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    box-shadow: none;
   }
 }
 </style>

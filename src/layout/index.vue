@@ -10,10 +10,7 @@ const appStore = useAppStore()
 
 <template>
   <div class="vat-layout-bg"></div>
-  <div
-    class="vat-layout"
-    :class="appStore.isCollapse ? 'is-sidebar--collapse' : ''"
-  >
+  <div class="vat-layout" :class="appStore.isCollapse ? 'is-sidebar--collapse' : ''">
     <div class="vat-sidebar"></div>
     <aside class="vat-sidebar vat-sidebar--fixed">
       <GlobalSidebar />

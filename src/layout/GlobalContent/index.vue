@@ -1,8 +1,8 @@
 <script setup>
-import Breadcrumb from '@/components/Breadcrumb.vue'
+import PageHeader from './PageHeader/index.vue'
 </script>
 
 <template>
-  <Breadcrumb />
+  <PageHeader />
   <RouterView></RouterView>
 </template>
