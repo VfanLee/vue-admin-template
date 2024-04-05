@@ -17,7 +17,7 @@ defineProps({
     <span>{{ getI18nTitle(item.children[0].meta.title) }}</span>
   </el-menu-item>
 
-  <el-sub-menu v-else-if="item.children.length >= 1" :index="item.path">
+  <el-sub-menu v-else-if="item.children.length >= 1" :index="item.path" popper-class="sidebar-menu">
     <template #title>
       <SvgIcon :name="item.meta.icon" v-if="item.meta.icon" />
       <span>{{ getI18nTitle(item.meta.title) }}</span>

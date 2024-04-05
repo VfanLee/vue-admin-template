@@ -12,58 +12,106 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
 </script>
 
 <template>
-  <el-menu class="sidebar-menu" router :default-active="$route.fullPath" :collapse="appStore.isCollapse" :collapse-transition="false">
+  <el-menu class="sidebar-menu" router :default-active="$route.fullPath" :collapse="appStore.isCollapse">
     <SidebarMenuItem v-for="menuItem in routeMenus" :key="menuItem.path" :item="menuItem" />
   </el-menu>
 </template>
 
 <style lang="scss">
 .sidebar-menu {
+  --el-menu-active-color: rgba(0, 0, 0, 0.95);
+  --el-menu-text-color: rgba(0, 0, 0, 0.65);
+  --el-menu-hover-text-color: rgba(0, 0, 0, 0.88);
   --el-menu-bg-color: transparent;
   --el-menu-hover-bg-color: rgba(0, 0, 0, 0.03);
   --el-menu-active-bg-color: rgba(0, 0, 0, 0.15);
-  --el-menu-is-active-bg-color: rgba(0, 0, 0, 0.03);
-  --el-menu-text-color: rgba(0, 0, 0, 0.65);
-  --el-menu-active-color: rgba(0, 0, 0, 0.95);
+  --el-menu-select-bg-color: rgba(0, 0, 0, 0.03);
   --el-menu-item-height: 40px;
+  --el-menu-sub-item-height: calc(var(--el-menu-item-height) - 6px);
   --el-menu-sub-item-height: 40px;
+  --el-menu-horizontal-height: 60px;
+  --el-menu-horizontal-sub-item-height: 36px;
+  --el-menu-item-font-size: var(--el-font-size-base);
+  --el-menu-item-hover-fill: var(--el-color-primary-light-9);
+  --el-menu-border-color: var(--el-border-color);
+  --el-menu-base-level-padding: 12px;
+  --el-menu-level-padding: 20px;
+  --el-menu-icon-width: 24px;
+}
+
+.el-menu {
   border-right: none;
   user-select: none;
-  .svg-icon {
-    margin-inline-end: 8px;
-    width: var(--el-menu-icon-width);
-    font-size: 16px;
-  }
-  .el-sub-menu {
-    .el-sub-menu__title {
-      &:active {
-        background-color: var(--el-menu-active-bg-color);
-      }
-    }
-    &.is-active {
-      > .el-sub-menu__title {
-        color: var(--el-menu-active-color);
+  &.el-menu--collapse {
+    .el-sub-menu {
+      &.is-active {
+        > .el-sub-menu__title {
+          background-color: var(--el-menu-select-bg-color);
+        }
       }
     }
   }
-  .el-sub-menu__title {
-    margin-block: 4px;
-    margin-inline: 4px;
-    border-radius: 6px;
-  }
-  .el-menu-item {
-    margin-block: 4px;
-    margin-inline: 4px;
-    border-radius: 6px;
-    &:active {
-      background-color: var(--el-menu-active-bg-color);
-    }
-    &.is-active {
-      background-color: var(--el-menu-is-active-bg-color);
+}
+
+.el-sub-menu {
+  &.is-active {
+    > .el-sub-menu__title {
+      color: var(--el-menu-active-color);
     }
   }
-  .el-menu--inline {
-    padding-inline-start: 10px;
+}
+
+.el-sub-menu__title {
+  gap: 8px;
+  margin-block: 4px;
+  margin-inline: 4px;
+  border-radius: 6px;
+  &:hover {
+    color: var(--el-menu-hover-text-color);
+  }
+  &:active {
+    background-color: var(--el-menu-active-bg-color);
+  }
+  > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.el-menu--inline {
+  padding-inline-start: 10px;
+}
+
+.el-menu-item {
+  gap: 8px;
+  margin-block: 4px;
+  margin-inline: 4px;
+  border-radius: 6px;
+  &:active {
+    background-color: var(--el-menu-active-bg-color);
+  }
+  &:hover {
+    color: var(--el-menu-hover-color);
+  }
+  &.is-active {
+    background-color: var(--el-menu-select-bg-color);
+  }
+  > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.sidebar-menu {
+  &.el-popper {
+    border: none;
+  }
+
+  .el-menu--popup {
+    padding-block: 0;
+    padding-inline: 0;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
   }
 }
 </style>
