@@ -18,13 +18,31 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
 
 <style lang="scss">
 .sidebar-menu {
-  --el-menu-active-color: rgba(0, 0, 0, 0.95);
-  --el-menu-text-color: rgba(0, 0, 0, 0.65);
-  --el-menu-hover-text-color: rgba(0, 0, 0, 0.88);
+  // --el-menu-active-color: rgba(0, 0, 0, 0.95);
+  // --el-menu-text-color: rgba(0, 0, 0, 0.65);
+  // --el-menu-hover-text-color: rgba(0, 0, 0, 0.88);
+  // --el-menu-bg-color: transparent;
+  // --el-menu-hover-bg-color: rgba(0, 0, 0, 0.03);
+  // --el-menu-active-bg-color: rgba(0, 0, 0, 0.15);
+  // --el-menu-select-bg-color: rgba(0, 0, 0, 0.03);
+  // --el-menu-item-height: 40px;
+  // --el-menu-sub-item-height: 40px;
+  // --el-menu-horizontal-height: 60px;
+  // --el-menu-horizontal-sub-item-height: 36px;
+  // --el-menu-item-font-size: var(--el-font-size-base);
+  // --el-menu-item-hover-fill: var(--el-color-primary-light-9);
+  // --el-menu-border-color: var(--el-border-color);
+  // --el-menu-base-level-padding: 12px;
+  // --el-menu-level-padding: 20px;
+  // --el-menu-icon-width: 24px;
+
+  --el-menu-active-color: var(--el-color-primary);
+  --el-menu-text-color: var(--el-text-color-primary);
+  --el-menu-hover-text-color: var(--el-color-primary);
   --el-menu-bg-color: transparent;
-  --el-menu-hover-bg-color: rgba(0, 0, 0, 0.03);
-  --el-menu-active-bg-color: rgba(0, 0, 0, 0.15);
-  --el-menu-select-bg-color: rgba(0, 0, 0, 0.03);
+  --el-menu-hover-bg-color: var(--el-color-primary-light-9);
+  --el-menu-active-bg-color: var(--el-color-primary-light-8);
+  --el-menu-select-bg-color: var(--el-color-primary-light-9);
   --el-menu-item-height: 40px;
   --el-menu-sub-item-height: 40px;
   --el-menu-horizontal-height: 60px;
@@ -88,7 +106,7 @@ const routeMenus = computed(() => generateRouteMenus(permissionStore.routes))
       background-color: var(--el-menu-active-bg-color);
     }
     &:hover {
-      color: var(--el-menu-hover-color);
+      color: var(--el-menu-hover-text-color);
     }
     &.is-active {
       background-color: var(--el-menu-select-bg-color);
