@@ -30,6 +30,7 @@ import UserInfo from '@/components/UserInfo.vue'
   align-items: center;
   min-height: 22px;
   font-size: 20px;
+  color: rgba(0, 0, 0, 0.88);
   img {
     height: 28px;
   }
@@ -40,7 +41,6 @@ import UserInfo from '@/components/UserInfo.vue'
     font-weight: 600;
     font-size: 18px;
     line-height: 32px;
-    color: rgba(0, 0, 0, 0.88);
   }
 }
 

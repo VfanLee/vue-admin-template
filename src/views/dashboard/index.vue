@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <p>loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem</p>
+  <p>Dashboard</p>
 </template>
 
 <style lang="scss" scoped></style>
