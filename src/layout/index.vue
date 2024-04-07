@@ -1,9 +1,9 @@
 <script setup>
 import useAppStore from '@/stores/app'
-import GlobalHeader from './GlobalHeader/index.vue'
-import GlobalFooter from './GlobalFooter/index.vue'
-import GlobalSidebar from './GlobalSidebar/index.vue'
-import GlobalContent from './GlobalContent/index.vue'
+import VatSidebar from './VatSidebar/index.vue'
+import VatHeader from './VatlHeader/index.vue'
+import VatContent from './VatContent/index.vue'
+import VatFooter from './VatFooter/index.vue'
 
 const appStore = useAppStore()
 </script>
@@ -11,32 +11,22 @@ const appStore = useAppStore()
 <template>
   <div class="vat-layout-bg"></div>
   <div class="vat-layout" :class="appStore.isCollapse ? 'is-sidebar--collapse' : ''">
-    <div class="vat-sidebar"></div>
-    <aside class="vat-sidebar vat-sidebar--fixed">
-      <GlobalSidebar />
-    </aside>
+    <VatSidebar />
     <div class="vat-container">
-      <div class="vat-header"></div>
-      <header class="vat-header vat-header--fixed">
-        <GlobalHeader />
-      </header>
-      <main class="vat-content">
-        <GlobalContent />
-      </main>
-      <footer class="vat-footer">
-        <GlobalFooter />
-      </footer>
+      <VatHeader />
+      <VatContent />
+      <VatFooter />
     </div>
   </div>
 </template>
 
 <style lang="scss">
 .vat-layout {
-  --l-sidebar-width: 257px;
-  --l-header-height: 56px;
+  --sidebar-width: 257px;
+  --header-height: 56px;
 
   &.is-sidebar--collapse {
-    --l-sidebar-width: 65px;
+    --sidebar-width: 65px;
   }
 }
 
@@ -55,17 +45,17 @@ const appStore = useAppStore()
 }
 
 .vat-sidebar {
-  flex: 0 0 var(--l-sidebar-width);
-  width: var(--l-sidebar-width);
-  min-width: var(--l-sidebar-width);
-  max-width: var(--l-sidebar-width);
+  flex: 0 0 var(--sidebar-width);
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
   transition: 0.2s;
   &.vat-sidebar--fixed {
     position: fixed;
-    inset-block-start: var(--l-header-height);
+    inset-block-start: var(--header-height);
     inset-inline-start: 0;
     z-index: 100;
-    height: calc(100% - var(--l-header-height));
+    height: calc(100% - var(--header-height));
     border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
     backdrop-filter: blur(8px);
   }
@@ -84,7 +74,7 @@ const appStore = useAppStore()
 .vat-header {
   overflow: hidden;
   width: 100%;
-  height: var(--l-header-height);
+  height: var(--header-height);
   border-block-end: 1px solid rgba(5, 5, 5, 0.06);
   background-color: transparent;
   transition: 0.2s;

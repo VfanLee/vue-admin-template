@@ -3,6 +3,8 @@ import PageHeader from './PageHeader/index.vue'
 </script>
 
 <template>
-  <PageHeader />
-  <RouterView></RouterView>
+  <main class="vat-content">
+    <PageHeader />
+    <RouterView></RouterView>
+  </main>
 </template>

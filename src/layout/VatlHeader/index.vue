@@ -4,28 +4,31 @@ import UserInfo from '@/components/UserInfo.vue'
 </script>
 
 <template>
-  <div class="global-header">
-    <RouterLink class="global-header__logo" to="/dashboard">
-      <img src="@/assets/vite.svg" alt="logo" />
-      <h1>Vue3 Admin Template</h1>
-    </RouterLink>
-    <div class="global-header__space"></div>
-    <div class="global-header__actions">
-      <LangSwitcher class="global-header__actions-item" />
-      <UserInfo class="global-header__actions-avatar" />
+  <header class="vat-header"></header>
+  <header class="vat-header vat-header--fixed">
+    <div class="vat-header__inner">
+      <RouterLink class="vat-header__logo" to="/dashboard">
+        <img src="@/assets/vite.svg" alt="logo" />
+        <h1>Vue3 Admin Template</h1>
+      </RouterLink>
+      <div class="vat-header__space"></div>
+      <div class="vat-header__actions">
+        <LangSwitcher class="vat-header__actions-item" />
+        <UserInfo class="vat-header__actions-avatar" />
+      </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <style lang="scss">
-.global-header {
+.vat-header__inner {
   display: flex;
   align-items: center;
   margin-inline: 16px;
   height: var(--l-header-height);
 }
 
-.global-header__logo {
+.vat-header__logo {
   display: flex;
   align-items: center;
   min-height: 22px;
@@ -44,16 +47,16 @@ import UserInfo from '@/components/UserInfo.vue'
   }
 }
 
-.global-header__space {
+.vat-header__space {
   flex: 1 1 0%;
 }
 
-.global-header__actions {
+.vat-header__actions {
   display: flex;
   height: 100%;
 }
 
-.global-header__actions-item {
+.vat-header__actions-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +80,7 @@ import UserInfo from '@/components/UserInfo.vue'
   }
 }
 
-.global-header__actions-avatar {
+.vat-header__actions-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;

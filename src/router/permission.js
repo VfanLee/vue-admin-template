@@ -3,7 +3,6 @@ import usePermissionStore from '@/stores/permission'
 import router from '@/router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import '@/styles/components/nprogress.scss'
 import { isEmptyObject } from '@/utils'
 import { getI18nTitle } from '@/utils/lang'
 
