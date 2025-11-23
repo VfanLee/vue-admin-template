@@ -1,0 +1,28 @@
+import { DEFAULT_LAYOUT } from '../base'
+import type { AppRouteRecordRaw } from '../types'
+
+const route: AppRouteRecordRaw = {
+  path: '/components',
+  name: 'Components',
+  component: DEFAULT_LAYOUT,
+  meta: {
+    title: '自定义组件',
+    requiresAuth: true,
+    icon: 'icon-star',
+    order: 9,
+  },
+  children: [
+    {
+      path: 'tiptap',
+      name: 'Tiptap',
+      component: () => import('@/views/components/tiptap/index.vue'),
+      meta: {
+        title: 'Tiptap',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+    },
+  ],
+}
+
+export default route
