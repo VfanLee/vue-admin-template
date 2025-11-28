@@ -5,14 +5,14 @@
     <div class="login-form-error-msg">{{ errorMessage }}</div>
     <a-form ref="loginForm" :model="userInfo" class="login-form" layout="vertical" @submit="handleSubmit">
       <a-form-item field="username" :rules="[{ required: true, message: '用户名不能为空' }]" :validate-trigger="['change', 'blur']" hide-label>
-        <a-input v-model="userInfo.username" placeholder="用户名：admin">
+        <a-input v-model="userInfo.username" placeholder="用户名">
           <template #prefix>
             <icon-user />
           </template>
         </a-input>
       </a-form-item>
       <a-form-item field="password" :rules="[{ required: true, message: '密码不能为空' }]" :validate-trigger="['change', 'blur']" hide-label>
-        <a-input-password v-model="userInfo.password" placeholder="密码：admin" allow-clear>
+        <a-input-password v-model="userInfo.password" placeholder="密码" allow-clear>
           <template #prefix>
             <icon-lock />
           </template>

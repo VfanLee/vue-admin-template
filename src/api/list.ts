@@ -1,5 +1,5 @@
 import axios from 'axios'
-import qs from 'query-string'
+import qs from 'qs'
 import type { DescData } from '@arco-design/web-vue/es/descriptions/interface'
 
 export interface PolicyRecord {

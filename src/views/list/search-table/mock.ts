@@ -1,5 +1,5 @@
 import Mock from 'mockjs'
-import qs from 'query-string'
+import qs from 'qs'
 import setupMock, { successResponseWrap } from '@/utils/setup-mock'
 import type { GetParams } from '@/types/global'
 
@@ -23,7 +23,8 @@ const data = Mock.mock({
 setupMock({
   setup() {
     Mock.mock(new RegExp('/api/list/policy'), (params: GetParams) => {
-      const { current = 1, pageSize = 10 } = qs.parseUrl(params.url).query
+      const query = (params.url || '').split('?')[1] || ''
+      const { current = 1, pageSize = 10 } = qs.parse(query) as any
       const p = current as number
       const ps = pageSize as number
       return successResponseWrap({
