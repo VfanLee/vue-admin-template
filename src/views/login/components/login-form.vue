@@ -1,6 +1,8 @@
 <template>
   <div class="login-form-wrapper">
-    <div class="login-form-title">登录 Vue Admin Template</div>
+    <div class="login-form-title">
+      <Logo />
+    </div>
     <div class="login-form-sub-title">登录 Vue Admin Template</div>
     <div class="login-form-error-msg">{{ errorMessage }}</div>
     <a-form ref="loginForm" :model="userInfo" class="login-form" layout="vertical" @submit="handleSubmit">
@@ -39,6 +41,7 @@
   import { useUserStore } from '@/store'
   import useLoading from '@/hooks/loading'
   import type { LoginData } from '@/api/user'
+  import Logo from '@/components/logo/index.vue'
 
   const router = useRouter()
   const errorMessage = ref('')
