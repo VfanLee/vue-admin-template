@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const RESULT: AppRouteRecordRaw = {
   path: '/result',
-  name: 'result',
+  name: 'Result',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '结果页',
@@ -14,7 +14,7 @@ const RESULT: AppRouteRecordRaw = {
   children: [
     {
       path: 'success',
-      name: 'Success',
+      name: 'ResultSuccess',
       component: () => import('@/views/result/success/index.vue'),
       meta: {
         title: '成功页',
@@ -24,7 +24,7 @@ const RESULT: AppRouteRecordRaw = {
     },
     {
       path: 'error',
-      name: 'Error',
+      name: 'ResultError',
       component: () => import('@/views/result/error/index.vue'),
       meta: {
         title: '错误页',

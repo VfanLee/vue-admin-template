@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const LIST: AppRouteRecordRaw = {
   path: '/list',
-  name: 'list',
+  name: 'List',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '列表页',
@@ -14,7 +14,7 @@ const LIST: AppRouteRecordRaw = {
   children: [
     {
       path: 'search-table', // The midline path complies with SEO specifications
-      name: 'SearchTable',
+      name: 'ListSearchTable',
       component: () => import('@/views/list/search-table/index.vue'),
       meta: {
         title: '搜索表格',
@@ -24,7 +24,7 @@ const LIST: AppRouteRecordRaw = {
     },
     {
       path: 'card',
-      name: 'Card',
+      name: 'ListCard',
       component: () => import('@/views/list/card/index.vue'),
       meta: {
         title: '卡片列表',

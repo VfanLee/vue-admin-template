@@ -79,13 +79,13 @@
               </a-space>
             </a-doption>
             <a-doption>
-              <a-space @click="$router.push({ name: 'Info' })">
+              <a-space @click="$router.push({ name: 'UserInfo' })">
                 <icon-user />
                 <span>用户中心</span>
               </a-space>
             </a-doption>
             <a-doption>
-              <a-space @click="$router.push({ name: 'Setting' })">
+              <a-space @click="$router.push({ name: 'UserSetting' })">
                 <icon-settings />
                 <span>用户设置</span>
               </a-space>

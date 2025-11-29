@@ -42,17 +42,19 @@
   import useLoading from '@/hooks/loading'
   import type { LoginData } from '@/api/user'
   import Logo from '@/components/logo/index.vue'
+  import { DEFAULT_ROUTE_NAME } from '@/router/constants'
 
   const router = useRouter()
-  const errorMessage = ref('')
-  const { loading, setLoading } = useLoading()
   const userStore = useUserStore()
-
   const loginConfig = useStorage('login-config', {
     rememberPassword: true,
-    username: 'admin', // 演示默认值
-    password: 'admin', // demo default value
+    username: 'admin',
+    password: 'admin',
   })
+
+  const errorMessage = ref('')
+  const { loading, setLoading } = useLoading()
+
   const userInfo = reactive({
     username: loginConfig.value.username,
     password: loginConfig.value.password,
@@ -66,7 +68,7 @@
         await userStore.login(values as LoginData)
         const { redirect, ...othersQuery } = router.currentRoute.value.query
         router.push({
-          name: (redirect as string) || 'Workplace',
+          name: (redirect as string) || DEFAULT_ROUTE_NAME,
           query: {
             ...othersQuery,
           },
@@ -74,8 +76,6 @@
         Message.success('欢迎使用')
         const { rememberPassword } = loginConfig.value
         const { username, password } = values
-        // 实际生产环境需要进行加密存储。
-        // The actual production environment requires encrypted storage.
         loginConfig.value.username = rememberPassword ? username : ''
         loginConfig.value.password = rememberPassword ? password : ''
       } catch (err) {
@@ -85,6 +85,7 @@
       }
     }
   }
+
   const setRememberPassword = (value: boolean) => {
     loginConfig.value.rememberPassword = value
   }

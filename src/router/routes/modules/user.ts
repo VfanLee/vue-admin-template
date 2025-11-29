@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const USER: AppRouteRecordRaw = {
   path: '/user',
-  name: 'user',
+  name: 'User',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '个人中心',
@@ -14,7 +14,7 @@ const USER: AppRouteRecordRaw = {
   children: [
     {
       path: 'info',
-      name: 'Info',
+      name: 'UserInfo',
       component: () => import('@/views/user/info/index.vue'),
       meta: {
         title: '个人信息',
@@ -24,7 +24,7 @@ const USER: AppRouteRecordRaw = {
     },
     {
       path: 'setting',
-      name: 'Setting',
+      name: 'UserSetting',
       component: () => import('@/views/user/setting/index.vue'),
       meta: {
         title: '用户设置',

@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const PROFILE: AppRouteRecordRaw = {
   path: '/profile',
-  name: 'profile',
+  name: 'Profile',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '详情页',
@@ -14,7 +14,7 @@ const PROFILE: AppRouteRecordRaw = {
   children: [
     {
       path: 'basic',
-      name: 'Basic',
+      name: 'ProfileBasic',
       component: () => import('@/views/profile/basic/index.vue'),
       meta: {
         title: '基础详情页',

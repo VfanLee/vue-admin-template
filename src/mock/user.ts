@@ -86,7 +86,7 @@ setupMock({
             },
             {
               path: 'https://arco.design',
-              name: 'arcoWebsite',
+              name: 'ArcoWebsite',
               meta: {
                 title: 'Arco Design',
                 requiresAuth: true,

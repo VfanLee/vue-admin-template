@@ -14,7 +14,7 @@ const route: AppRouteRecordRaw = {
   children: [
     {
       path: 'tiptap',
-      name: 'Tiptap',
+      name: 'CompTiptap',
       component: () => import('@/views/components/tiptap/index.vue'),
       meta: {
         title: 'Tiptap',

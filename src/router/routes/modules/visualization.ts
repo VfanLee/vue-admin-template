@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const VISUALIZATION: AppRouteRecordRaw = {
   path: '/visualization',
-  name: 'visualization',
+  name: 'Vis',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '数据可视化',
@@ -14,7 +14,7 @@ const VISUALIZATION: AppRouteRecordRaw = {
   children: [
     {
       path: 'data-analysis',
-      name: 'DataAnalysis',
+      name: 'VisDataAnalysis',
       component: () => import('@/views/visualization/data-analysis/index.vue'),
       meta: {
         title: '数据分析',
@@ -24,7 +24,7 @@ const VISUALIZATION: AppRouteRecordRaw = {
     },
     {
       path: 'multi-dimension-data-analysis',
-      name: 'MultiDimensionDataAnalysis',
+      name: 'VisMultiDimensionDataAnalysis',
       component: () => import('@/views/visualization/multi-dimension-data-analysis/index.vue'),
       meta: {
         title: '多维度数据分析',

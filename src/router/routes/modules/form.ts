@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const FORM: AppRouteRecordRaw = {
   path: '/form',
-  name: 'form',
+  name: 'Form',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '表单页',
@@ -14,7 +14,7 @@ const FORM: AppRouteRecordRaw = {
   children: [
     {
       path: 'step',
-      name: 'Step',
+      name: 'FormStep',
       component: () => import('@/views/form/step/index.vue'),
       meta: {
         title: '分步表单',
@@ -24,7 +24,7 @@ const FORM: AppRouteRecordRaw = {
     },
     {
       path: 'group',
-      name: 'Group',
+      name: 'FormGroup',
       component: () => import('@/views/form/group/index.vue'),
       meta: {
         title: '分组表单',

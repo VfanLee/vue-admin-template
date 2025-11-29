@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../types'
 
 const EXCEPTION: AppRouteRecordRaw = {
   path: '/exception',
-  name: 'exception',
+  name: 'Exception',
   component: DEFAULT_LAYOUT,
   meta: {
     title: '异常页',
