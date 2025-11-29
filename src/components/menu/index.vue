@@ -93,13 +93,7 @@
               const icon = element?.meta?.icon ? () => h(compile(`<${element?.meta?.icon}/>`)) : null
               const node =
                 element?.children && element?.children.length !== 0 ? (
-                  <a-sub-menu
-                    key={element?.name}
-                    v-slots={{
-                      icon,
-                      title: () => h('span', element?.meta?.title || ''),
-                    }}
-                  >
+                  <a-sub-menu key={element?.name} v-slots={{ icon, title: () => h('span', element?.meta?.title || '') }}>
                     {travel(element?.children)}
                   </a-sub-menu>
                 ) : (

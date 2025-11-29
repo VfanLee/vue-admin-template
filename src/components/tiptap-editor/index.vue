@@ -18,10 +18,6 @@
   import StarterKit from '@tiptap/starter-kit'
   import BubbleMenuExtension from '@tiptap/extension-bubble-menu'
   import { useEditor, EditorContent } from '@tiptap/vue-3'
-  // The `@tiptap/vue-3` package exposes the reusable menu components under the `menus` subpath.
-  // TypeScript `moduleResolution` may not resolve this subpath in some setups; silence the
-  // type-checker here while keeping a normal static import for runtime.
-  // @ts-ignore
   import { BubbleMenu } from '@tiptap/vue-3/menus'
   import { computed } from 'vue'
 

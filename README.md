@@ -5,7 +5,7 @@
 - vite 7.x
 - vue 3.x
 - vue-router 4.x
-- pinia 3.x 
+- pinia 3.x
 - Arco-Design-Vue 2.x
 
 ## 二开说明
