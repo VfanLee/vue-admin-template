@@ -2,15 +2,19 @@ import { mergeConfig } from 'vite'
 import baseConfig from './vite.config.base'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
-export default mergeConfig(
-  {
-    mode: 'development',
-    server: {
-      open: true,
-      host: '0.0.0.0',
-      port: 3000,
+export default () =>
+  mergeConfig(
+    {
+      mode: 'development',
+      server: {
+        open: true,
+        host: '0.0.0.0',
+        port: 3000,
+      },
+      // prettier-ignore
+      plugins: [
+        VueDevTools(),
+      ],
     },
-    plugins: [VueDevTools()],
-  },
-  baseConfig,
-)
+    baseConfig,
+  )

@@ -8,13 +8,6 @@ import configImageminPlugin from './plugin/imagemin'
 export default ({ mode }: { mode: string }) =>
   mergeConfig(
     {
-      plugins: [
-        configCompressPlugin('gzip'),
-        // pass mode to the visualizer plugin so it knows whether to enable
-        configVisualizerPlugin(mode),
-        configArcoResolverPlugin(),
-        configImageminPlugin(),
-      ],
       build: {
         rollupOptions: {
           output: {
@@ -27,6 +20,13 @@ export default ({ mode }: { mode: string }) =>
         },
         chunkSizeWarningLimit: 2000,
       },
+      // prettier-ignore
+      plugins: [
+        configCompressPlugin('gzip'),
+        configVisualizerPlugin(mode),
+        configArcoResolverPlugin(),
+        configImageminPlugin(),
+      ],
     },
     baseConfig,
   )

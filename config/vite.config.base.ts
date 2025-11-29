@@ -6,7 +6,6 @@ import svgLoader from 'vite-svg-loader'
 import configArcoStyleImportPlugin from './plugin/arcoStyleImport'
 
 export default defineConfig({
-  plugins: [vue(), vueJsx(), svgLoader({ svgoConfig: {} }), configArcoStyleImportPlugin()],
   resolve: {
     alias: [
       {
@@ -37,4 +36,11 @@ export default defineConfig({
       },
     },
   },
+  // prettier-ignore
+  plugins: [
+    vue(),
+    vueJsx(),
+    svgLoader({ svgoConfig: {} }),
+    configArcoStyleImportPlugin(),
+  ],
 })
