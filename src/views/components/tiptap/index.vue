@@ -1,10 +1,9 @@
 <template>
-  <div class="tiptap-page">
-    <a-card title="Tiptap 富文本编辑器">
+  <div class="general-container">
+    <Breadcrumb :items="['组件', 'Tiptap 编辑器']" />
+    <a-card class="general-card" title="Tiptap 编辑器">
       <TiptapEditor v-model="content" />
-    </a-card>
-
-    <a-card>
+      <hr />
       <pre>{{ content }}</pre>
     </a-card>
   </div>

@@ -13,6 +13,16 @@ const route: AppRouteRecordRaw = {
   },
   children: [
     {
+      path: 'tinymce',
+      name: 'CompTinymce',
+      component: () => import('@/views/components/tinymce/index.vue'),
+      meta: {
+        title: 'Tinymce',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+    },
+    {
       path: 'tiptap',
       name: 'CompTiptap',
       component: () => import('@/views/components/tiptap/index.vue'),

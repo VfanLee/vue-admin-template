@@ -1,7 +1,5 @@
 <template>
   <EditorContent :editor="editor" />
-
-  <!-- https://tiptap.dev/docs/editor/extensions/functionality/bubble-menu -->
   <BubbleMenu v-if="editor" :editor="editor">
     <div class="tiptap-bubble-menu">
       <button class="tiptap-btn" :class="{ active: isBold }" @click="toggleBold" title="Bold">
