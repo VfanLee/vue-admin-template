@@ -31,11 +31,6 @@
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.57.0",
-    "@tinymce/tinymce-vue": "^6.3.0",
-    "@tiptap/extension-bubble-menu": "^3.11.1",
-    "@tiptap/pm": "^3.11.1",
-    "@tiptap/starter-kit": "^3.11.1",
-    "@tiptap/vue-3": "^3.11.1",
     "@typescript-eslint/parser": "^8.48.0",
     "@vueuse/core": "^14.1.0",
     "axios": "^1.13.2",

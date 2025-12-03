@@ -5,6 +5,6 @@ export default {
     title: '常见问题',
     icon: 'icon-question-circle',
     requiresAuth: true,
-    order: 10,
+    order: 8,
   },
 }
