@@ -8,12 +8,12 @@ export default () =>
       mode: 'development',
       server: {
         open: true,
-        host: '0.0.0.0',
-        port: 3000,
+        host: true,
+        // port: 5173, // 默认：5173
       },
-      // prettier-ignore
       plugins: [
         VueDevTools(),
+        // ...
       ],
     },
     baseConfig,

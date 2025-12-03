@@ -20,12 +20,12 @@ export default ({ mode }: { mode: string }) =>
         },
         chunkSizeWarningLimit: 2000,
       },
-      // prettier-ignore
       plugins: [
         configCompressPlugin('gzip'),
         configVisualizerPlugin(mode),
         configArcoResolverPlugin(),
         configImageminPlugin(),
+        // ...
       ],
     },
     baseConfig,

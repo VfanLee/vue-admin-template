@@ -8,18 +8,9 @@ import configArcoStyleImportPlugin from './plugin/arcoStyleImport'
 export default defineConfig({
   resolve: {
     alias: [
-      {
-        find: '@',
-        replacement: resolve(__dirname, '../src'),
-      },
-      {
-        find: 'assets',
-        replacement: resolve(__dirname, '../src/assets'),
-      },
-      {
-        find: 'vue',
-        replacement: 'vue/dist/vue.esm-bundler.js', // compile template
-      },
+      { find: '@', replacement: resolve(__dirname, '../src') },
+      { find: 'assets', replacement: resolve(__dirname, '../src/assets') },
+      { find: 'vue', replacement: 'vue/dist/vue.esm-bundler.js' },
     ],
     extensions: ['.ts', '.js'],
   },
@@ -36,11 +27,11 @@ export default defineConfig({
       },
     },
   },
-  // prettier-ignore
   plugins: [
     vue(),
     vueJsx(),
     svgLoader({ svgoConfig: {} }),
     configArcoStyleImportPlugin(),
+    // ...
   ],
 })
