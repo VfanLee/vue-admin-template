@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import { Message } from '@arco-design/web-vue'
   import { useClipboard } from '@vueuse/core'
   import { useAppStore } from '@/store'

@@ -160,7 +160,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref, reactive, watch, nextTick } from 'vue'
   import useLoading from '@/hooks/loading'
   import { queryPolicyList } from '@/api/list'
   import type { PolicyRecord, PolicyParams } from '@/api/list'

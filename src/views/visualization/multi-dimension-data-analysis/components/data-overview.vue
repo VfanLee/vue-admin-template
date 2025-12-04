@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
   import type { LineSeriesOption } from 'echarts'
   import { queryDataOverview } from '@/api/visualization'
   import useLoading from '@/hooks/loading'

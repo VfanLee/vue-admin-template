@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import svgLoader from 'vite-svg-loader'
 import configArcoStyleImportPlugin from './plugin/arcoStyleImport'
+import autoResolverPlugin from './plugin/autoResolver'
 
 export default defineConfig({
   resolve: {
@@ -32,6 +33,7 @@ export default defineConfig({
     vueJsx(),
     svgLoader({ svgoConfig: {} }),
     configArcoStyleImportPlugin(),
+    autoResolverPlugin(),
     // ...
   ],
 })

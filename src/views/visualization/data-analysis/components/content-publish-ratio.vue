@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import type { ToolTipFormatterParams } from '@/types/echarts'
   import useLoading from '@/hooks/loading'
   import { queryContentPublish } from '@/api/visualization'

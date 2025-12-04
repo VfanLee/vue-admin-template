@@ -2,7 +2,7 @@ import { mergeConfig } from 'vite'
 import baseConfig from './vite.config.base'
 import configCompressPlugin from './plugin/compress'
 import configVisualizerPlugin from './plugin/visualizer'
-import configArcoResolverPlugin from './plugin/arcoResolver'
+import configComponentsResolverPlugin from './plugin/componentsResolver'
 import configImageminPlugin from './plugin/imagemin'
 
 export default ({ mode }: { mode: string }) =>
@@ -23,7 +23,7 @@ export default ({ mode }: { mode: string }) =>
       plugins: [
         configCompressPlugin('gzip'),
         configVisualizerPlugin(mode),
-        configArcoResolverPlugin(),
+        configComponentsResolverPlugin(),
         configImageminPlugin(),
         // ...
       ],

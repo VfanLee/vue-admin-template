@@ -39,7 +39,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { queryChatList } from '@/api/message'
   import type { ChatRecord } from '@/api/message'
   import useLoading from '@/hooks/loading'

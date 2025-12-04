@@ -45,7 +45,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import type { FileItem, RequestOption } from '@arco-design/web-vue/es/upload/interfaces'
   import { useUserStore } from '@/store'
   import { userUploadApi } from '@/api/user-center'

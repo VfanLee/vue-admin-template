@@ -33,7 +33,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive } from 'vue'
   import { useRouter } from 'vue-router'
   import { Message } from '@arco-design/web-vue'
   import type { ValidatedError } from '@arco-design/web-vue/es/form/interface'

@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
   import useLoading from '@/hooks/loading'
   import { queryDataChainGrowth } from '@/api/visualization'
   import type { DataChainGrowth } from '@/api/visualization'

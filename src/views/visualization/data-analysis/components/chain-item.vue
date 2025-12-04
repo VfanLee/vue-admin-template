@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
   // moved props macro usage down below; do not destructure inside template
-  import { type CSSProperties, ref } from 'vue'
+  import type { CSSProperties } from 'vue'
   import useLoading from '@/hooks/loading'
   import { queryPublicOpinionAnalysis } from '@/api/visualization'
   import type { PublicOpinionAnalysis, PublicOpinionAnalysisRes } from '@/api/visualization'

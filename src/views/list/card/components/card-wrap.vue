@@ -67,7 +67,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { useToggle } from '@vueuse/core'
 
   interface Props {

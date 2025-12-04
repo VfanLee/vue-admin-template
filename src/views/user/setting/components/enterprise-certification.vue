@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import type { EnterpriseCertificationModel } from '@/api/user-center'
   import type { DescData } from '@arco-design/web-vue/es/descriptions/interface'
 

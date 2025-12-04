@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, reactive, toRefs, computed } from 'vue'
   import { queryMessageList, setMessageStatus } from '@/api/message'
   import type { MessageRecord, MessageListType } from '@/api/message'
   import useLoading from '@/hooks/loading'

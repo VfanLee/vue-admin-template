@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import type { UnwrapRef } from 'vue'
 import type { AxiosResponse } from 'axios'
 import type { HttpResponse } from '@/api/interceptor'

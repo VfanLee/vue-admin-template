@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { graphic } from 'echarts'
   import useLoading from '@/hooks/loading'
   import { queryContentData } from '@/api/dashboard'

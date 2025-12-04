@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import { useUserStore } from '@/store'
 
   const userStore = useUserStore()

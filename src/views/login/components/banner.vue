@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import bannerImage from '@/assets/images/login-banner.png'
 
   const carouselItem = computed(() => [
