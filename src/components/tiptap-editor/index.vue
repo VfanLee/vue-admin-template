@@ -17,7 +17,6 @@
   import BubbleMenuExtension from '@tiptap/extension-bubble-menu'
   import { useEditor, EditorContent } from '@tiptap/vue-3'
   import { BubbleMenu } from '@tiptap/vue-3/menus'
-  import { computed } from 'vue'
 
   const props = defineProps<{
     modelValue: string

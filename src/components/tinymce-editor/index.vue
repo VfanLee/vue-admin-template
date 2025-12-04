@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
   import Editor from '@tinymce/tinymce-vue'
 
   const props = withDefaults(

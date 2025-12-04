@@ -69,8 +69,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { FormInstance } from '@arco-design/web-vue/es/form'
+  import type { FormInstance } from '@arco-design/web-vue/es/form'
   import type { BaseInfoModel } from '@/api/form'
 
   interface Emits {

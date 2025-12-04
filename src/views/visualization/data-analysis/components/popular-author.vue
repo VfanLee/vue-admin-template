@@ -30,7 +30,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import useLoading from '@/hooks/loading'
   import { queryPopularAuthor } from '@/api/visualization'
   import type { PopularAuthorRes } from '@/api/visualization'

@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { queryLatestActivity } from '@/api/user-center'
   import type { LatestActivity } from '@/api/user-center'
   import useLoading from '@/hooks/loading'

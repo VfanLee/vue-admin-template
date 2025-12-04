@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import useLoading from '@/hooks/loading'
   import { submitChannelForm } from '@/api/form'
   import type { BaseInfoModel, ChannelInfoModel, UnitChannelModel } from '@/api/form'

@@ -27,7 +27,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import useLoading from '@/hooks/loading'
   import { queryProfileBasic } from '@/api/profile'
   import type { ProfileBasicRes } from '@/api/profile'

@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
   import type { ProfileBasicRes } from '@/api/profile'
 
   type BlockList = {

@@ -20,8 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
-
   // Using Chinese strings for labels
   const dataStatus = computed(() => [
     {

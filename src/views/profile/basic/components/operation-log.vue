@@ -31,7 +31,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { queryOperationLog } from '@/api/profile'
   import type { operationLogRes } from '@/api/profile'
   import useLoading from '@/hooks/loading'

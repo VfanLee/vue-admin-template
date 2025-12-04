@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { queryCertification } from '@/api/user-center'
   import type { UnitCertification, EnterpriseCertificationModel } from '@/api/user-center'
   import useLoading from '@/hooks/loading'
