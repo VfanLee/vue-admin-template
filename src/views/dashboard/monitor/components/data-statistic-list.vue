@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { compile } from 'vue'
   import type { TableColumnData, TableData } from '@arco-design/web-vue/es/table/interface.d'
 
   interface PreviewRecord {

@@ -1,5 +1,6 @@
 <script lang="tsx">
   // Menu: display route meta title directly
+  import { compile } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
   import type { RouteRecordRaw } from 'vue-router'
   import type { RouteMeta } from 'vue-router'

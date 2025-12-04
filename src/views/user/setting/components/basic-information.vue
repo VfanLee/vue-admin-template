@@ -98,7 +98,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { FormInstance } from '@arco-design/web-vue/es/form'
+  import type { FormInstance } from '@arco-design/web-vue/es/form'
   import type { BasicInfoModel } from '@/api/user-center'
 
   const formRef = ref<FormInstance>()
