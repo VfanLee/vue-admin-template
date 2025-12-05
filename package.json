@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.57.0",
-    "@typescript-eslint/parser": "^8.48.0",
     "@vueuse/core": "^14.1.0",
     "axios": "^1.13.2",
     "dayjs": "^1.11.19",
@@ -58,6 +57,7 @@
     "@types/nprogress": "^0.2.3",
     "@types/qs": "^6.14.0",
     "@types/sortablejs": "^1.15.9",
+    "@typescript-eslint/parser": "^8.48.0",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vitejs/plugin-vue-jsx": "^5.1.2",
     "@vue/eslint-config-prettier": "^10.2.0",
