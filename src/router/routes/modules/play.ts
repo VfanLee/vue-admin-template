@@ -32,6 +32,16 @@ const route: AppRouteRecordRaw = {
         roles: ['*'],
       },
     },
+    {
+      path: 'three',
+      name: 'PlayThree',
+      component: () => import('@/views/play/three/index.vue'),
+      meta: {
+        title: 'Three.js',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+    },
   ],
 }
 

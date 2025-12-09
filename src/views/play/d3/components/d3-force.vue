@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue'
   import * as d3 from 'd3'
 
   const containerRef = ref<HTMLDivElement>()
