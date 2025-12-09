@@ -24,7 +24,7 @@ const useAppStore = defineStore('app', {
   actions: {
     // Update app settings
     updateSettings(partial: Partial<AppState>) {
-      this.$patch(partial)
+      this.$patch(partial as any)
     },
 
     // Change theme color
