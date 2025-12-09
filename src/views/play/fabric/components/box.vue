@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-  import { onMounted, useTemplateRef } from 'vue'
   import { Canvas, IText, FabricImage } from 'fabric'
 
   const emit = defineEmits<{

@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import TiptapEditor from '@/components/tiptap-editor/index.vue'
 
   const content = ref('')

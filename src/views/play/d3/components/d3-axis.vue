@@ -1,9 +1,8 @@
 <template>
-  <div ref="chartRef" class="bar-chart"></div>
+  <div class="d3-axis" ref="axisRef"></div>
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, onBeforeUnmount } from 'vue'
   import * as d3 from 'd3'
 
   const data = [
@@ -16,49 +15,68 @@
     { name: '周日', value: 55 },
   ]
 
-  const chartRef = ref<HTMLDivElement>()
+  const axisRef = useTemplateRef<HTMLDivElement>('axisRef')
 
   let resizeObserver: ResizeObserver | null = null
 
   const init = () => {
-    if (!chartRef.value) return
+    if (!axisRef.value) return
 
-    // 清空之前的内容
-    d3.select(chartRef.value).selectAll('*').remove()
+    d3.select(axisRef.value).selectAll('*').remove()
 
-    // 图表配置
-    const width = chartRef.value.clientWidth
-    const height = 400
+    const containerWidth = axisRef.value.clientWidth
+    const containerHeight = axisRef.value.clientHeight
+    const margin = { top: 24, right: 24, bottom: 24, left: 24 }
+    const width = containerWidth - margin.left - margin.right
+    const height = containerHeight - margin.top - margin.bottom
 
     // 创建 SVG
-    const svg = d3.select(chartRef.value).append('svg').attr('width', width).attr('height', height).append('g')
+    const svg = d3
+      .select(axisRef.value)
+      .append('svg')
+      .attr('width', containerWidth)
+      .attr('height', containerHeight)
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`)
 
-    // 创建 X 轴比例尺
+    // 创建 X 轴
     const x = d3
       .scaleBand()
       .domain(data.map((d) => d.name))
       .range([0, width])
       .padding(0.2)
+    svg.append('g').attr('class', 'x-axis').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x))
 
-    // 添加 X 轴
-    svg.append('g').attr('class', 'x-axis').call(d3.axisBottom(x)).selectAll('text')
+    // 创建 Y 轴
+    const y = d3.scaleLinear().domain([0, 100]).range([height, 0])
+    svg
+      .append('g')
+      .attr('class', 'y-axis')
+      .call(d3.axisLeft(y).ticks(10).tickFormat(d3.format('d')))
   }
 
   onMounted(() => {
     init()
 
     // 监听容器大小变化
-    if (chartRef.value) {
+    if (axisRef.value) {
       resizeObserver = new ResizeObserver(() => {
         init()
       })
-      resizeObserver.observe(chartRef.value)
+      resizeObserver.observe(axisRef.value)
     }
   })
 
   onBeforeUnmount(() => {
-    if (resizeObserver && chartRef.value) {
-      resizeObserver.unobserve(chartRef.value)
+    if (resizeObserver && axisRef.value) {
+      resizeObserver.unobserve(axisRef.value)
     }
   })
 </script>
+
+<style lang="less" scoped>
+  .d3-axis {
+    height: 100%;
+    width: 100%;
+  }
+</style>

@@ -60,7 +60,6 @@
 <script setup lang="ts">
   import Breadcrumb from '@/components/breadcrumb/index.vue'
   import Box from './components/box.vue'
-  import { reactive, ref, useTemplateRef } from 'vue'
   import type { FileItem } from '@arco-design/web-vue'
 
   const formModel = reactive({
