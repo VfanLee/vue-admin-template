@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb class="container-breadcrumb">
+  <a-breadcrumb class="general-breadcrumb">
     <a-breadcrumb-item>
       <icon-apps />
     </a-breadcrumb-item>
@@ -16,10 +16,11 @@
   const props = withDefaults(defineProps<Props>(), { items: () => [] })
 </script>
 
-<style scoped lang="less">
-  .container-breadcrumb {
+<style lang="less">
+  .general-breadcrumb {
     margin: 16px 0;
-    :deep(.arco-breadcrumb-item) {
+    height: 24px;
+    .arco-breadcrumb-item {
       color: rgb(var(--gray-6));
       &:last-child {
         color: rgb(var(--gray-8));
