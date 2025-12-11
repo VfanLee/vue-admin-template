@@ -10,16 +10,14 @@
   const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
   const canvasRef = useTemplateRef<HTMLCanvasElement>('canvasRef')
 
-  const getSize = () => {
-    if (!containerRef.value) return { width: 0, height: 0 }
-    return {
+  const init = () => {
+    if (!containerRef.value) return
+
+    // Sizes
+    const sizes = {
       width: containerRef.value.clientWidth,
       height: containerRef.value.clientHeight,
     }
-  }
-
-  const init = () => {
-    if (!containerRef.value) return
 
     // Scene
     const scene = new THREE.Scene()
@@ -52,9 +50,6 @@
     // 轴辅助器
     const axesHelper = new THREE.AxesHelper()
     scene.add(axesHelper)
-
-    // Sizes
-    const sizes = getSize()
 
     // Camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)

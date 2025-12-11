@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
   import * as THREE from 'three'
+  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
   const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
   const canvasRef = useTemplateRef<HTMLCanvasElement>('canvasRef')
@@ -18,6 +19,17 @@
       width: containerRef.value.clientWidth,
       height: containerRef.value.clientHeight,
     }
+    // Cursor
+    const cursor = {
+      x: 0,
+      y: 0,
+    }
+    containerRef.value.addEventListener('mousemove', (evt: MouseEvent) => {
+      const rect = containerRef.value!.getBoundingClientRect()
+      cursor.x = (evt.clientX - rect.left) / sizes.width - 0.5
+      cursor.y = -((evt.clientY - rect.top) / sizes.height - 0.5)
+      console.log(cursor.x, cursor.y)
+    })
 
     // Scene
     const scene = new THREE.Scene()
@@ -32,6 +44,12 @@
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
     // x 轴从左到右，y 轴从下到上，z 轴从里到外
     camera.position.z = 3
+    // camera.lookAt(mesh.position)
+    // scene.add(camera)
+
+    // Controls
+    const controls = new OrbitControls(camera, canvasRef.value!)
+    controls.enableDamping = true // 开启阻尼
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -39,11 +57,31 @@
     })
     renderer.setSize(sizes.width, sizes.height)
 
-    renderer.render(scene, camera)
+    const tick = () => {
+      // // Update camera
+      // camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 3
+      // camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 3
+      // camera.position.y = cursor.y * 5
+      // camera.lookAt(mesh.position)
+
+      // Update Controls
+      controls.update()
+
+      requestAnimationFrame(tick)
+
+      renderer.render(scene, camera)
+    }
+    tick()
   }
 
   onMounted(() => {
     init()
+  })
+
+  onBeforeUnmount(() => {
+    if (containerRef.value) {
+      containerRef.value.removeEventListener('mousemove', () => {})
+    }
   })
 </script>
 

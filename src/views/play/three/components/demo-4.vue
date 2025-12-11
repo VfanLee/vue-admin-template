@@ -11,16 +11,14 @@
   const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
   const canvasRef = useTemplateRef<HTMLCanvasElement>('canvasRef')
 
-  const getSize = () => {
-    if (!containerRef.value) return { width: 0, height: 0 }
-    return {
+  const init = () => {
+    if (!containerRef.value) return
+
+    // Sizes
+    const sizes = {
       width: containerRef.value.clientWidth,
       height: containerRef.value.clientHeight,
     }
-  }
-
-  const init = () => {
-    if (!containerRef.value) return
 
     // Scene
     const scene = new THREE.Scene()
@@ -30,9 +28,6 @@
     const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
-
-    // Sizes
-    const sizes = getSize()
 
     // Camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
@@ -52,8 +47,8 @@
     // Animation
     // const clock = new THREE.Clock()
     const tick = () => {
-      //   const elapsedTime = clock.getElapsedTime()
-      //   mesh.rotation.y = elapsedTime * Math.PI * 2 // 一秒旋转一圈
+      // const elapsedTime = clock.getElapsedTime()
+      // mesh.rotation.y = elapsedTime * Math.PI * 2 // 一秒旋转一圈
 
       requestAnimationFrame(tick)
       renderer.render(scene, camera)
