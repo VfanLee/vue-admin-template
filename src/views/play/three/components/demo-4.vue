@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
   import * as THREE from 'three'
+  import gsap from 'gsap'
 
   const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
   const canvasRef = useTemplateRef<HTMLCanvasElement>('canvasRef')
@@ -44,7 +45,20 @@
     })
     renderer.setSize(sizes.width, sizes.height)
 
-    renderer.render(scene, camera)
+    // Gsap
+    gsap.to(mesh.position, { x: 2, duration: 1, delay: 1 })
+    gsap.to(mesh.position, { x: 0, duration: 1, delay: 2 })
+
+    // Animation
+    // const clock = new THREE.Clock()
+    const tick = () => {
+      //   const elapsedTime = clock.getElapsedTime()
+      //   mesh.rotation.y = elapsedTime * Math.PI * 2 // 一秒旋转一圈
+
+      requestAnimationFrame(tick)
+      renderer.render(scene, camera)
+    }
+    tick()
   }
 
   onMounted(() => {

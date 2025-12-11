@@ -26,22 +26,24 @@
   import Demo1 from './components/demo-1.vue'
   import Demo2 from './components/demo-2.vue'
   import Demo3 from './components/demo-3.vue'
+  import Demo4 from './components/demo-4.vue'
   import ThreeBasic from './components/three-basic.vue'
   import ThreeCube from './components/three-cube.vue'
   import ThreeLights from './components/three-lights.vue'
 
   // Demo列表配置
   const demoList = shallowRef([
-    { id: 'demo-1', title: 'Demo 1', component: Demo1 },
-    { id: 'demo-2', title: 'Demo 2', component: Demo2 },
-    { id: 'demo-3', title: 'Demo 3', component: Demo3 },
+    // { id: 'demo-1', title: 'Demo 1', component: Demo1 },
+    // { id: 'demo-2', title: 'Demo 2', component: Demo2 },
+    // { id: 'demo-3', title: 'Demo 3', component: Demo3 },
+    { id: 'demo-4', title: 'Demo 4', component: Demo4 },
     // { id: 'three-basic', title: 'Three Basic', component: ThreeBasic },
     // { id: 'three-cube', title: 'Three Cube', component: ThreeCube },
     // { id: 'three-lights', title: 'Three Lights', component: ThreeLights },
   ])
 
   const contentAreaRef = ref<HTMLElement | null>(null)
-  const activeDemo = ref('demo-2')
+  const activeDemo = ref('demo-4')
   let isScrolling = false
 
   // 滚动到指定demo
